@@ -5,6 +5,7 @@ import Footer from "@/components/layout/footer";
 import Link from "next/link";
 import Image from "next/image";
 import Testimonials from "@/components/sections/testimonials";
+import FAQSection from "@/components/sections/faq";
 import { MapPin, Users, BookOpen, Clock, Coffee, Shield } from "lucide-react";
 
 export default function PhysicalClassesPage() {
@@ -222,6 +223,8 @@ export default function PhysicalClassesPage() {
           </Link>
         </div>
       </section>
+
+      <FAQSection />
 
       <Footer />
     </main>

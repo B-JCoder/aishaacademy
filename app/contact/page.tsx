@@ -2,6 +2,8 @@
 import React from "react";
 import Navbar from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import FAQSection from "@/components/sections/faq";
+import PagesHero from "@/components/sections/pageshero";
 import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
 
 export default function ContactPage() {
@@ -9,18 +11,12 @@ export default function ContactPage() {
     <main className="bg-white dark:bg-gray-950 overflow-hidden min-h-screen">
       <Navbar />
 
-      <section className="pt-32 pb-20 bg-primary relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10"></div>
-        <div className="mx-auto lg:max-w-7xl px-5 sm:px-10 md:px-12 lg:px-5 text-center relative z-10 text-white">
-          <h1 className="text-4xl md:text-5xl font-serif font-bold mb-6">
-            Contact Us
-          </h1>
-          <p className="text-xl text-primary-100 max-w-3xl mx-auto font-sans">
-            We are here to answer your questions and help you start your
-            journey.
-          </p>
-        </div>
-      </section>
+      <PagesHero
+        title="Contact Us"
+        description="We are here to answer your questions and help you start your journey."
+        imageSrc="/images/img3.jpg"
+        badge={{ text: "Get in Touch", icon: Phone }}
+      />
 
       <section className="py-20">
         <div className="mx-auto lg:max-w-7xl px-5 sm:px-10 md:px-12 lg:px-5">
@@ -213,6 +209,8 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      <FAQSection />
 
       <Footer />
     </main>

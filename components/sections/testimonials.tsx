@@ -60,82 +60,158 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="py-20 bg-white dark:bg-gray-950">
-      <div className="max-w-7xl mx-auto px-5 sm:px-10 md:px-12 lg:px-5 space-y-16">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-bold text-gray-800 dark:text-white text-3xl font-serif">
+    <section className="py-24 bg-white dark:bg-gray-900 overflow-hidden relative">
+      {/* Decorative background Blobs */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none">
+        <div className="absolute top-20 left-10 w-64 h-64 bg-primary/5 rounded-full blur-[80px]"></div>
+        <div className="absolute bottom-20 right-10 w-64 h-64 bg-secondary/5 rounded-full blur-[80px]"></div>
+      </div>
+
+      <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-10 md:px-12 lg:px-5 space-y-16">
+        <div className="mx-auto max-w-2xl text-center space-y-4">
+          <span className="text-accent font-bold tracking-wider uppercase text-sm">
+            Testimonials
+          </span>
+          <h2 className="font-bold text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl font-serif leading-tight">
             What Our Community Says
           </h2>
         </div>
-        <div className="relative flex flex-col">
-          <div className="p-6 w-full mx-auto max-w-4xl md:p-10 rounded-2xl bg-white dark:bg-gray-950 border border-gray-100/10 dark:border-gray-900 shadow-2xl shadow-gray-700/40 dark:shadow-none flex flex-col items-center justify-center text-center space-y-6 md:space-y-8">
-            <div className="w-20 md:w-24 h-20 md:h-24 object-cover rounded-full flex items-center justify-center bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-3xl font-bold">
+
+        <div className="relative flex flex-col items-center">
+          {/* Main Card */}
+          <div className="relative p-8 md:p-14 w-full mx-auto max-w-4xl rounded-3xl bg-white dark:bg-gray-800/50 backdrop-blur-sm border border-gray-100 dark:border-gray-700 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] flex flex-col items-center justify-center text-center space-y-8 group transition-all duration-500 hover:shadow-[0_25px_70px_-15px_rgba(0,0,0,0.15)]">
+            {/* Quote Icon */}
+            <div className="absolute top-10 left-10 opacity-10 text-primary pointer-events-none">
+              <Quote size={80} />
+            </div>
+
+            <div className="relative w-24 h-24 rounded-full flex items-center justify-center bg-gradient-to-br from-primary to-secondary text-white text-4xl font-serif font-bold shadow-lg ring-4 ring-white dark:ring-gray-800">
               {testimonials[current].name[0]}
             </div>
-            <div className="space-y-2 text-center flex-1">
-              <h2 className="text-xl font-semibold leading-none text-gray-800 dark:text-gray-200">
-                {testimonials[current].name}
-              </h2>
-              <p className="text-sky-700 dark:text-sky-300">
-                {testimonials[current].role}
+
+            <div className="space-y-4 relative z-10">
+              <div className="flex justify-center gap-1.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star
+                    key={i}
+                    size={22}
+                    className={`transition-all duration-300 ${i < testimonials[current].rating ? "fill-yellow-400 text-yellow-400" : "text-gray-300 dark:text-gray-600"}`}
+                  />
+                ))}
+              </div>
+
+              <p className="font-medium text-xl md:text-2xl text-gray-700 dark:text-gray-200 leading-relaxed max-w-2xl mx-auto font-serif italic">
+                "{testimonials[current].content}"
               </p>
-            </div>
-            <p className="font-medium text-gray-700 dark:text-gray-300 max-w-md">
-              {testimonials[current].content}
-            </p>
-            <div className="mx-auto flex items-center gap-2">
-              {[...Array(testimonials[current].rating)].map((_, i) => (
-                <span key={i} className="text-yellow-600 text-2xl flex">
-                  ★
-                </span>
-              ))}
+
+              <div className="pt-4">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                  {testimonials[current].name}
+                </h3>
+                <p className="text-primary font-medium text-sm uppercase tracking-wider mt-1">
+                  {testimonials[current].role}
+                </p>
+              </div>
             </div>
           </div>
 
-          <button
-            onClick={prevSlide}
-            aria-label="Prev Button"
-            className="outline-none absolute -left-4 md:left-0 top-1/2 -translate-y-1/2 bg-gray-100 dark:bg-gray-900 p-4 rounded-full text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="w-6 h-6"
+          {/* Navigation Buttons - placed on sides for desktop, below for mobile */}
+          <div className="absolute top-1/2 -translate-y-1/2 w-full flex justify-between px-4 md:-px-12 pointer-events-none">
+            <button
+              onClick={prevSlide}
+              className="pointer-events-auto hidden md:flex p-4 rounded-full bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 shadow-lg border border-gray-100 dark:border-gray-700 hover:text-primary hover:scale-110 transition-all duration-300"
+              aria-label="Previous testimonial"
             >
-              <path
-                fillRule="evenodd"
-                d="M18 10a.75.75 0 01-.75.75H4.66l2.1 1.95a.75.75 0 11-1.02 1.1l-3.5-3.25a.75.75 0 010-1.1l3.5-3.25a.75.75 0 111.02 1.1l-2.1 1.95h12.59A.75.75 0 0118 10z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </button>
-          <button
-            onClick={nextSlide}
-            aria-label="Next Button"
-            className="outline-none absolute -right-4 md:right-0 top-1/2 -translate-y-1/2 bg-gray-100 dark:bg-gray-900 p-4 rounded-full text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="w-6 h-6"
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15.75 19.5L8.25 12l7.5-7.5"
+                />
+              </svg>
+            </button>
+            <button
+              onClick={nextSlide}
+              className="pointer-events-auto hidden md:flex p-4 rounded-full bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 shadow-lg border border-gray-100 dark:border-gray-700 hover:text-primary hover:scale-110 transition-all duration-300"
+              aria-label="Next testimonial"
             >
-              <path
-                fillRule="evenodd"
-                d="M2 10a.75.75 0 01.75-.75h12.59l-2.1-1.95a.75.75 0 111.02-1.1l3.5 3.25a.75.75 0 010 1.1l-3.5 3.25a.75.75 0 11-1.02-1.1l2.1-1.95H2.75A.75.75 0 012 10z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </button>
-          <div className="flex items-center gap-1 border-0 bg-transparent absolute left-1/2 -translate-x-1/2 -bottom-10">
-            {testimonials.map((_, index) => (
-              <span
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`cursor-pointer h-2 rounded-full transition-all duration-300 ${index === current ? "w-4 bg-blue-600" : "w-2 bg-gray-400 dark:bg-gray-800"}`}
-              />
-            ))}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                />
+              </svg>
+            </button>
+          </div>
+
+          {/* Mobile Nav & Dots */}
+          <div className="flex items-center gap-6 mt-12">
+            <button
+              onClick={prevSlide}
+              className="md:hidden p-3 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm"
+              aria-label="Previous"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="w-5 h-5"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15.75 19.5L8.25 12l7.5-7.5"
+                />
+              </svg>
+            </button>
+
+            <div className="flex gap-2">
+              {testimonials.map((_, index) => (
+                <span
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`cursor-pointer h-2.5 rounded-full transition-all duration-500 ${index === current ? "w-8 bg-primary" : "w-2.5 bg-gray-300 dark:bg-gray-600 hover:bg-primary/50"}`}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={nextSlide}
+              className="md:hidden p-3 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm"
+              aria-label="Next"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="w-5 h-5"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                />
+              </svg>
+            </button>
           </div>
         </div>
       </div>

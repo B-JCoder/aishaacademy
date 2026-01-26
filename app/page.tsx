@@ -5,6 +5,7 @@ import ProgramsOverview from "@/components/sections/programs-overview";
 import WhyUs from "@/components/sections/why-us";
 import Testimonials from "@/components/sections/testimonials";
 import CtaBanner from "@/components/sections/cta-banner";
+import FAQSection from "@/components/sections/faq";
 
 const page = () => {
   return (
@@ -15,6 +16,7 @@ const page = () => {
       <WhyUs />
       <Testimonials />
       <CtaBanner />
+      <FAQSection />
       <Footer />
     </main>
   );

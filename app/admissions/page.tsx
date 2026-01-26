@@ -1,6 +1,8 @@
 import Navbar from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import AdmissionsForm from "@/components/sections/admissions-form";
+import FAQSection from "@/components/sections/faq";
+import PagesHero from "@/components/sections/pageshero";
 import { CheckCircle, FileText, CreditCard, GraduationCap } from "lucide-react";
 
 export default function AdmissionsPage() {
@@ -9,18 +11,13 @@ export default function AdmissionsPage() {
       <Navbar />
 
       {/* Header */}
-      <section className="pt-32 pb-12 bg-primary relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10"></div>
-        <div className="max-w-7xl mx-auto px-5 relative z-10 text-center text-white">
-          <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">
-            Admissions Information
-          </h1>
-          <p className="text-lg text-primary-100 max-w-2xl mx-auto">
-            Begin your journey of sacred knowledge. We have a simple and
-            transparent admission process for both online and physical classes.
-          </p>
-        </div>
-      </section>
+      <PagesHero
+        title="Admissions Information"
+        description="Begin your journey of sacred knowledge. We have a simple and transparent admission process for both online and physical classes."
+        imageSrc="/images/img1.png"
+        badge={{ text: "Join Today", icon: CheckCircle }}
+        primaryAction={{ text: "Apply Now", href: "#admission-form" }}
+      />
 
       {/* Process Steps */}
       <section className="py-20">
@@ -183,6 +180,8 @@ export default function AdmissionsPage() {
 
       {/* Form Section */}
       <AdmissionsForm />
+
+      <FAQSection />
 
       <Footer />
     </main>

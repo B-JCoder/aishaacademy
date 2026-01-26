@@ -15,6 +15,8 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import FAQSection from "@/components/sections/faq";
+import PagesHero from "@/components/sections/pageshero";
 
 export default function AboutPage() {
   return (
@@ -22,18 +24,13 @@ export default function AboutPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="pt-32 pb-20 bg-primary relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10"></div>
-        <div className="mx-auto lg:max-w-[1400px] px-5 sm:px-10 md:px-12 lg:px-5 text-center relative z-10">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6">
-            About Aisha Academy
-          </h1>
-          <p className="text-xl text-primary-100 max-w-3xl mx-auto font-sans leading-relaxed">
-            Nurturing the next generation with the light of the Quran and the
-            beauty of Islamic character since 2015.
-          </p>
-        </div>
-      </section>
+      <PagesHero
+        title="About Aisha Academy"
+        description="Nurturing the next generation with the light of the Quran and the beauty of Islamic character since 2015."
+        imageSrc="/images/physical-learning.png"
+        badge={{ text: "Since 2015", icon: Globe }}
+        primaryAction={{ text: "Join our Legacy", href: "/admissions" }}
+      />
 
       {/* History & Story */}
       <section className="py-20">
@@ -237,6 +234,8 @@ export default function AboutPage() {
 
       {/* Testimonials */}
       <Testimonials />
+
+      <FAQSection />
 
       <Footer />
     </main>

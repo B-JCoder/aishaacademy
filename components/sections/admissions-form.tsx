@@ -10,37 +10,37 @@ export default function AdmissionsForm() {
 
   return (
     <section
-      className="py-20 bg-background relative overflow-hidden"
+      className="py-24 bg-gray-50 dark:bg-gray-900 relative overflow-hidden"
       id="admission-form"
     >
       {/* Background Decor */}
-      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[100px] -translate-y-1/2 pointer-events-none"></div>
+      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-secondary/5 rounded-full blur-[100px] translate-y-1/2 pointer-events-none"></div>
 
       <div className="max-w-4xl mx-auto px-5 sm:px-10 relative z-10">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold font-serif text-primary dark:text-white mb-4">
+        <div className="text-center mb-12 space-y-4">
+          <h2 className="text-3xl md:text-5xl font-bold font-serif text-gray-900 dark:text-white drop-shadow-sm">
             Join Aisha Academy
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-300 text-lg max-w-2xl mx-auto">
             Take the first step towards a journey of spiritual growth and
             Quranic excellence. Fill out the form below to enroll.
           </p>
         </div>
 
-        <div className="bg-white dark:bg-card border border-border rounded-3xl shadow-xl overflow-hidden">
+        <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl shadow-gray-200/50 dark:shadow-black/20 border border-gray-100 dark:border-gray-700 overflow-hidden">
           {/* Mode Selector */}
-          <div className="grid grid-cols-2 border-b border-border">
+          <div className="grid grid-cols-2 border-b border-gray-100 dark:border-gray-700">
             <button
               onClick={() => setLearningMode("online")}
               className={`p-6 flex flex-col sm:flex-row items-center justify-center gap-3 transition-all duration-300 ${
                 learningMode === "online"
                   ? "bg-primary/5 text-primary border-b-2 border-primary"
-                  : "bg-transparent text-muted-foreground hover:bg-muted/50"
+                  : "bg-transparent text-gray-500 hover:bg-gray-50 dark:hover:bg-gray-700/50"
               }`}
             >
               <div
-                className={`p-2 rounded-full ${learningMode === "online" ? "bg-primary text-white" : "bg-muted text-muted-foreground"}`}
+                className={`p-2.5 rounded-full transition-colors ${learningMode === "online" ? "bg-primary text-white shadow-md shadow-primary/20" : "bg-gray-100 dark:bg-gray-700 text-gray-400"}`}
               >
                 <Monitor className="w-5 h-5" />
               </div>
@@ -54,11 +54,11 @@ export default function AdmissionsForm() {
               className={`p-6 flex flex-col sm:flex-row items-center justify-center gap-3 transition-all duration-300 ${
                 learningMode === "physical"
                   ? "bg-primary/5 text-primary border-b-2 border-primary"
-                  : "bg-transparent text-muted-foreground hover:bg-muted/50"
+                  : "bg-transparent text-gray-500 hover:bg-gray-50 dark:hover:bg-gray-700/50"
               }`}
             >
               <div
-                className={`p-2 rounded-full ${learningMode === "physical" ? "bg-primary text-white" : "bg-muted text-muted-foreground"}`}
+                className={`p-2.5 rounded-full transition-colors ${learningMode === "physical" ? "bg-primary text-white shadow-md shadow-primary/20" : "bg-gray-100 dark:bg-gray-700 text-gray-400"}`}
               >
                 <MapPin className="w-5 h-5" />
               </div>
@@ -73,7 +73,7 @@ export default function AdmissionsForm() {
             {/* Personal Information */}
             <div className="space-y-6">
               <h3 className="text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
-                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-accent/10 text-accent text-sm">
+                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary text-sm font-bold">
                   1
                 </span>
                 Student Information
@@ -85,12 +85,12 @@ export default function AdmissionsForm() {
                     htmlFor="studentName"
                     className="text-sm font-medium text-gray-700 dark:text-gray-300"
                   >
-                    Student Information Name
+                    Full Name
                   </label>
                   <input
                     type="text"
                     id="studentName"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all bg-gray-50 dark:bg-gray-900"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-gray-400"
                     placeholder="Enter student's full name"
                   />
                 </div>
@@ -104,7 +104,7 @@ export default function AdmissionsForm() {
                   <input
                     type="number"
                     id="age"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all bg-gray-50 dark:bg-gray-900"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-gray-400"
                     placeholder="Student's age"
                   />
                 </div>
@@ -118,7 +118,7 @@ export default function AdmissionsForm() {
                   <div className="relative">
                     <select
                       id="gender"
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all bg-gray-50 dark:bg-gray-900 appearance-none"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all appearance-none text-gray-700 dark:text-gray-200"
                     >
                       <option value="">Select gender</option>
                       <option value="male">Male</option>
@@ -133,7 +133,7 @@ export default function AdmissionsForm() {
             {/* Parent Information */}
             <div className="space-y-6">
               <h3 className="text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
-                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-accent/10 text-accent text-sm">
+                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary text-sm font-bold">
                   2
                 </span>
                 Parent/Guardian Details
@@ -150,7 +150,7 @@ export default function AdmissionsForm() {
                   <input
                     type="text"
                     id="parentName"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all bg-gray-50 dark:bg-gray-900"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-gray-400"
                     placeholder="Parent's full name"
                   />
                 </div>
@@ -164,7 +164,7 @@ export default function AdmissionsForm() {
                   <input
                     type="email"
                     id="email"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all bg-gray-50 dark:bg-gray-900"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-gray-400"
                     placeholder="email@example.com"
                   />
                 </div>
@@ -178,7 +178,7 @@ export default function AdmissionsForm() {
                   <input
                     type="tel"
                     id="phone"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all bg-gray-50 dark:bg-gray-900"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-gray-400"
                     placeholder="+1 (555) 000-0000"
                   />
                 </div>
@@ -192,7 +192,7 @@ export default function AdmissionsForm() {
                   <input
                     type="text"
                     id="city"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all bg-gray-50 dark:bg-gray-900"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-gray-400"
                     placeholder="e.g. Montreal"
                   />
                 </div>
@@ -202,7 +202,7 @@ export default function AdmissionsForm() {
             {/* Course Information */}
             <div className="space-y-6">
               <h3 className="text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
-                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-accent/10 text-accent text-sm">
+                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary text-sm font-bold">
                   3
                 </span>
                 Course Preferences (
@@ -220,7 +220,7 @@ export default function AdmissionsForm() {
                   <div className="relative">
                     <select
                       id="course"
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all bg-gray-50 dark:bg-gray-900 appearance-none"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all appearance-none text-gray-700 dark:text-gray-200"
                     >
                       <option value="">Choose a program...</option>
                       <option value="nazra">Nazra Quran (Reading)</option>
@@ -243,7 +243,7 @@ export default function AdmissionsForm() {
                   <div className="relative">
                     <select
                       id="preferredDays"
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all bg-gray-50 dark:bg-gray-900 appearance-none"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all appearance-none text-gray-700 dark:text-gray-200"
                     >
                       <option value="weekdays">Weekdays (Mon-Fri)</option>
                       <option value="weekend">Weekends (Sat-Sun)</option>
@@ -263,7 +263,7 @@ export default function AdmissionsForm() {
                   <div className="relative">
                     <select
                       id="preferredTime"
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all bg-gray-50 dark:bg-gray-900 appearance-none"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all appearance-none text-gray-700 dark:text-gray-200"
                     >
                       <option value="morning">Morning</option>
                       <option value="afternoon">Afternoon</option>
@@ -285,7 +285,7 @@ export default function AdmissionsForm() {
               <textarea
                 id="message"
                 rows={4}
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all bg-gray-50 dark:bg-gray-900 resize-none"
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-gray-400 resize-none"
                 placeholder="Any specific requirements or questions?"
               ></textarea>
             </div>

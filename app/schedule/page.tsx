@@ -2,6 +2,7 @@
 import React from "react";
 import Navbar from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import FAQSection from "@/components/sections/faq";
 import { Clock, Calendar } from "lucide-react";
 
 export default function SchedulePage() {
@@ -48,6 +49,8 @@ export default function SchedulePage() {
         </div>
       </section>
 
+      <FAQSection />
+
       <Footer />
     </main>
   );
@@ -83,8 +86,8 @@ function ScheduleRow({ day, time, isClosed = false, highlight = false }: any) {
           isClosed
             ? "text-red-500"
             : highlight
-            ? "text-primary"
-            : "text-gray-900 dark:text-white"
+              ? "text-primary"
+              : "text-gray-900 dark:text-white"
         }`}
       >
         {time}

@@ -5,6 +5,7 @@ import Footer from "@/components/layout/footer";
 import Link from "next/link";
 import Image from "next/image";
 import Testimonials from "@/components/sections/testimonials";
+import FAQSection from "@/components/sections/faq";
 import { Monitor, Video, Globe, Wifi, Clock, ShieldCheck } from "lucide-react";
 
 export default function OnlineClassesPage() {
@@ -212,6 +213,8 @@ export default function OnlineClassesPage() {
           </Link>
         </div>
       </section>
+
+      <FAQSection />
 
       <Footer />
     </main>

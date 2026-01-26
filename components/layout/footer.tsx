@@ -1,10 +1,24 @@
+"use client";
 import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="bg-primary-950/20 bg-primary dark:bg-gray-950 border-t border-primary/20 dark:border-gray-900 pt-24 pb-12 text-white">
-      <div className="max-w-[1400px] mx-auto px-5 sm:px-10 md:px-12 lg:px-5">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 pb-16 border-b border-white/10 dark:border-gray-900">
+    <footer className="relative bg-primary/95 dark:bg-gray-950/95 backdrop-blur-xl border-t border-white/10 dark:border-gray-800 pt-24 pb-12 text-white overflow-hidden">
+      {/* Texture Overlay */}
+      <div
+        className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay"
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")",
+        }}
+      ></div>
+
+      {/* Decorative Gradients */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-[120px] -translate-y-1/2 pointer-events-none"></div>
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-[120px] translate-y-1/2 pointer-events-none"></div>
+
+      <div className="relative z-10 max-w-[1400px] mx-auto px-5 sm:px-10 md:px-12 lg:px-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 pb-16 border-b border-white/10 dark:border-gray-800">
           {/* Brand & Mission */}
           <div className="space-y-6">
             <Link href="/" className="font-bold flex items-center gap-x-2">
@@ -21,7 +35,7 @@ const Footer = () => {
               {/* Social Icons - Using SVGs for reliability */}
               <a
                 href="#"
-                className="p-2.5 rounded-full bg-white/10 hover:bg-accent hover:text-white transition-all duration-300"
+                className="p-2.5 rounded-full bg-white/5 hover:bg-accent hover:text-white transition-all duration-300 border border-white/10 hover:border-accent"
                 aria-label="Facebook"
               >
                 <svg
@@ -40,7 +54,7 @@ const Footer = () => {
               </a>
               <a
                 href="#"
-                className="p-2.5 rounded-full bg-white/10 hover:bg-accent hover:text-white transition-all duration-300"
+                className="p-2.5 rounded-full bg-white/5 hover:bg-accent hover:text-white transition-all duration-300 border border-white/10 hover:border-accent"
                 aria-label="Instagram"
               >
                 <svg
@@ -61,7 +75,7 @@ const Footer = () => {
               </a>
               <a
                 href="#"
-                className="p-2.5 rounded-full bg-white/10 hover:bg-accent hover:text-white transition-all duration-300"
+                className="p-2.5 rounded-full bg-white/5 hover:bg-accent hover:text-white transition-all duration-300 border border-white/10 hover:border-accent"
                 aria-label="Whatsapp"
               >
                 <svg
@@ -243,13 +257,36 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400 dark:text-gray-500 border-t border-white/5">
+        <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400 dark:text-gray-500">
           <p>
             © {new Date().getFullYear()} Aisha Academy. Licensed & Registered.
           </p>
-          <div className="flex gap-6">
-            <span>Privacy Policy</span>
-            <span>Terms of Service</span>
+          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
+            <div className="flex gap-6">
+              <Link
+                href="/privacy-policy"
+                className="hover:text-white transition-colors"
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                href="/terms-conditions"
+                className="hover:text-white transition-colors"
+              >
+                Terms of Service
+              </Link>
+            </div>
+            <div className="flex items-center gap-1">
+              <span>Developed by</span>
+              <a
+                href="https://bshsolutionss.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent hover:text-white font-bold transition-colors"
+              >
+                BSH Solutions
+              </a>
+            </div>
           </div>
         </div>
       </div>

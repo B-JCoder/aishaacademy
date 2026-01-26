@@ -4,7 +4,9 @@ import Navbar from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import Link from "next/link";
 import Testimonials from "@/components/sections/testimonials";
+import FAQSection from "@/components/sections/faq";
 import { Check, Clock, Calendar, Users, MapPin, Monitor } from "lucide-react";
+import PagesHero from "@/components/sections/pageshero";
 
 const programs = [
   {
@@ -122,18 +124,11 @@ export default function ProgramsPage() {
     <main className="bg-white dark:bg-gray-950 overflow-hidden min-h-screen">
       <Navbar />
 
-      <section className="pt-32 pb-20 bg-primary relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10"></div>
-        <div className="mx-auto lg:max-w-7xl px-5 sm:px-10 md:px-12 lg:px-5 text-center relative z-10">
-          <h1 className="text-4xl md:text-5xl font-serif font-bold text-white mb-6">
-            Our Programs
-          </h1>
-          <p className="text-xl text-primary-100 max-w-3xl mx-auto font-sans">
-            Comprehensive Quranic education tailored to your spiritual journey.
-          </p>
-        </div>
-      </section>
-
+      <PagesHero
+        title="Our Programs"
+        description="Comprehensive Quranic education tailored to your spiritual journey."
+        imageSrc="/images/programs.jpg"
+      />
       <section className="py-20">
         <div className="mx-auto lg:max-w-7xl px-5 sm:px-10 md:px-12 lg:px-5 grid gap-10">
           {programs.map((program, idx) => (
@@ -212,6 +207,8 @@ export default function ProgramsPage() {
       </section>
 
       <Testimonials />
+
+      <FAQSection />
 
       <Footer />
     </main>
