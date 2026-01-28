@@ -126,11 +126,11 @@ export default function ProgramsPage() {
 
       <PagesHero
         title="Our Programs"
-        description="Comprehensive Quranic education tailored to your spiritual journey."
+        description="Comprehensive Quranic education tailored to your spiritual journey. Choose the path that fits your goals and schedule."
         imageSrc="/images/programs.jpg"
       />
-      <section className="py-20">
-        <div className="mx-auto lg:max-w-7xl px-5 sm:px-10 md:px-12 lg:px-5 grid gap-10">
+      <section className="py-16 md:py-24">
+        <div className="mx-auto max-w-[1400px] px-4 sm:px-6 md:px-8 lg:px-12 grid gap-8 md:gap-12">
           {programs.map((program, idx) => (
             <div
               key={idx}
@@ -147,7 +147,7 @@ export default function ProgramsPage() {
                   </span>
                 </div>
 
-                <h2 className="text-3xl font-serif font-bold text-primary dark:text-white">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-primary dark:text-white leading-tight">
                   {program.title}
                 </h2>
                 <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
@@ -192,7 +192,7 @@ export default function ProgramsPage() {
                   </div>
                   <Link
                     href="/admissions"
-                    className="block w-full py-4 rounded-xl font-bold text-white transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 bg-accent hover:bg-accent/90"
+                    className="block w-full py-3.5 md:py-4 rounded-xl font-bold text-white text-center transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-[0.98] bg-accent hover:bg-accent/90 focus:ring-2 focus:ring-accent/50 focus:outline-none"
                   >
                     Enroll Now
                   </Link>

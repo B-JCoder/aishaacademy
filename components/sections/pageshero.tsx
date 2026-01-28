@@ -18,8 +18,10 @@ interface PagesHeroProps {
   };
   secondaryAction?: {
     text: string;
+
     href: string;
   };
+  video?: React.ReactNode;
 }
 
 const PagesHero = ({
@@ -31,6 +33,7 @@ const PagesHero = ({
   imageAlt = "Hero Image",
   primaryAction,
   secondaryAction,
+  video,
 }: PagesHeroProps) => {
   return (
     <section className="relative pt-32 pb-20 bg-primary overflow-hidden">
@@ -41,7 +44,7 @@ const PagesHero = ({
         <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-5 mix-blend-overlay"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-5 sm:px-10 relative z-10 grid md:grid-cols-2 gap-12 items-center">
+      <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-12 relative z-10 grid md:grid-cols-2 gap-10 md:gap-16 items-center">
         <div className="text-white space-y-6">
           {badge && (
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/20 border border-accent/20 text-accent text-sm font-bold animate-fade-in-up">
@@ -63,7 +66,7 @@ const PagesHero = ({
               {primaryAction && (
                 <Link
                   href={primaryAction.href}
-                  className="px-8 py-4 bg-accent text-primary font-bold rounded-full hover:bg-white transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
+                  className="px-6 py-3 md:px-8 md:py-4 bg-accent text-primary font-bold rounded-full hover:bg-white transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 active:scale-95 text-sm md:text-base"
                 >
                   {primaryAction.text}
                 </Link>
@@ -71,7 +74,7 @@ const PagesHero = ({
               {secondaryAction && (
                 <Link
                   href={secondaryAction.href}
-                  className="px-8 py-4 bg-white/10 border border-white/20 text-white font-bold rounded-full hover:bg-white/20 transition-all"
+                  className="px-6 py-3 md:px-8 md:py-4 bg-white/10 border border-white/20 text-white font-bold rounded-full hover:bg-white/20 transition-all active:scale-95 text-sm md:text-base"
                 >
                   {secondaryAction.text}
                 </Link>
@@ -80,17 +83,22 @@ const PagesHero = ({
           )}
         </div>
         <div className="relative animate-fade-in-up delay-100">
-          <div className="aspect-video rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10 relative group">
-            {/* Placeholder / Fallback logic could be added here, but usage implies props or default */}
-            <div className="absolute inset-0 bg-gray-800 flex items-center justify-center text-white/50">
-              {/* Fallback pattern if image fails to load or empty */}
-            </div>
-            <Image
-              src={imageSrc}
-              alt={imageAlt}
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
-            />
+          <div className="aspect-video rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10 relative group bg-black">
+            {video ? (
+              <div className="w-full h-full">{video}</div>
+            ) : (
+              <>
+                <div className="absolute inset-0 bg-gray-800 flex items-center justify-center text-white/50">
+                  {/* Fallback */}
+                </div>
+                <Image
+                  src={imageSrc}
+                  alt={imageAlt}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </>
+            )}
           </div>
           {/* Float Card - Optional or configurable? Keeping it for "Live Sessions" context which is common, 
               but maybe should be optional or prop driven. 

@@ -96,7 +96,7 @@ function PriceCard({
 }) {
   return (
     <div
-      className={`relative flex flex-col p-8 rounded-3xl transition-all duration-300 h-full ${
+      className={`relative flex flex-col p-6 sm:p-8 rounded-3xl transition-all duration-300 h-full ${
         highlight
           ? "bg-white dark:bg-gray-800 shadow-2xl scale-105 border-2 border-accent/20 z-10"
           : "bg-white/60 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 hover:shadow-xl hover:bg-white dark:hover:bg-gray-800 hover:-translate-y-1"
@@ -138,7 +138,7 @@ function PriceCard({
 
       <Link
         href="/enroll"
-        className={`block w-full py-3 rounded-xl font-bold text-center transition-all shadow-md ${
+        className={`block w-full py-3 rounded-xl font-bold text-center transition-all shadow-md active:scale-95 ${
           highlight
             ? "bg-primary text-white hover:bg-primary/90 hover:shadow-lg"
             : "bg-white dark:bg-gray-700 text-primary dark:text-white border border-gray-200 dark:border-gray-600 hover:bg-primary/5 dark:hover:bg-gray-600"

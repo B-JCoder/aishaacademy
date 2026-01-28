@@ -27,9 +27,18 @@ export default function AboutPage() {
       <PagesHero
         title="About Aisha Academy"
         description="Nurturing the next generation with the light of the Quran and the beauty of Islamic character since 2015."
-        imageSrc="/images/physical-learning.png"
         badge={{ text: "Since 2015", icon: Globe }}
         primaryAction={{ text: "Join our Legacy", href: "/admissions" }}
+        video={
+          <iframe
+            className="w-full h-full"
+            src="https://www.youtube.com/embed/He-NKKRNQrk?si=VcZLl6UvIgClpLcI"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          ></iframe>
+        }
       />
 
       {/* History & Story */}

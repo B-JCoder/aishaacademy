@@ -3,6 +3,7 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import Image from "next/image";
+import { Menu, X } from "lucide-react";
 
 const Navbar: React.FC = () => {
   const [openNavbar, setOpenNavbar] = useState(false);
@@ -62,7 +63,7 @@ const Navbar: React.FC = () => {
             className="hidden lg:flex items-center h-11 px-7 rounded-full
             bg-accent text-primary font-bold
             shadow-lg shadow-accent/40 hover:shadow-accent/60
-            hover:-translate-y-0.5 transition"
+            hover:-translate-y-0.5 active:scale-95 transition"
           >
             Enroll Now
           </Link>
@@ -70,9 +71,14 @@ const Navbar: React.FC = () => {
           {/* HAMBURGER */}
           <button
             onClick={() => setOpenNavbar(!openNavbar)}
-            className="lg:hidden text-white"
+            className="lg:hidden p-2 text-white/80 hover:text-accent transition-colors active:scale-95"
+            aria-label="Toggle Menu"
           >
-            ☰
+            {openNavbar ? (
+              <X className="w-8 h-8" />
+            ) : (
+              <Menu className="w-8 h-8" />
+            )}
           </button>
         </div>
 
@@ -109,7 +115,7 @@ const Navbar: React.FC = () => {
               href="/admissions"
               onClick={() => setOpenNavbar(false)}
               className="mt-5 flex justify-center items-center h-12 rounded-full
-              bg-accent text-primary font-bold"
+              bg-accent text-primary font-bold shadow-lg active:scale-95 transition-transform"
             >
               Enroll Now
             </Link>

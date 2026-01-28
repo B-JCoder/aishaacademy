@@ -69,7 +69,7 @@ export default function AdmissionsForm() {
             </button>
           </div>
 
-          <form className="p-8 sm:p-12 space-y-8">
+          <form className="p-6 sm:p-12 space-y-8">
             {/* Personal Information */}
             <div className="space-y-6">
               <h3 className="text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
@@ -292,7 +292,7 @@ export default function AdmissionsForm() {
 
             <button
               type="submit"
-              className="w-full py-4 px-8 bg-primary hover:bg-primary/90 text-white font-bold rounded-xl shadow-lg shadow-primary/20 transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2"
+              className="w-full py-4 px-8 bg-primary hover:bg-primary/90 text-white font-bold rounded-xl shadow-lg shadow-primary/20 transition-all transform hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-2"
             >
               <span>Submit Application</span>
               <Check className="w-5 h-5" />

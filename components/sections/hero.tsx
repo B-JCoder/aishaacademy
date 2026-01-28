@@ -5,126 +5,106 @@ import Image from "next/image";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center pt-36 pb-24 overflow-hidden">
+    <section className="relative min-h-[100svh] flex items-center pt-28 sm:pt-32 pb-20 overflow-hidden">
       {/* ================= BACKGROUND ================= */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-primary/90 dark:bg-gray-950/90"></div>
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-transparent to-secondary/40"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-black/50"></div>
+        <div className="absolute inset-0 bg-primary/90 dark:bg-gray-950/90" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary via-transparent to-secondary/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-black/50" />
       </div>
 
-      {/* ================= DECORATIVE BLOBS ================= */}
-      <div className="absolute top-0 inset-x-0 h-64 flex px-6 pointer-events-none">
-        <div className="h-24 w-2/3 bg-gradient-to-br from-primary/40 blur-3xl"></div>
-        <div className="h-20 w-3/5 bg-gradient-to-r from-secondary/40 blur-3xl"></div>
-      </div>
-
-      <div className="relative z-10 mx-auto max-w-7xl w-full px-6">
-        <div className="grid lg:grid-cols-2 gap-14 items-center">
-          {/* ================= LEFT CONTENT ================= */}
-          <div className="text-center lg:text-left space-y-8">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 backdrop-blur-md border border-accent/30 text-accent text-sm font-medium">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
-              </span>
+      <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6">
+        <div className="grid lg:grid-cols-2 gap-10 items-center">
+          {/* ================= LEFT ================= */}
+          <div className="text-center lg:text-left space-y-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/30 text-accent text-xs sm:text-sm">
               Admissions Open – 2026
             </div>
 
-            <h1 className="font-serif font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-tight text-white drop-shadow-lg">
+            <h1 className="font-serif font-bold text-3xl sm:text-4xl lg:text-6xl xl:text-7xl text-white leading-tight">
               Nurturing Young Hearts with the{" "}
               <span className="text-accent italic">Quran</span>
             </h1>
 
-            <p className="text-gray-200 max-w-2xl mx-auto lg:mx-0 text-lg sm:text-xl">
-              Trusted Quran education for children aged 4+ with experienced
-              teachers. Online & Physical classes in{" "}
+            <p className="text-gray-200 max-w-xl mx-auto lg:mx-0 text-sm sm:text-base lg:text-lg">
+              Trusted Quran education for children aged 4+. Online & Physical
+              classes in{" "}
               <span className="text-white font-semibold">Montreal</span>.
             </p>
 
-            <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start pt-2">
               <Link
                 href="/admissions"
-                className="h-14 px-8 rounded-full bg-accent text-primary font-bold flex items-center justify-center
-                hover:scale-105 transition shadow-lg shadow-accent/30"
+                className="h-12 px-6 rounded-full bg-accent text-primary font-bold text-sm
+                flex items-center justify-center hover:scale-105 transition"
               >
                 Enroll Now
               </Link>
               <Link
                 href="/contact"
-                className="h-14 px-8 rounded-full bg-white/10 backdrop-blur-md border border-white/20
-                text-white font-bold flex items-center justify-center hover:bg-white/20 transition"
+                className="h-12 px-6 rounded-full bg-white/10 border border-white/20
+                text-white font-bold text-sm flex items-center justify-center"
               >
                 Contact Us
               </Link>
             </div>
           </div>
 
-          {/* ================= RIGHT CONTENT ================= */}
-          <div className="relative order-first lg:order-last">
-            <div className="grid grid-cols-2 gap-6">
+          {/* ================= RIGHT ================= */}
+          <div className="relative">
+            {/* ⚠️ SAME LAYOUT — ALWAYS 2 COLUMNS */}
+            <div className="grid grid-cols-2 gap-4 sm:gap-6">
               {/* ===== LEFT COLUMN ===== */}
-              <div className="space-y-6">
+              <div className="space-y-4">
                 {/* ONLINE CARD */}
                 <Link
                   href="/online-classes"
-                  className="group block rounded-[2rem] overflow-hidden
-  border border-white/10
-  shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)]
-  hover:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.85)]
-  transform hover:-translate-y-3 hover:-rotate-2 transition-all duration-700"
+                  className="group block rounded-2xl overflow-hidden border border-white/10
+                  transition transform hover:-translate-y-2 hover:-rotate-1"
                 >
-                  <div className="relative aspect-[4/5] w-full">
+                  <div className="relative w-full aspect-[3/4]">
                     <Image
                       src="/images/online-learning.png"
                       alt="Online Quran Learning"
                       fill
-                      priority
-                      className="object-cover "
+                      className="object-cover object-center"
                     />
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
 
-                    <div className="absolute inset-x-0 bottom-0 p-5">
-                      <div className="flex justify-between items-center backdrop-blur-xl bg-primary/70 border border-white/20 rounded-xl px-4 py-3">
-                        <span className="text-white font-semibold">
-                          Online Quran Academy
-                        </span>
-                        <span className="bg-accent text-primary px-3 py-1 rounded-full text-xs font-bold">
-                          Explore →
+                    <div className="absolute bottom-0 inset-x-0 p-2 sm:p-3">
+                      <div
+                        className="flex justify-between items-center bg-primary/70 backdrop-blur-md
+                        rounded-lg px-3 py-2 text-xs sm:text-sm"
+                      >
+                        <span className="text-white font-semibold">Online</span>
+                        <span className="bg-accent text-primary px-2 py-0.5 rounded-full font-bold">
+                          →
                         </span>
                       </div>
                     </div>
                   </div>
                 </Link>
 
-                {/* AYAT BOX */}
+                {/* AYAT */}
                 <div
-                  className="h-24 rounded-3xl bg-white/5 backdrop-blur-3xl border border-white/10
-                flex items-center justify-center relative overflow-hidden shadow-inner shadow-black/40"
+                  className="min-h-[3.8rem] sm:min-h-[4.5rem] px-2 rounded-2xl
+                  bg-white/5 border border-white/10 flex items-center justify-center"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-                  <span
-                    className="relative font-arabic text-white text-2xl sm:text-3xl opacity-80
-                  drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"
-                  >
+                  <span className="font-arabic text-white text-sm sm:text-base lg:text-lg leading-relaxed">
                     مِنَ الْجِنَّةِ وَالنَّاسِ
                   </span>
                 </div>
               </div>
 
               {/* ===== RIGHT COLUMN ===== */}
-              <div className="space-y-6 pt-12">
-                {/* AYAT BOX */}
+              <div className="space-y-4 pt-8 sm:pt-10">
+                {/* AYAT */}
                 <div
-                  className="h-24 rounded-3xl bg-white/5 backdrop-blur-3xl border border-white/10
-                flex items-center justify-center relative overflow-hidden shadow-inner shadow-black/40"
+                  className="min-h-[3.8rem] sm:min-h-[4.5rem] px-2 rounded-2xl
+                  bg-white/5 border border-white/10 flex items-center justify-center"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-                  <span
-                    className="relative font-arabic text-white text-2xl sm:text-3xl opacity-80
-                  drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"
-                  >
+                  <span className="font-arabic text-white text-sm sm:text-base lg:text-lg leading-relaxed">
                     ٱلْحَمْدُ لِلَّٰهِ رَبِّ ٱلْعَٰلَمِينَ
                   </span>
                 </div>
@@ -132,33 +112,29 @@ export default function HeroSection() {
                 {/* PHYSICAL CARD */}
                 <Link
                   href="/physical-classes"
-                  className="group block rounded-[2rem] overflow-hidden
-  border border-white/10
-  shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)]
-  hover:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.85)]
-  transform hover:-translate-y-3 hover:rotate-2 transition-all duration-700"
+                  className="group block rounded-2xl overflow-hidden border border-white/10
+                  transition transform hover:-translate-y-2 hover:rotate-1"
                 >
-                  {/* IMAGE WRAPPER — VERY IMPORTANT */}
-                  <div className="relative aspect-[4/5] w-full">
+                  <div className="relative w-full aspect-[3/4]">
                     <Image
                       src="/images/physical-learning.png"
                       alt="Physical Quran Learning"
                       fill
-                      priority
-                      className="object-cover"
+                      className="object-cover object-center"
                     />
 
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
 
-                    {/* Bottom CTA */}
-                    <div className="absolute inset-x-0 bottom-0 p-5">
-                      <div className="flex justify-between items-center backdrop-blur-xl bg-primary/70 border border-white/20 rounded-xl px-4 py-3">
+                    <div className="absolute bottom-0 inset-x-0 p-2 sm:p-3">
+                      <div
+                        className="flex justify-between items-center bg-primary/70 backdrop-blur-md
+                        rounded-lg px-3 py-2 text-xs sm:text-sm"
+                      >
                         <span className="text-white font-semibold">
-                          Physical Classes
+                          Physical
                         </span>
-                        <span className="bg-accent text-primary px-3 py-1 rounded-full text-xs font-bold">
-                          Visit →
+                        <span className="bg-accent text-primary px-2 py-0.5 rounded-full font-bold">
+                          →
                         </span>
                       </div>
                     </div>
@@ -167,25 +143,6 @@ export default function HeroSection() {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* ================= STATS ================= */}
-        <div className="pt-20 mt-14 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-          {[
-            ["Hifz", "Memorization"],
-            ["Tajwid", "Perfect Recitation"],
-            ["Tarbiya", "Character Building"],
-            ["Arabic", "Quranic Language"],
-          ].map(([title, desc]) => (
-            <div key={title} className="text-center">
-              <div className="text-3xl font-bold text-white drop-shadow-md">
-                {title}
-              </div>
-              <div className="text-sm text-gray-300 uppercase tracking-wider mt-1">
-                {desc}
-              </div>
-            </div>
-          ))}
         </div>
       </div>
     </section>
