@@ -29,7 +29,7 @@ export default function CtaBanner() {
         <div className="flex flex-col sm:flex-row justify-center gap-6 pt-8">
           <Link
             href="/enroll"
-            className="group inline-flex items-center justify-center h-14 px-8 rounded-full bg-accent text-primary hover:bg-white hover:text-primary transition-all duration-300 font-bold font-sans shadow-xl hover:shadow-2xl hover:-translate-y-1"
+            className="group inline-flex items-center justify-center h-14 px-8 rounded-full bg-accent text-primary hover:bg-white hover:text-primary transition-all duration-300 font-bold font-sans shadow-[0_4px_10px_#623F2F] hover:shadow-2xl hover:-translate-y-1"
           >
             Enroll Now
             <span className="ml-2 group-hover:translate-x-1 transition-transform">
@@ -38,7 +38,7 @@ export default function CtaBanner() {
           </Link>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center h-14 px-8 rounded-full bg-white/10 backdrop-blur-md text-white hover:bg-white/20 transition-all duration-300 font-bold font-sans shadow-lg border border-white/20 hover:-translate-y-1"
+            className="inline-flex items-center justify-center h-14 px-8 rounded-full bg-white/10 backdrop-blur-md text-white hover:bg-white/20 transition-all duration-300 font-bold font-sans shadow-[0_4px_10px_#623F2F] border border-white/20 hover:-translate-y-1"
           >
             Contact Us
           </Link>

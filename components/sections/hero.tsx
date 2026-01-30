@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import TypedHeading from "@/components/TypedHeading";
 
 export default function HeroSection() {
   return (
@@ -21,10 +22,7 @@ export default function HeroSection() {
               Admissions Open – 2026
             </div>
 
-            <h1 className="font-serif font-bold text-3xl sm:text-4xl lg:text-6xl xl:text-7xl text-white leading-tight">
-              Nurturing Young Hearts with the{" "}
-              <span className="text-accent italic">Quran</span>
-            </h1>
+            <TypedHeading />
 
             <p className="text-gray-200 max-w-xl mx-auto lg:mx-0 text-sm sm:text-base lg:text-lg">
               Trusted Quran education for children aged 4+. Online & Physical
@@ -36,14 +34,14 @@ export default function HeroSection() {
               <Link
                 href="/admissions"
                 className="h-12 px-6 rounded-full bg-accent text-primary font-bold text-sm
-                flex items-center justify-center hover:scale-105 transition"
+                flex items-center justify-center hover:scale-105 transition shadow-[0_4px_6px_#623F2F]"
               >
                 Enroll Now
               </Link>
               <Link
                 href="/contact"
                 className="h-12 px-6 rounded-full bg-white/10 border border-white/20
-                text-white font-bold text-sm flex items-center justify-center"
+                text-white font-bold text-sm flex items-center justify-center shadow-[0_4px_6px_#623F2F]"
               >
                 Contact Us
               </Link>
@@ -55,12 +53,21 @@ export default function HeroSection() {
             {/* ⚠️ SAME LAYOUT — ALWAYS 2 COLUMNS */}
             <div className="grid grid-cols-2 gap-4 sm:gap-6">
               {/* ===== LEFT COLUMN ===== */}
-              <div className="space-y-4">
+              <div className="space-y-4 relative">
+                {/* DECORATIVE CALLIGRAPHY */}
+                <div className="absolute -top-12 -left-12 w-32 h-32 opacity-20 pointer-events-none z-0 transform -rotate-12">
+                  <Image
+                    src="/images/calligraphy-decoration.png"
+                    alt="Islamic Calligraphy"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
                 {/* ONLINE CARD */}
                 <Link
                   href="/online-classes"
                   className="group block rounded-2xl overflow-hidden border border-white/10
-                  transition transform hover:-translate-y-2 hover:-rotate-1"
+                  transition transform hover:-translate-y-2 hover:-rotate-1 shadow-[0_0_20px_#623F2F]"
                 >
                   <div className="relative w-full aspect-[3/4]">
                     <Image
@@ -113,11 +120,11 @@ export default function HeroSection() {
                 <Link
                   href="/physical-classes"
                   className="group block rounded-2xl overflow-hidden border border-white/10
-                  transition transform hover:-translate-y-2 hover:rotate-1"
+                  transition transform hover:-translate-y-2 hover:rotate-1 shadow-[0_0_20px_#623F2F]"
                 >
                   <div className="relative w-full aspect-[3/4]">
                     <Image
-                      src="/images/physical-learning.png"
+                      src="/images/physical-learning-man.png"
                       alt="Physical Quran Learning"
                       fill
                       className="object-cover object-center"

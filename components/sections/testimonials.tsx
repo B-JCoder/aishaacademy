@@ -1,8 +1,10 @@
 "use client";
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { FaGoogle } from "react-icons/fa";
 
 // Placeholder data simulating Google Reviews
 const testimonials = [
@@ -160,7 +162,7 @@ const Testimonials = () => {
           </div>
 
           {/* Mobile Nav & Dots */}
-          <div className="flex items-center gap-6 mt-12">
+          <div className="flex items-center gap-6 mt-12 mb-8">
             <button
               onClick={prevSlide}
               className="md:hidden p-3 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm"
@@ -213,6 +215,24 @@ const Testimonials = () => {
               </svg>
             </button>
           </div>
+
+          {/* Google Review Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="flex justify-center mt-8 pb-10"
+          >
+            <Link
+              href="https://www.google.com/maps/place/Aisha+Academy/@45.5331873,-73.7057605,17z/data=!4m8!3m7!1s0x4cc923deb024b139:0xa2cc331d97d9d599!8m2!3d45.5331873!4d-73.7057605!9m1!1b1!16s%2Fg%2F11s8gfv8tg?entry=ttu&g_ep=EgoyMDI2MDEyMS4wIKXMDSoKLDEwMDc5MjA3M0gBUAM%3D"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 text-gray-800 dark:text-white font-semibold group"
+            >
+              <FaGoogle className="text-xl text-[#DB4437] group-hover:scale-110 transition-transform" />
+              <span>Write a Review on Google</span>
+            </Link>
+          </motion.div>
         </div>
       </div>
     </section>

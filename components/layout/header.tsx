@@ -62,7 +62,7 @@ const Navbar: React.FC = () => {
             href="/admissions"
             className="hidden lg:flex items-center h-11 px-7 rounded-full
             bg-accent text-primary font-bold
-            shadow-lg shadow-accent/40 hover:shadow-accent/60
+            shadow-[0_4px_10px_#623F2F] hover:shadow-accent/60
             hover:-translate-y-0.5 active:scale-95 transition"
           >
             Enroll Now
@@ -115,7 +115,7 @@ const Navbar: React.FC = () => {
               href="/admissions"
               onClick={() => setOpenNavbar(false)}
               className="mt-5 flex justify-center items-center h-12 rounded-full
-              bg-accent text-primary font-bold shadow-lg active:scale-95 transition-transform"
+              bg-accent text-primary font-bold shadow-[0_4px_10px_#623F2F] active:scale-95 transition-transform"
             >
               Enroll Now
             </Link>

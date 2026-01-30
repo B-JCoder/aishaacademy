@@ -48,7 +48,7 @@ export default function AboutPage() {
             <div className="relative">
               <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl rotate-2 border-4 border-white/50">
                 <Image
-                  src="/images/physical-learning.png"
+                  src="/images/physical-learning-man.png"
                   alt="Our History"
                   fill
                   className="object-cover"

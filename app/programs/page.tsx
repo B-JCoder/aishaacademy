@@ -127,7 +127,7 @@ export default function ProgramsPage() {
       <PagesHero
         title="Our Programs"
         description="Comprehensive Quranic education tailored to your spiritual journey. Choose the path that fits your goals and schedule."
-        imageSrc="/images/img2.png"
+        imageSrc="/images/program-hero-man.png"
       />
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-[1400px] px-4 sm:px-6 md:px-8 lg:px-12 grid gap-8 md:gap-12">

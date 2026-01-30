@@ -61,7 +61,7 @@ export default function ProgramsOverview() {
           {programs.map((program, idx) => (
             <div
               key={idx}
-              className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl p-8 shadow-lg shadow-gray-200/50 dark:shadow-black/20 border border-white/50 dark:border-gray-700 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-2"
+              className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl p-8 shadow-[0_0_20px_#623F2F] border border-white/50 dark:border-gray-700 transition-all duration-300 hover:shadow-[0_0_30px_#623F2F] hover:-translate-y-2"
             >
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-transparent flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 border border-primary/10">
                 <div className="text-primary dark:text-white group-hover:text-secondary transition-colors duration-300">

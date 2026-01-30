@@ -23,7 +23,7 @@ export default function PhysicalClassesPage() {
           <div className="relative order-last md:order-first">
             <div className="aspect-video rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10 relative group">
               <Image
-                src="/images/physical-learning.png"
+                src="/images/physical-learning-man.png"
                 alt="Student learning at campus"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
