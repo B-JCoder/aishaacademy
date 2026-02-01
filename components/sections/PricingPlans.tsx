@@ -2,58 +2,89 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Check, Zap, Crown, Star } from "lucide-react";
+import { Check, Zap, Clock, Calendar, Laptop, Users } from "lucide-react";
 import Link from "next/link";
 
 const plans = [
   {
-    name: "Online Group",
-    price: "$50",
+    name: "Weekday Evening",
+    price: "$65",
     period: "/month",
-    description: "Perfect for interactive learning with peers.",
+    description: "In-person classes at our Montreal campus.",
     features: [
-      "Small groups (4-6 students)",
-      "2 Classes per week",
-      "Regular Progress Reports",
-      "Access to Learning Materials",
-      "Weekly Activity Sheets",
+      "Monday to Thursday",
+      "5:30 PM to 7:30 PM",
+      "Quran classes for children",
+      "Aged 5 and over",
+      "Qualified Teachers",
     ],
     popular: false,
     gradient: "from-blue-500/20 to-cyan-500/20",
-    icon: <Zap className="w-6 h-6" />,
+    icon: <Clock className="w-6 h-6" />,
   },
   {
-    name: "Private 1-on-1",
-    price: "$120",
+    name: "Weekend Morning",
+    price: "$65",
     period: "/month",
-    description: "Dedicated attention for rapid progress.",
+    description: "In-person classes at our Montreal campus.",
     features: [
-      "Private One-on-One Sessions",
-      "3 Classes per week",
-      "Personalized Curriculum",
-      "Flexible Timing",
-      "Direct Teacher Access",
-      "Hifz & Tajweed Focus",
+      "Saturday and Sunday",
+      "10:00 AM to 12:45 PM",
+      "Quran classes for children",
+      "Aged 5 and over",
+      "Islamic Studies & Tajweed",
     ],
     popular: true,
     gradient: "from-amber-400/20 to-orange-500/20",
-    icon: <Crown className="w-6 h-6" />,
+    icon: <Calendar className="w-6 h-6" />,
   },
   {
-    name: "Weekend School",
-    price: "$80",
+    name: "Weekend Afternoon",
+    price: "$65",
     period: "/month",
-    description: "Physical classes at our Montreal campus.",
+    description: "In-person classes at our Montreal campus.",
     features: [
-      "In-Person Instructions",
-      "Saturday & Sunday (10am - 2pm)",
-      "Islamic Studies & Quran",
-      "Social Environment",
-      "Physical Activities",
+      "Saturday and Sunday",
+      "12:00 PM to 2:45 PM",
+      "Quran classes for children",
+      "Aged 5 and over",
+      "Perfect for late risers",
     ],
     popular: false,
     gradient: "from-purple-500/20 to-pink-500/20",
-    icon: <Star className="w-6 h-6" />,
+    icon: <Calendar className="w-6 h-6" />,
+  },
+  {
+    name: "Private 1-on-1",
+    price: "$12.50",
+    period: "/session",
+    description: "Dedicated attention for rapid progress.",
+    features: [
+      "35-minute private lessons",
+      "One-on-one sessions",
+      "Experienced teachers",
+      "Aged 4 and over",
+      "Flexible timing options",
+    ],
+    popular: false,
+    gradient: "from-green-500/20 to-emerald-500/20",
+    icon: <Users className="w-6 h-6" />,
+  },
+  {
+    name: "Online Classes",
+    price: "$60",
+    period: "/month",
+    description: "Learn from the comfort of your home.",
+    features: [
+      "Mon to Wed & Friday",
+      "5:00 PM to 6:15 PM",
+      "Quran classes for children",
+      "Aged 5 and over",
+      "Interactive digital platform",
+    ],
+    popular: false,
+    gradient: "from-red-500/20 to-rose-500/20",
+    icon: <Laptop className="w-6 h-6" />,
   },
 ];
 
@@ -79,13 +110,13 @@ const PricingPlans = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {plans.map((plan, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -10 }}
               className={`
                 relative p-8 rounded-3xl border backdrop-blur-xl flex flex-col h-full
@@ -98,7 +129,7 @@ const PricingPlans = () => {
               `}
             >
               {plan.popular && (
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-accent text-primary font-bold px-4 py-1 rounded-full text-sm shadow-lg">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-accent text-primary font-bold px-4 py-1 rounded-full text-sm shadow-lg uppercase">
                   Most Popular
                 </div>
               )}
@@ -124,7 +155,7 @@ const PricingPlans = () => {
                 <span className="text-4xl font-bold text-white">
                   {plan.price}
                 </span>
-                <span className="text-gray-400">{plan.period}</span>
+                <span className="text-gray-400 font-medium">{plan.period}</span>
               </div>
 
               {/* Features */}
@@ -134,24 +165,26 @@ const PricingPlans = () => {
                     <div className="mt-1 w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
                       <Check className="w-3 h-3 text-accent" />
                     </div>
-                    <span className="text-gray-300 text-sm">{feature}</span>
+                    <span className="text-gray-300 text-sm leading-snug">
+                      {feature}
+                    </span>
                   </li>
                 ))}
               </ul>
 
               {/* Action */}
               <Link
-                href="/admissions"
+                href="/enroll"
                 className={`
-                  w-full py-4 rounded-xl font-bold text-center transition-all duration-300
+                  w-full py-4 rounded-xl font-bold text-center transition-all duration-300 shadow-md active:scale-95
                   ${
                     plan.popular
                       ? "bg-accent text-primary hover:bg-white"
-                      : "bg-white/5 text-white border border-white/10 hover:bg-white/10"
+                      : "bg-white/10 text-white border border-white/10 hover:bg-white/20"
                   }
                 `}
               >
-                Choose Plan
+                Enroll Now
               </Link>
             </motion.div>
           ))}

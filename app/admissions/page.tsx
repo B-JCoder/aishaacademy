@@ -4,6 +4,7 @@ import AdmissionsForm from "@/components/sections/admissions-form";
 import FAQSection from "@/components/sections/faq";
 import PagesHero from "@/components/sections/pageshero";
 import { CheckCircle, FileText, CreditCard, GraduationCap } from "lucide-react";
+import PricingPlans from "@/components/sections/PricingPlans";
 
 export default function AdmissionsPage() {
   return (
@@ -70,113 +71,7 @@ export default function AdmissionsPage() {
       </section>
 
       {/* Fee Structure */}
-      <section className="py-20 bg-muted/50">
-        <div className="max-w-7xl mx-auto px-5 sm:px-10">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold font-serif text-primary mb-4">
-              Fee Structure
-            </h2>
-            <p className="text-muted-foreground">
-              Affordable quality education for everyone
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white dark:bg-card p-8 rounded-3xl shadow-sm border border-border">
-              <h3 className="text-xl font-bold text-primary mb-2">
-                Group Classes
-              </h3>
-              <div className="text-4xl font-bold text-accent mb-4">
-                $50
-                <span className="text-base text-muted-foreground font-normal">
-                  /mo
-                </span>
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex gap-2 items-center text-sm">
-                  <CheckCircle className="w-4 h-4 text-green-500" /> 3 Days /
-                  Week
-                </li>
-                <li className="flex gap-2 items-center text-sm">
-                  <CheckCircle className="w-4 h-4 text-green-500" /> Small
-                  Groups
-                </li>
-                <li className="flex gap-2 items-center text-sm">
-                  <CheckCircle className="w-4 h-4 text-green-500" /> Online or
-                  Physical
-                </li>
-              </ul>
-              <a
-                href="#admission-form"
-                className="block text-center py-3 rounded-xl border border-primary text-primary font-bold hover:bg-primary hover:text-white transition-all"
-              >
-                Select Plan
-              </a>
-            </div>
-            <div className="bg-primary text-white p-8 rounded-3xl shadow-xl transform md:-translate-y-4 relative">
-              <div className="absolute top-0 right-0 bg-accent text-primary text-xs font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl">
-                POPULAR
-              </div>
-              <h3 className="text-xl font-bold mb-2">Private 1-on-1</h3>
-              <div className="text-4xl font-bold text-accent mb-4">
-                $100
-                <span className="text-base text-white/60 font-normal">/mo</span>
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex gap-2 items-center text-sm">
-                  <CheckCircle className="w-4 h-4 text-accent" /> Flexible
-                  Schedule
-                </li>
-                <li className="flex gap-2 items-center text-sm">
-                  <CheckCircle className="w-4 h-4 text-accent" /> Individual
-                  Attention
-                </li>
-                <li className="flex gap-2 items-center text-sm">
-                  <CheckCircle className="w-4 h-4 text-accent" /> Customized
-                  Pace
-                </li>
-              </ul>
-              <a
-                href="#admission-form"
-                className="block text-center py-3 rounded-xl bg-accent text-primary font-bold hover:bg-white transition-all shadow-lg"
-              >
-                Select Plan
-              </a>
-            </div>
-            <div className="bg-white dark:bg-card p-8 rounded-3xl shadow-sm border border-border">
-              <h3 className="text-xl font-bold text-primary mb-2">
-                Hifz Program
-              </h3>
-              <div className="text-4xl font-bold text-accent mb-4">
-                $120
-                <span className="text-base text-muted-foreground font-normal">
-                  /mo
-                </span>
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex gap-2 items-center text-sm">
-                  <CheckCircle className="w-4 h-4 text-green-500" /> 5 Days /
-                  Week
-                </li>
-                <li className="flex gap-2 items-center text-sm">
-                  <CheckCircle className="w-4 h-4 text-green-500" /> Intensive
-                  Monitoring
-                </li>
-                <li className="flex gap-2 items-center text-sm">
-                  <CheckCircle className="w-4 h-4 text-green-500" /> Ijaza
-                  Tracks
-                </li>
-              </ul>
-              <a
-                href="#admission-form"
-                className="block text-center py-3 rounded-xl border border-primary text-primary font-bold hover:bg-primary hover:text-white transition-all"
-              >
-                Select Plan
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PricingPlans />
 
       {/* Form Section */}
       <AdmissionsForm />

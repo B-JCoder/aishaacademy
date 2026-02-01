@@ -23,8 +23,9 @@ const page = () => {
       <WhyUs />
 
       <ProcessFlow />
-      <PricingPlans />
       <Testimonials />
+      <PricingPlans />
+
       <CtaBanner />
       <FAQSection />
       <GoogleMap />
