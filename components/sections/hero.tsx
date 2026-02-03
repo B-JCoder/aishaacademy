@@ -64,7 +64,7 @@ export default function HeroSection() {
                     src="/images/islamic-pattern-bg.png"
                     alt="Pattern"
                     fill
-                    className="object-cover"
+                    className="object-cover border rounded-[3rem]"
                   />
                 </div>
 

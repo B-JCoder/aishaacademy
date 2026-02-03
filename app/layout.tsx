@@ -11,6 +11,7 @@ import {
 import { Noto_Nastaliq_Urdu } from "next/font/google";
 import "./globals.css";
 import WhatsappButton from "@/components/ui/whatsapp-button";
+import Script from "next/script";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -71,6 +72,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${notoNastaliq.variable}`}>
+      <head>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-9283Z62J9W"
+        />
+        <Script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-9283Z62J9W');
+          `}
+        </Script>
+      </head>
       <body
         className={`${playfair.variable} ${inter.variable} ${amiri.variable} ${scheherazade.variable} ${lateef.variable} ${notoNaskh.variable} ${poppins.variable} font-sans antialiased`}
       >
