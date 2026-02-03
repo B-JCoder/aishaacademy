@@ -1,9 +1,15 @@
-"use client";
 import React from "react";
+import { Metadata } from "next";
 import Navbar from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import Pricing from "@/components/sections/pricing";
 import FAQSection from "@/components/sections/faq";
+
+export const metadata: Metadata = {
+  title: "Pricing & Plans",
+  description:
+    "Affordable Quran and Islamic studies plans for families in Montreal and online. Quality education that fits your budget.",
+};
 
 export default function PricingPage() {
   return (

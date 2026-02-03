@@ -1,5 +1,5 @@
-"use client";
 import React from "react";
+import { Metadata } from "next";
 import Navbar from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import Testimonials from "@/components/sections/testimonials";
@@ -17,6 +17,12 @@ import Link from "next/link";
 import Image from "next/image";
 import FAQSection from "@/components/sections/faq";
 import PagesHero from "@/components/sections/pageshero";
+
+export const metadata: Metadata = {
+  title: "About Our Academy",
+  description:
+    "Learn about Aisha Academy's mission, history, and our commitment to providing excellence in Quranic education in Montreal since 2015.",
+};
 
 export default function AboutPage() {
   return (

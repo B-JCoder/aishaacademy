@@ -63,9 +63,63 @@ export const notoNastaliq = Noto_Nastaliq_Urdu({
 });
 
 export const metadata: Metadata = {
-  title: "Aisha Academy | Young Hearts with the Quran",
+  metadataBase: new URL("https://aisha-academy.com"),
+  title: {
+    default: "Aisha Academy | Leading Quran & Islamic Institute in Montreal",
+    template: "%s | Aisha Academy",
+  },
   description:
-    "Trusted Quran education for children in Montreal. Online and physical classes available.",
+    "Trusted Quran education for children in Montreal and worldwide. Online and physical classes focusing on Tilawah, Tajweed, and character building (Tarbiyah).",
+  keywords: [
+    "Quran classes Montreal",
+    "Islamic school Montreal",
+    "Online Quran Academy",
+    "Tajweed for children",
+    "Islamic education Montreal",
+    "Aisha Academy",
+    "Quran hifz Montreal",
+    "Arabic classes for kids",
+  ],
+  authors: [{ name: "Aisha Academy" }],
+  creator: "Aisha Academy",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://aisha-academy.com",
+    title: "Aisha Academy | Leading Quran & Islamic Institute in Montreal",
+    description:
+      "Expert Quran and Islamic studies for kids. Nurturing young hearts with the light of the Quran since 2015.",
+    siteName: "Aisha Academy",
+    images: [
+      {
+        url: "/images/img3.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Aisha Academy Students",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Aisha Academy | Young Hearts with the Quran",
+    description:
+      "Trusted Quran education for children. Online and physical classes available.",
+    images: ["/images/img3.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    google: "tuAS_SdU7pnZuwUBr0LQwfqP7Et_c_cVf39FkR8a0lo",
+  },
 };
 
 export default function RootLayout({
