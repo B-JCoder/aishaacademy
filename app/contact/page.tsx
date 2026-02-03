@@ -1,12 +1,38 @@
 "use client";
-import React from "react";
+
+import React, { useState } from "react";
 import Navbar from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import FAQSection from "@/components/sections/faq";
 import PagesHero from "@/components/sections/pageshero";
-import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Send, Loader2 } from "lucide-react";
+import { sendContactEmail } from "@/app/actions/send-email";
+import { toast } from "sonner";
 
 export default function ContactPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setIsSubmitting(true);
+
+    const formData = new FormData(event.currentTarget);
+
+    try {
+      const result = await sendContactEmail(formData);
+      if (result.success) {
+        toast.success("Message sent successfully! We'll get back to you soon.");
+        (event.target as HTMLFormElement).reset();
+      } else {
+        toast.error(result.error || "Failed to send message.");
+      }
+    } catch (error) {
+      toast.error("An unexpected error occurred.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
   return (
     <main className="bg-white dark:bg-gray-950 overflow-hidden min-h-screen">
       <Navbar />
@@ -111,7 +137,7 @@ export default function ContactPage() {
               <h3 className="text-2xl font-bold font-serif text-primary dark:text-white mb-6">
                 Send a Message
               </h3>
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label
@@ -123,6 +149,8 @@ export default function ContactPage() {
                     <input
                       type="text"
                       id="name"
+                      name="name"
+                      required
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all bg-gray-50 dark:bg-gray-800"
                       placeholder="John Doe"
                     />
@@ -137,6 +165,8 @@ export default function ContactPage() {
                     <input
                       type="tel"
                       id="phone"
+                      name="phone"
+                      required
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all bg-gray-50 dark:bg-gray-800"
                       placeholder="+1 (555) 000-0000"
                     />
@@ -152,6 +182,8 @@ export default function ContactPage() {
                   <input
                     type="email"
                     id="email"
+                    name="email"
+                    required
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all bg-gray-50 dark:bg-gray-800"
                     placeholder="email@example.com"
                   />
@@ -165,13 +197,15 @@ export default function ContactPage() {
                   </label>
                   <select
                     id="inquiry"
+                    name="inquiry"
+                    required
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all bg-gray-50 dark:bg-gray-800"
                   >
-                    <option>General Inquiry</option>
-                    <option>Admissions</option>
-                    <option>Online Classes</option>
-                    <option>Physical Campus</option>
-                    <option>Jobs/Careers</option>
+                    <option value="General Inquiry">General Inquiry</option>
+                    <option value="Admissions">Admissions</option>
+                    <option value="Online Classes">Online Classes</option>
+                    <option value="Physical Campus">Physical Campus</option>
+                    <option value="Jobs/Careers">Jobs/Careers</option>
                   </select>
                 </div>
                 <div className="space-y-2">
@@ -183,6 +217,8 @@ export default function ContactPage() {
                   </label>
                   <textarea
                     id="message"
+                    name="message"
+                    required
                     rows={4}
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all bg-gray-50 dark:bg-gray-800 resize-none"
                     placeholder="How can we help you?"
@@ -190,9 +226,19 @@ export default function ContactPage() {
                 </div>
                 <button
                   type="submit"
-                  className="w-full py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-all shadow-lg flex items-center justify-center gap-2"
+                  disabled={isSubmitting}
+                  className="w-full py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-all shadow-lg flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  Send Message <Send className="w-4 h-4" />
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      Sending Message...
+                    </>
+                  ) : (
+                    <>
+                      Send Message <Send className="w-4 h-4" />
+                    </>
+                  )}
                 </button>
               </form>
             </div>

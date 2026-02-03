@@ -1,12 +1,37 @@
 "use client";
 
 import React, { useState } from "react";
-import { Check, ChevronDown, Monitor, MapPin } from "lucide-react";
+import { Check, ChevronDown, Monitor, MapPin, Loader2 } from "lucide-react";
+import { sendEnrollmentEmail } from "@/app/actions/send-email";
+import { toast } from "sonner";
 
 export default function AdmissionsForm() {
   const [learningMode, setLearningMode] = useState<"online" | "physical">(
     "online",
   );
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setIsSubmitting(true);
+
+    const formData = new FormData(event.currentTarget);
+    formData.append("learningMode", learningMode);
+
+    try {
+      const result = await sendEnrollmentEmail(formData);
+      if (result.success) {
+        toast.success("Enrollment application sent successfully!");
+        (event.target as HTMLFormElement).reset();
+      } else {
+        toast.error(result.error || "Failed to send application.");
+      }
+    } catch (error) {
+      toast.error("An unexpected error occurred.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
 
   return (
     <section
@@ -33,6 +58,7 @@ export default function AdmissionsForm() {
           <div className="grid grid-cols-2 border-b border-gray-100 dark:border-gray-700">
             <button
               onClick={() => setLearningMode("online")}
+              type="button"
               className={`p-6 flex flex-col sm:flex-row items-center justify-center gap-3 transition-all duration-300 ${
                 learningMode === "online"
                   ? "bg-primary/5 text-primary border-b-2 border-primary"
@@ -51,6 +77,7 @@ export default function AdmissionsForm() {
             </button>
             <button
               onClick={() => setLearningMode("physical")}
+              type="button"
               className={`p-6 flex flex-col sm:flex-row items-center justify-center gap-3 transition-all duration-300 ${
                 learningMode === "physical"
                   ? "bg-primary/5 text-primary border-b-2 border-primary"
@@ -69,7 +96,7 @@ export default function AdmissionsForm() {
             </button>
           </div>
 
-          <form className="p-6 sm:p-12 space-y-8">
+          <form onSubmit={handleSubmit} className="p-6 sm:p-12 space-y-8">
             {/* Personal Information */}
             <div className="space-y-6">
               <h3 className="text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
@@ -90,6 +117,8 @@ export default function AdmissionsForm() {
                   <input
                     type="text"
                     id="studentName"
+                    name="studentName"
+                    required
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-gray-400"
                     placeholder="Enter student's full name"
                   />
@@ -104,6 +133,8 @@ export default function AdmissionsForm() {
                   <input
                     type="number"
                     id="age"
+                    name="age"
+                    required
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-gray-400"
                     placeholder="Student's age"
                   />
@@ -118,6 +149,8 @@ export default function AdmissionsForm() {
                   <div className="relative">
                     <select
                       id="gender"
+                      name="gender"
+                      required
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all appearance-none text-gray-700 dark:text-gray-200"
                     >
                       <option value="">Select gender</option>
@@ -150,6 +183,8 @@ export default function AdmissionsForm() {
                   <input
                     type="text"
                     id="parentName"
+                    name="parentName"
+                    required
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-gray-400"
                     placeholder="Parent's full name"
                   />
@@ -164,6 +199,8 @@ export default function AdmissionsForm() {
                   <input
                     type="email"
                     id="email"
+                    name="email"
+                    required
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-gray-400"
                     placeholder="email@example.com"
                   />
@@ -178,6 +215,8 @@ export default function AdmissionsForm() {
                   <input
                     type="tel"
                     id="phone"
+                    name="phone"
+                    required
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-gray-400"
                     placeholder="+1 (555) 000-0000"
                   />
@@ -192,6 +231,8 @@ export default function AdmissionsForm() {
                   <input
                     type="text"
                     id="city"
+                    name="city"
+                    required
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-gray-400"
                     placeholder="e.g. Montreal"
                   />
@@ -220,6 +261,8 @@ export default function AdmissionsForm() {
                   <div className="relative">
                     <select
                       id="course"
+                      name="course"
+                      required
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all appearance-none text-gray-700 dark:text-gray-200"
                     >
                       <option value="">Choose a program...</option>
@@ -243,6 +286,8 @@ export default function AdmissionsForm() {
                   <div className="relative">
                     <select
                       id="preferredDays"
+                      name="preferredDays"
+                      required
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all appearance-none text-gray-700 dark:text-gray-200"
                     >
                       <option value="weekdays">Weekdays (Mon-Fri)</option>
@@ -263,6 +308,8 @@ export default function AdmissionsForm() {
                   <div className="relative">
                     <select
                       id="preferredTime"
+                      name="preferredTime"
+                      required
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all appearance-none text-gray-700 dark:text-gray-200"
                     >
                       <option value="morning">Morning</option>
@@ -284,6 +331,7 @@ export default function AdmissionsForm() {
               </label>
               <textarea
                 id="message"
+                name="message"
                 rows={4}
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-gray-400 resize-none"
                 placeholder="Any specific requirements or questions?"
@@ -292,10 +340,20 @@ export default function AdmissionsForm() {
 
             <button
               type="submit"
-              className="w-full py-4 px-8 bg-primary hover:bg-primary/90 text-white font-bold rounded-xl shadow-lg shadow-primary/20 transition-all transform hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-2"
+              disabled={isSubmitting}
+              className="w-full py-4 px-8 bg-primary hover:bg-primary/90 text-white font-bold rounded-xl shadow-lg shadow-primary/20 transition-all transform hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
             >
-              <span>Submit Application</span>
-              <Check className="w-5 h-5" />
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                  <span>Sending Application...</span>
+                </>
+              ) : (
+                <>
+                  <span>Submit Application</span>
+                  <Check className="w-5 h-5" />
+                </>
+              )}
             </button>
             <p className="text-center text-sm text-gray-500">
               We will contact you within 24 hours to confirm your enrollment

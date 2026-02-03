@@ -12,6 +12,7 @@ import { Noto_Nastaliq_Urdu } from "next/font/google";
 import "./globals.css";
 import WhatsappButton from "@/components/ui/whatsapp-button";
 import Script from "next/script";
+import { Toaster } from "sonner";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -92,6 +93,7 @@ export default function RootLayout({
       >
         {children}
         <WhatsappButton />
+        <Toaster position="top-center" richColors />
       </body>
     </html>
   );
