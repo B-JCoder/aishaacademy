@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/admin/", "/api/"], // Protecting sensitive or internal routes
+      disallow: ["/admin/", "/api/"],
     },
     sitemap: "https://aisha-academy.com/sitemap.xml",
   };

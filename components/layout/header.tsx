@@ -3,14 +3,43 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
+import { usePathname } from "next/navigation";
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  lang?: string;
+  dict?: any;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ lang = "es", dict }) => {
   const [openNavbar, setOpenNavbar] = useState(false);
+  const pathname = usePathname();
+
+  const navigation = dict?.navigation || {
+    home: "Inicio",
+    about: "Nosotros",
+    programs: "Programas",
+    onlineClasses: "Clases Online",
+    physicalClasses: "Clases Físicas",
+    admissions: "Admisiones",
+    contact: "Contacto",
+    enrollNow: "Inscríbete",
+  };
+
+  const getLocalizedHref = (href: string) => {
+    return `/${lang}${href === "/" ? "" : href}`;
+  };
+
+  const toggleLanguage = () => {
+    const newLang = lang === "es" ? "en" : "es";
+    // Replace the locale part of the pathname
+    const segments = pathname.split("/");
+    segments[1] = newLang;
+    return segments.join("/");
+  };
 
   return (
     <header className="fixed top-0 left-0 w-full z-50">
-      {/* Glass Navbar */}
       <nav className="mx-auto lg:max-w-[1400px] w-full px-5 sm:px-10 md:px-12 lg:px-5">
         <div
           className="flex h-20 items-center justify-between rounded-b-3xl
@@ -18,8 +47,10 @@ const Navbar: React.FC = () => {
           shadow-[0_10px_40px_rgba(0,0,0,0.35)] px-6"
         >
           {/* LOGO */}
-          <Link href="/" className="relative flex items-center">
-            {/* soft glow */}
+          <Link
+            href={getLocalizedHref("/")}
+            className="relative flex items-center"
+          >
             <span className="absolute -inset-2 rounded-full bg-accent/20 blur-xl"></span>
             <Image
               src="/images/logo-bg-re.png"
@@ -32,20 +63,19 @@ const Navbar: React.FC = () => {
           </Link>
 
           {/* DESKTOP MENU */}
-          <ul className="hidden lg:flex gap-8 items-center text-white/90 font-medium">
+          <ul className="hidden lg:flex gap-6 items-center text-white/90 font-medium">
             {[
-              ["Home", "/"],
-              ["About", "/about"],
-              ["Programs", "/programs"],
-              ["Online Classes", "/online-classes"],
-              ["Physical Classes", "/physical-classes"],
-
-              ["Admissions", "/admissions"],
-              ["Contact", "/contact"],
+              [navigation.home, "/"],
+              [navigation.about, "/about"],
+              [navigation.programs, "/programs"],
+              [navigation.onlineClasses, "/online-classes"],
+              [navigation.physicalClasses, "/physical-classes"],
+              [navigation.admissions, "/admissions"],
+              [navigation.contact, "/contact"],
             ].map(([label, href]) => (
               <li key={label}>
                 <Link
-                  href={href}
+                  href={getLocalizedHref(href)}
                   className="relative hover:text-accent transition
                   after:absolute after:left-0 after:-bottom-1 after:h-[2px]
                   after:w-0 after:bg-accent after:transition-all
@@ -57,29 +87,49 @@ const Navbar: React.FC = () => {
             ))}
           </ul>
 
-          {/* DESKTOP CTA */}
-          <Link
-            href="/admissions"
-            className="hidden lg:flex items-center h-11 px-7 rounded-full
-            bg-accent text-primary font-bold
-            shadow-[0_4px_10px_#623F2F] hover:shadow-accent/60
-            hover:-translate-y-0.5 active:scale-95 transition"
-          >
-            Enroll Now
-          </Link>
+          <div className="hidden lg:flex items-center gap-4">
+            {/* Language Switcher */}
+            <Link
+              href={toggleLanguage()}
+              className="flex items-center gap-2 text-white/90 hover:text-accent font-medium px-3 py-1.5 rounded-full border border-white/10 bg-white/5 transition"
+            >
+              <Globe className="w-4 h-4" />
+              <span>{lang === "es" ? "EN" : "ES"}</span>
+            </Link>
+
+            {/* DESKTOP CTA */}
+            <Link
+              href={getLocalizedHref("/admissions")}
+              className="flex items-center h-11 px-7 rounded-full
+              bg-accent text-primary font-bold
+              shadow-[0_4px_10px_#623F2F] hover:shadow-accent/60
+              hover:-translate-y-0.5 active:scale-95 transition"
+            >
+              {navigation.enrollNow}
+            </Link>
+          </div>
 
           {/* HAMBURGER */}
-          <button
-            onClick={() => setOpenNavbar(!openNavbar)}
-            className="lg:hidden p-2 text-white/80 hover:text-accent transition-colors active:scale-95"
-            aria-label="Toggle Menu"
-          >
-            {openNavbar ? (
-              <X className="w-8 h-8" />
-            ) : (
-              <Menu className="w-8 h-8" />
-            )}
-          </button>
+          <div className="flex items-center gap-3 lg:hidden">
+            <Link
+              href={toggleLanguage()}
+              className="flex items-center gap-1.5 text-white/90 hover:text-accent font-medium px-3 py-1 rounded-full border border-white/10 bg-white/5 transition"
+            >
+              <Globe className="w-4 h-4" />
+              <span className="text-sm">{lang === "es" ? "EN" : "ES"}</span>
+            </Link>
+            <button
+              onClick={() => setOpenNavbar(!openNavbar)}
+              className="p-2 text-white/80 hover:text-accent transition-colors active:scale-95"
+              aria-label="Toggle Menu"
+            >
+              {openNavbar ? (
+                <X className="w-8 h-8" />
+              ) : (
+                <Menu className="w-8 h-8" />
+              )}
+            </button>
+          </div>
         </div>
 
         {/* MOBILE MENU */}
@@ -90,18 +140,17 @@ const Navbar: React.FC = () => {
           >
             <ul className="flex flex-col gap-4 text-white/90">
               {[
-                ["Home", "/"],
-                ["About", "/about"],
-                ["Programs", "/programs"],
-                ["Online Classes", "/online-classes"],
-                ["Physical Classes", "/physical-classes"],
-
-                ["Admissions", "/admissions"],
-                ["Contact", "/contact"],
+                [navigation.home, "/"],
+                [navigation.about, "/about"],
+                [navigation.programs, "/programs"],
+                [navigation.onlineClasses, "/online-classes"],
+                [navigation.physicalClasses, "/physical-classes"],
+                [navigation.admissions, "/admissions"],
+                [navigation.contact, "/contact"],
               ].map(([label, href]) => (
                 <li key={label}>
                   <Link
-                    href={href}
+                    href={getLocalizedHref(href)}
                     onClick={() => setOpenNavbar(false)}
                     className="block py-2 hover:text-accent transition"
                   >
@@ -112,12 +161,12 @@ const Navbar: React.FC = () => {
             </ul>
 
             <Link
-              href="/admissions"
+              href={getLocalizedHref("/admissions")}
               onClick={() => setOpenNavbar(false)}
               className="mt-5 flex justify-center items-center h-12 rounded-full
               bg-accent text-primary font-bold shadow-[0_4px_10px_#623F2F] active:scale-95 transition-transform"
             >
-              Enroll Now
+              {navigation.enrollNow}
             </Link>
           </div>
         )}

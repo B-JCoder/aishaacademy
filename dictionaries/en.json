@@ -1,0 +1,29 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "programs": "Programs",
+    "onlineClasses": "Online Classes",
+    "physicalClasses": "Physical Classes",
+    "admissions": "Admissions",
+    "contact": "Contact",
+    "enrollNow": "Enroll Now"
+  },
+  "hero": {
+    "title": "Young Hearts with the Quran",
+    "description": "Trusted Quran education for children aged 4+. Online & Physical classes in Montreal.",
+    "enrollNow": "Enroll Now",
+    "contactUs": "Contact Us",
+    "admissionsOpen": "Admissions Open – 2026",
+    "ayatTranslation": "\"And Allah is with you and will never deprive you of [the reward of] your deeds.\"",
+    "surahRef": "Surah Muhammad [47:35]",
+    "online": "Online",
+    "physical": "Physical",
+    "typedStrings": [
+      "Aisha Academy",
+      "Quran Education",
+      "Islamic Studies",
+      "Character Building"
+    ]
+  }
+}

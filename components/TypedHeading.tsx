@@ -4,17 +4,18 @@ import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Typed from "typed.js";
 
-const TypedHeading: React.FC = () => {
+interface TypedHeadingProps {
+  strings?: string[];
+}
+
+const TypedHeading: React.FC<TypedHeadingProps> = ({
+  strings = ["Aisha Academy", "Quran Education", "Islamic Studies"],
+}) => {
   const typedRef = useRef<HTMLSpanElement | null>(null);
 
   useEffect(() => {
     const options = {
-      strings: [
-        "Aisha Academy",
-        "Quran Education",
-        "Islamic Studies",
-        "Character Building",
-      ],
+      strings: strings,
       typeSpeed: 70,
       backSpeed: 40,
       backDelay: 1200,

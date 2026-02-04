@@ -6,8 +6,27 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import TypedHeading from "@/components/TypedHeading";
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  dict?: any;
+}
+
+export default function HeroSection({ dict }: HeroSectionProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  const hero = dict || {
+    title: "Young Hearts with the Quran",
+    description:
+      "Trusted Quran education for children aged 4+. Online & Physical classes in Montreal.",
+    enrollNow: "Enroll Now",
+    contactUs: "Contact Us",
+    admissionsOpen: "Admissions Open – 2026",
+    ayatTranslation:
+      '"And Allah is with you and will never deprive you of [the reward of] your deeds."',
+    surahRef: "Surah Muhammad [47:35]",
+    online: "Online",
+    physical: "Physical",
+    typedStrings: ["Aisha Academy", "Quran Education", "Islamic Studies"],
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -61,7 +80,7 @@ export default function HeroSection() {
                 {/* Decorative Pattern Background */}
                 <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
                   <Image
-                    src="/images/islamic-pattern-bg.png"
+                    src="/images/herosectionayat.png"
                     alt="Pattern"
                     fill
                     className="object-cover border rounded-[3rem]"
@@ -69,7 +88,7 @@ export default function HeroSection() {
                 </div>
 
                 {/* Ayat Calligraphy */}
-                <div className="relative z-10 w-full aspect-[2/1] max-h-[220px] mb-6">
+                <div className="relative z-10 w-full aspect-[2/1] max-h-[1020px] mb-6">
                   <motion.div
                     className="relative w-full h-full"
                     animate={{
@@ -82,10 +101,10 @@ export default function HeroSection() {
                     }}
                   >
                     <Image
-                      src="/images/ayat_hero_bold.png"
+                      src="/images/heroayatf.png"
                       alt="Ayat Al-Quran"
                       fill
-                      className="object-contain drop-shadow-[0_10px_25px_rgba(0,0,0,0.5)] brightness-110 filter invert-[0.1]"
+                      className="object-cover drop-shadow-[0_10px_25px_rgba(0,0,0,0.5)] brightness-110 filter invert-[0.1]"
                       priority
                     />
                   </motion.div>
@@ -99,8 +118,7 @@ export default function HeroSection() {
                   className="relative z-10 text-center space-y-2"
                 >
                   <p className="text-white/90 text-sm sm:text-lg md:text-xl font-medium tracking-wide italic max-w-2xl leading-relaxed">
-                    "And Allah is with you and will never deprive you of [the
-                    reward of] your deeds."
+                    {hero.ayatTranslation}
                   </p>
                   <div className="w-16 h-[1px] bg-accent/50 mx-auto mt-4" />
                 </motion.div>
@@ -117,7 +135,7 @@ export default function HeroSection() {
                 className="text-center mt-10"
               >
                 <div className="inline-block px-8 py-3 rounded-full bg-white/10 border border-white/20 text-white font-medium text-sm sm:text-lg backdrop-blur-md shadow-xl">
-                  Surah Muhammad [47:35]
+                  {hero.surahRef}
                 </div>
               </motion.div>
             </div>
@@ -144,15 +162,13 @@ export default function HeroSection() {
                 {/* LEFT */}
                 <div className="text-center lg:text-left space-y-6">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/30 text-accent text-xs sm:text-sm">
-                    Admissions Open – 2026
+                    {hero.admissionsOpen}
                   </div>
 
-                  <TypedHeading />
+                  <TypedHeading strings={hero.typedStrings} />
 
                   <p className="text-gray-200 max-w-xl mx-auto lg:mx-0 text-sm sm:text-base lg:text-lg">
-                    Trusted Quran education for children aged 4+. Online &
-                    Physical classes in{" "}
-                    <span className="text-white font-semibold">Montreal</span>.
+                    {hero.description}
                   </p>
 
                   <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start pt-2">
@@ -161,14 +177,14 @@ export default function HeroSection() {
                       className="h-12 px-6 rounded-full bg-accent text-primary font-bold text-sm
                       flex items-center justify-center hover:scale-105 transition shadow-[0_4px_6px_#623F2F]"
                     >
-                      Enroll Now
+                      {hero.enrollNow}
                     </Link>
                     <Link
                       href="/contact"
                       className="h-12 px-6 rounded-full bg-white/10 border border-white/20
                       text-white font-bold text-sm flex items-center justify-center shadow-[0_4px_6px_#623F2F]"
                     >
-                      Contact Us
+                      {hero.contactUs}
                     </Link>
                   </div>
                 </div>
@@ -202,7 +218,7 @@ export default function HeroSection() {
                           <div className="absolute bottom-0 inset-x-0 p-2 sm:p-3">
                             <div className="flex justify-between items-center bg-primary/70 backdrop-blur-md rounded-lg px-3 py-2 text-xs sm:text-sm">
                               <span className="text-white font-semibold">
-                                Online
+                                {hero.online}
                               </span>
                               <span className="bg-accent text-primary px-2 py-0.5 rounded-full font-bold">
                                 →
@@ -241,7 +257,7 @@ export default function HeroSection() {
                           <div className="absolute bottom-0 inset-x-0 p-2 sm:p-3">
                             <div className="flex justify-between items-center bg-primary/70 backdrop-blur-md rounded-lg px-3 py-2 text-xs sm:text-sm">
                               <span className="text-white font-semibold">
-                                Physical
+                                {hero.physical}
                               </span>
                               <span className="bg-accent text-primary px-2 py-0.5 rounded-full font-bold">
                                 →

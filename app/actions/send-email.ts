@@ -5,21 +5,21 @@ import { createClient } from "@/utils/supabase/server";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const adminEmail =
-  process.env.NEXT_PUBLIC_ADMIN_EMAIL || "info@aisha-academy.com";
+  process.env.NEXT_PUBLIC_ADMIN_EMAIL || "info@aishaacademy.com";
 
 export async function sendEnrollmentEmail(formData: FormData) {
   const studentName = formData.get("studentName") as string;
-  const age = formData.get("age") as string;
-  const gender = formData.get("gender") as string;
   const parentName = formData.get("parentName") as string;
   const email = formData.get("email") as string;
   const phone = formData.get("phone") as string;
-  const city = formData.get("city") as string;
-  const course = formData.get("course") as string;
-  const preferredDays = formData.get("preferredDays") as string;
-  const preferredTime = formData.get("preferredTime") as string;
+  const program = formData.get("program") as string;
+  const plan = formData.get("plan") as string;
   const message = formData.get("message") as string;
-  const learningMode = formData.get("learningMode") as string;
+
+  console.log("--- NEW ENROLLMENT ATTEMPT ---");
+  console.log("Student:", studentName);
+  console.log("Parent:", parentName);
+  console.log("Program:", program);
 
   try {
     // 1. Save to Supabase
@@ -27,67 +27,39 @@ export async function sendEnrollmentEmail(formData: FormData) {
     const { error: dbError } = await supabase.from("enrollments").insert([
       {
         student_name: studentName,
-        age: parseInt(age),
-        gender,
         parent_name: parentName,
         email,
         phone,
-        city,
-        course,
-        preferred_days: preferredDays,
-        preferred_time: preferredTime,
+        program,
+        plan,
         message,
-        learning_mode: learningMode,
+        status: "pending",
       },
     ]);
 
     if (dbError) {
       console.error("Database Error:", dbError);
+    } else {
+      console.log("Successfully saved to Supabase (enrollments)");
     }
 
-    // 2. Send Email
+    // 2. Send Email via Resend
     console.log("Attempting to send email via Resend to:", adminEmail);
     const { data, error } = await resend.emails.send({
-      from: "Aisha Academy <info@aisha-academy.com>",
-      to: [adminEmail],
-      replyTo: email,
+      from: "Aisha Academy <admissions@aisha-academy.com>",
+      to: adminEmail,
       subject: `New Enrollment Application: ${studentName}`,
       html: `
-        <div style="font-family: sans-serif; max-width: 600px; margin: auto; border: 1px solid #eee; padding: 20px; border-radius: 10px;">
-          <h2 style="color: #2D3748; border-bottom: 2px solid #E2E8F0; padding-bottom: 10px;">New Enrollment Received</h2>
-          
-          <div style="margin-top: 20px;">
-            <h3 style="color: #4A5568;">Student Information</h3>
-            <p><strong>Name:</strong> ${studentName}</p>
-            <p><strong>Age:</strong> ${age}</p>
-            <p><strong>Gender:</strong> ${gender}</p>
-            <p><strong>Learning Mode:</strong> ${learningMode}</p>
-          </div>
-
-          <div style="margin-top: 20px;">
-            <h3 style="color: #4A5568;">Parent Details</h3>
-            <p><strong>Name:</strong> ${parentName}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Phone:</strong> ${phone}</p>
-            <p><strong>City:</strong> ${city}</p>
-          </div>
-
-          <div style="margin-top: 20px;">
-            <h3 style="color: #4A5568;">Course Preferences</h3>
-            <p><strong>Program:</strong> ${course}</p>
-            <p><strong>Preferred Days:</strong> ${preferredDays}</p>
-            <p><strong>Preferred Time:</strong> ${preferredTime}</p>
-          </div>
-
-          <div style="margin-top: 20px;">
-            <h3 style="color: #4A5568;">Message/Notes</h3>
-            <p>${message || "No additional notes provided."}</p>
-          </div>
-
-          <div style="margin-top: 30px; font-size: 12px; color: #718096; text-align: center;">
-            Sent from Aisha Academy Website
-          </div>
-        </div>
+        <h2>New Enrollment Application</h2>
+        <p><strong>Student Name:</strong> ${studentName}</p>
+        <p><strong>Parent Name:</strong> ${parentName}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Program:</strong> ${program}</p>
+        <p><strong>Plan:</strong> ${plan}</p>
+        <p><strong>Message:</strong> ${message}</p>
+        <hr />
+        <p>This enrollment has been saved to the database.</p>
       `,
     });
 
@@ -111,6 +83,10 @@ export async function sendContactEmail(formData: FormData) {
   const inquiry = formData.get("inquiry") as string;
   const message = formData.get("message") as string;
 
+  console.log("--- NEW CONTACT INQUIRY ---");
+  console.log("Name:", name);
+  console.log("Email:", email);
+
   try {
     // 1. Save to Supabase
     const supabase = await createClient();
@@ -121,40 +97,31 @@ export async function sendContactEmail(formData: FormData) {
         phone,
         inquiry_type: inquiry,
         message,
+        status: "new",
       },
     ]);
 
     if (dbError) {
       console.error("Database Error:", dbError);
+    } else {
+      console.log("Successfully saved to Supabase (contact_inquiries)");
     }
 
-    // 2. Send Email
+    // 2. Send Email via Resend
     console.log("Attempting to send contact email to:", adminEmail);
     const { data, error } = await resend.emails.send({
-      from: "Aisha Academy <info@aisha-academy.com>",
-      to: [adminEmail],
-      replyTo: email,
+      from: "Aisha Academy Contact <info@aisha-academy.com>",
+      to: adminEmail,
       subject: `New Contact Inquiry: ${inquiry} from ${name}`,
       html: `
-        <div style="font-family: sans-serif; max-width: 600px; margin: auto; border: 1px solid #eee; padding: 20px; border-radius: 10px;">
-          <h2 style="color: #2D3748; border-bottom: 2px solid #E2E8F0; padding-bottom: 10px;">New Contact Inquiry</h2>
-          
-          <div style="margin-top: 20px;">
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Phone:</strong> ${phone}</p>
-            <p><strong>Inquiry Type:</strong> ${inquiry}</p>
-          </div>
-
-          <div style="margin-top: 20px;">
-            <h3 style="color: #4A5568;">Message</h3>
-            <p>${message}</p>
-          </div>
-
-          <div style="margin-top: 30px; font-size: 12px; color: #718096; text-align: center;">
-            Sent from Aisha Academy Website
-          </div>
-        </div>
+        <h2>New Contact Inquiry</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Inquiry Type:</strong> ${inquiry}</p>
+        <p><strong>Message:</strong> ${message}</p>
+        <hr />
+        <p>This inquiry has been saved to the database.</p>
       `,
     });
 
@@ -167,6 +134,6 @@ export async function sendContactEmail(formData: FormData) {
     return { success: true, data };
   } catch (err) {
     console.error("Action Catch Error:", err);
-    return { success: false, error: "Failed to send inquiry" };
+    return { success: false, error: "Failed to send message" };
   }
 }

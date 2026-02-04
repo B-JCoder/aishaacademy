@@ -1,0 +1,29 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "about": "Nosotros",
+    "programs": "Programas",
+    "onlineClasses": "Clases Online",
+    "physicalClasses": "Clases Físicas",
+    "admissions": "Admisiones",
+    "contact": "Contacto",
+    "enrollNow": "Inscríbete"
+  },
+  "hero": {
+    "title": "Corazones Jóvenes con el Corán",
+    "description": "Educación coránica de confianza para niños de 4+ años. Clases Online y Físicas en Montreal.",
+    "enrollNow": "Inscríbete Ahora",
+    "contactUs": "Contáctanos",
+    "admissionsOpen": "Admisiones Abiertas – 2026",
+    "ayatTranslation": "\"Y Allah está contigo y nunca te privará de [la recompensa de] tus obras.\"",
+    "surahRef": "Sura Muhammad [47:35]",
+    "online": "En línea",
+    "physical": "Físico",
+    "typedStrings": [
+      "Aisha Academy",
+      "Educación Coránica",
+      "Estudios Islámicos",
+      "Formación de Carácter"
+    ]
+  }
+}

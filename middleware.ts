@@ -1,7 +1,34 @@
-import { type NextRequest } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 import { updateSession } from "@/utils/supabase/middleware";
 
+const locales = ["en", "es"];
+const defaultLocale = "es";
+
+function getLocale(request: NextRequest) {
+  // Simple locale detection: check URL first, then headers
+  const { pathname } = request.nextUrl;
+  const pathnameHasLocale = locales.some(
+    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
+  );
+
+  if (pathnameHasLocale) return null;
+
+  // Use default locale if none found
+  return defaultLocale;
+}
+
 export async function middleware(request: NextRequest) {
+  // 1. Handle Locales
+  const pathname = request.nextUrl.pathname;
+  const locale = getLocale(request);
+
+  if (locale) {
+    return NextResponse.redirect(
+      new URL(`/${locale}${pathname === "/" ? "" : pathname}`, request.url),
+    );
+  }
+
+  // 2. Handle Supabase Session
   return await updateSession(request);
 }
 
