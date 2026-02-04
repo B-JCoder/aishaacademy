@@ -11,9 +11,9 @@ import PricingPlans from "@/components/sections/PricingPlans";
 export default async function AdmissionsPage({
   params,
 }: {
-  params: { lang: string };
+  params: Promise<{ lang: string }>;
 }) {
-  const { lang } = await (params as any);
+  const { lang } = await params;
   const dict = await getDictionary(lang as any);
 
   return (

@@ -66,7 +66,7 @@ export default function HeroSection({ dict }: HeroSectionProps) {
               <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[60%] bg-accent/20 blur-[140px] rounded-full" />
             </div>
 
-            <div className="relative z-10 w-full max-w-4xl px-6">
+            <div className="relative z-10 w-full max-w-5xl px-6">
               <motion.div
                 initial={{ scale: 0.9, opacity: 0, y: 30 }}
                 animate={{ scale: 1, opacity: 1, y: 0 }}
@@ -88,7 +88,7 @@ export default function HeroSection({ dict }: HeroSectionProps) {
                 </div>
 
                 {/* Ayat Calligraphy */}
-                <div className="relative z-10 w-full aspect-[2/1] max-h-[1020px] mb-6">
+                <div className="relative z-10 w-full min-h-[350px] sm:min-h-[550px] md:min-h-[650px] mb-8">
                   <motion.div
                     className="relative w-full h-full"
                     animate={{

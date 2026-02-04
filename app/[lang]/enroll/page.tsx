@@ -10,9 +10,9 @@ import { CheckCircle } from "lucide-react";
 export default async function EnrollPage({
   params,
 }: {
-  params: { lang: string };
+  params: Promise<{ lang: string }>;
 }) {
-  const { lang } = await (params as any);
+  const { lang } = await params;
   const dict = await getDictionary(lang as any);
 
   return (

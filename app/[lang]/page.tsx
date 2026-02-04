@@ -13,8 +13,12 @@ import GoogleMap from "@/components/sections/googlemap";
 import PricingPlans from "@/components/sections/PricingPlans";
 import { getDictionary } from "@/lib/dictionary";
 
-export default async function Page({ params }: { params: { lang: string } }) {
-  const { lang } = await (params as any);
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
   const dict = await getDictionary(lang as any);
 
   return (

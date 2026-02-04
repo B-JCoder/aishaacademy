@@ -123,14 +123,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
-  params: { lang: string };
+  params: Promise<{ lang: string }>;
 }) {
-  const { lang } = React.use(params as any) as any; // Handle async params in Next.js 15+
+  const { lang } = await params;
 
   return (
     <html lang={lang || "es"} className={`${notoNastaliq.variable}`}>
