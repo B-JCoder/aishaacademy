@@ -88,7 +88,7 @@ export default function HeroSection({ dict }: HeroSectionProps) {
                 </div>
 
                 {/* Ayat Calligraphy */}
-                <div className="relative z-10 w-full aspect-[2/1] max-h-[1020px] mb-6">
+                <div className="relative z-10 w-full aspect-[2/1] max-h-[520px] mb-6">
                   <motion.div
                     className="relative w-full h-full"
                     animate={{
@@ -101,10 +101,10 @@ export default function HeroSection({ dict }: HeroSectionProps) {
                     }}
                   >
                     <Image
-                      src="/images/heroayatf.png"
+                      src="/images/banner-arabic.png"
                       alt="Ayat Al-Quran"
                       fill
-                      className="object-cover drop-shadow-[0_10px_25px_rgba(0,0,0,0.5)] brightness-110 filter invert-[0.1]"
+                      className="object-contain drop-shadow-[0_10px_25px_rgba(0,0,0,0.5)] brightness-110 filter invert-[0.1]"
                       priority
                     />
                   </motion.div>
