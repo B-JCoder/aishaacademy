@@ -1,65 +1,60 @@
 "use client";
-
 import React from "react";
 import { motion } from "framer-motion";
+import { MapPin } from "lucide-react";
 
-const GoogleMap = () => {
+export default function GoogleMap({ dict }: { dict: any }) {
   return (
-    <section className="py-20 px-6 lg:px-20 bg-primary overflow-hidden relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-primary via-primary to-secondary/20 opacity-70"></div>
+    <section className="py-24 bg-gray-50 dark:bg-gray-900 overflow-hidden">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16 space-y-4">
+          <h2 className="text-3xl sm:text-5xl font-serif font-bold text-gray-900 dark:text-white flex items-center justify-center gap-3">
+            <MapPin className="text-primary w-8 h-8 sm:w-12 sm:h-12" />
+            {dict.contactUs}
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400 text-lg sm:text-xl font-sans max-w-2xl mx-auto">
+            {dict.learnMore}
+          </p>
+        </div>
 
-      <div className="max-w-6xl mx-auto relative z-10">
-        {/* Heading */}
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-3xl md:text-4xl font-serif font-bold text-white text-center"
-        >
-          Our Location
-        </motion.h2>
-
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-3 text-gray-300 text-center"
-        >
-          Visit Aisha Academy — Nurturing Young Hearts in Montreal.
-        </motion.p>
-
-        {/* Map Card */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="
-            mt-12 bg-white/5 backdrop-blur-xl rounded-3xl shadow-2xl 
-            border border-white/10 relative overflow-hidden
-            hover:shadow-[0_20px_60px_rgba(0,0,0,0.3)]
-            transition-all duration-500
-          "
+          transition={{ duration: 0.8 }}
+          className="relative w-full h-[500px] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white dark:border-gray-800"
         >
-          {/* Gradient Border (premium effect) */}
-          <div className="absolute inset-0 rounded-3xl p-[1px] bg-gradient-to-r from-secondary/50 to-accent/50 opacity-20 pointer-events-none" />
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2794.136015099279!2d-73.71427842323871!3d45.54149022857032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc922097e30d9fb%3A0xe5a363d6613386ec!2s4640%20Salaberry%20St%2C%20Montreal%2C%20QC%20H4J%201H6%2C%20Canada!5e0!3m2!1sen!2sus!4v1738264560935!5m2!1sen!2sus"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen={true}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="contrast-125 dark:invert dark:hue-rotate-180 dark:brightness-90 transition-all duration-700"
+          ></iframe>
 
-          {/* Map */}
-          <div className="relative w-full h-[350px] md:h-[450px] rounded-3xl overflow-hidden">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d178799.46740632298!2d-73.71187331250002!3d45.559182700000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc91a541c64b70d%3A0x654e3138211fefef!2sMontreal%2C%20QC!5e0!3m2!1sen!2sca!4v1700000000000!5m2!1sen!2sca"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              loading="lazy"
-              allowFullScreen={true}
-              referrerPolicy="no-referrer-when-downgrade"
-              className="grayscale-[20%] hover:grayscale-0 transition-all duration-500"
-            />
+          {/* Location Overlay Card */}
+          <div className="absolute bottom-8 left-8 right-8 sm:left-auto sm:right-8 sm:w-80 bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl p-6 rounded-3xl border border-white/20 shadow-2xl z-20">
+            <h3 className="text-xl font-bold text-primary mb-2 font-serif">
+              Aisha Academy
+            </h3>
+            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
+              4640 Rue de Salaberry,
+              <br />
+              Montréal, QC H4J 1H6
+            </p>
+            <a
+              href="https://maps.google.com/?q=4640+Salaberry+St,+Montreal,+QC+H4J+1H6"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-primary font-bold hover:gap-2 transition-all duration-300"
+            >
+              Get Directions →
+            </a>
           </div>
         </motion.div>
       </div>
     </section>
   );
-};
-
-export default GoogleMap;
+}

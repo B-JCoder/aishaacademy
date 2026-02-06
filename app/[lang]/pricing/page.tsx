@@ -3,7 +3,9 @@ import { Metadata } from "next";
 import Navbar from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import Pricing from "@/components/sections/pricing";
+import Newsletter from "@/components/sections/newsletter";
 import FAQSection from "@/components/sections/faq";
+import ContactForm from "@/components/sections/contact-form";
 
 export const metadata: Metadata = {
   title: "Pricing & Plans",
@@ -29,19 +31,21 @@ export default async function PricingPage({
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[100px] -translate-y-1/2 pointer-events-none"></div>
         <div className="mx-auto lg:max-w-7xl px-5 sm:px-10 md:px-12 lg:px-5 text-center relative z-10">
           <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 dark:text-white mb-6">
-            Simple, Transparent Pricing
+            {dict.pricing.title}{" "}
+            <span className="text-accent italic">{dict.pricing.highlight}</span>
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-sans">
-            Invest in your child's spiritual future with our affordable plans.
+            {dict.pricing.description}
           </p>
         </div>
       </section>
 
-      <Pricing />
+      <Pricing dict={dict.pricing} />
 
-      <FAQSection />
-
-      <Footer />
+      <FAQSection dict={dict.faq} />
+      <ContactForm dict={dict.contact} />
+      <Newsletter dict={dict} lang={lang} />
+      <Footer lang={lang} dict={dict} />
     </main>
   );
 }

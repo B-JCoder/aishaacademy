@@ -5,7 +5,7 @@ import { Check, ChevronDown, Monitor, MapPin, Loader2 } from "lucide-react";
 import { sendEnrollmentEmail } from "@/app/actions/send-email";
 import { toast } from "sonner";
 
-export default function AdmissionsForm() {
+export default function AdmissionsForm({ dict }: { dict: any }) {
   const [learningMode, setLearningMode] = useState<"online" | "physical">(
     "online",
   );
@@ -21,13 +21,13 @@ export default function AdmissionsForm() {
     try {
       const result = await sendEnrollmentEmail(formData);
       if (result.success) {
-        toast.success("Enrollment application sent successfully!");
+        toast.success(dict.success);
         (event.target as HTMLFormElement).reset();
       } else {
-        toast.error(result.error || "Failed to send application.");
+        toast.error(result.error || dict.error);
       }
     } catch (error) {
-      toast.error("An unexpected error occurred.");
+      toast.error(dict.error);
     } finally {
       setIsSubmitting(false);
     }
@@ -45,11 +45,10 @@ export default function AdmissionsForm() {
       <div className="max-w-4xl mx-auto px-5 sm:px-10 relative z-10">
         <div className="text-center mb-12 space-y-4">
           <h2 className="text-3xl md:text-5xl font-bold font-serif text-gray-900 dark:text-white drop-shadow-sm">
-            Join Aisha Academy
+            {dict.title}
           </h2>
           <p className="text-gray-600 dark:text-gray-300 text-lg max-w-2xl mx-auto">
-            Take the first step towards a journey of spiritual growth and
-            Quranic excellence. Fill out the form below to enroll.
+            {dict.description}
           </p>
         </div>
 
@@ -71,8 +70,8 @@ export default function AdmissionsForm() {
                 <Monitor className="w-5 h-5" />
               </div>
               <div className="text-center sm:text-left">
-                <span className="block font-bold">Online Classes</span>
-                <span className="text-xs opacity-80">Learn from anywhere</span>
+                <span className="block font-bold">{dict.online}</span>
+                <span className="text-xs opacity-80">{dict.onlineDesc}</span>
               </div>
             </button>
             <button
@@ -90,8 +89,8 @@ export default function AdmissionsForm() {
                 <MapPin className="w-5 h-5" />
               </div>
               <div className="text-center sm:text-left">
-                <span className="block font-bold">Physical Classes</span>
-                <span className="text-xs opacity-80">Montreal Campus</span>
+                <span className="block font-bold">{dict.physical}</span>
+                <span className="text-xs opacity-80">{dict.physicalDesc}</span>
               </div>
             </button>
           </div>
@@ -103,7 +102,7 @@ export default function AdmissionsForm() {
                 <span className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary text-sm font-bold">
                   1
                 </span>
-                Student Information
+                {dict.studentInfo}
               </h3>
 
               <div className="grid sm:grid-cols-2 gap-6">
@@ -112,7 +111,7 @@ export default function AdmissionsForm() {
                     htmlFor="studentName"
                     className="text-sm font-medium text-gray-700 dark:text-gray-300"
                   >
-                    Full Name
+                    {dict.fullName}
                   </label>
                   <input
                     type="text"
@@ -120,7 +119,7 @@ export default function AdmissionsForm() {
                     name="studentName"
                     required
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-gray-400"
-                    placeholder="Enter student's full name"
+                    placeholder={dict.fullNamePlaceholder}
                   />
                 </div>
                 <div className="space-y-2">
@@ -128,7 +127,7 @@ export default function AdmissionsForm() {
                     htmlFor="age"
                     className="text-sm font-medium text-gray-700 dark:text-gray-300"
                   >
-                    Age
+                    {dict.age}
                   </label>
                   <input
                     type="number"
@@ -136,7 +135,7 @@ export default function AdmissionsForm() {
                     name="age"
                     required
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-gray-400"
-                    placeholder="Student's age"
+                    placeholder={dict.agePlaceholder}
                   />
                 </div>
                 <div className="space-y-2">
@@ -144,7 +143,7 @@ export default function AdmissionsForm() {
                     htmlFor="gender"
                     className="text-sm font-medium text-gray-700 dark:text-gray-300"
                   >
-                    Gender
+                    {dict.gender}
                   </label>
                   <div className="relative">
                     <select
@@ -153,9 +152,9 @@ export default function AdmissionsForm() {
                       required
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all appearance-none text-gray-700 dark:text-gray-200"
                     >
-                      <option value="">Select gender</option>
-                      <option value="male">Male</option>
-                      <option value="female">Female</option>
+                      <option value="">{dict.genderLabel}</option>
+                      <option value="male">{dict.male}</option>
+                      <option value="female">{dict.female}</option>
                     </select>
                     <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
                   </div>
@@ -169,7 +168,7 @@ export default function AdmissionsForm() {
                 <span className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary text-sm font-bold">
                   2
                 </span>
-                Parent/Guardian Details
+                {dict.parentInfo}
               </h3>
 
               <div className="grid sm:grid-cols-2 gap-6">
@@ -178,7 +177,7 @@ export default function AdmissionsForm() {
                     htmlFor="parentName"
                     className="text-sm font-medium text-gray-700 dark:text-gray-300"
                   >
-                    Parent/Guardian Name
+                    {dict.parentName}
                   </label>
                   <input
                     type="text"
@@ -186,7 +185,7 @@ export default function AdmissionsForm() {
                     name="parentName"
                     required
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-gray-400"
-                    placeholder="Parent's full name"
+                    placeholder={dict.parentNamePlaceholder}
                   />
                 </div>
                 <div className="space-y-2">
@@ -194,7 +193,7 @@ export default function AdmissionsForm() {
                     htmlFor="email"
                     className="text-sm font-medium text-gray-700 dark:text-gray-300"
                   >
-                    Email Address
+                    {dict.email}
                   </label>
                   <input
                     type="email"
@@ -202,7 +201,7 @@ export default function AdmissionsForm() {
                     name="email"
                     required
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-gray-400"
-                    placeholder="email@example.com"
+                    placeholder={dict.emailPlaceholder}
                   />
                 </div>
                 <div className="space-y-2">
@@ -210,7 +209,7 @@ export default function AdmissionsForm() {
                     htmlFor="phone"
                     className="text-sm font-medium text-gray-700 dark:text-gray-300"
                   >
-                    Phone Number
+                    {dict.phone}
                   </label>
                   <input
                     type="tel"
@@ -218,7 +217,7 @@ export default function AdmissionsForm() {
                     name="phone"
                     required
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-gray-400"
-                    placeholder="+1 (555) 000-0000"
+                    placeholder={dict.phonePlaceholder}
                   />
                 </div>
                 <div className="space-y-2">
@@ -226,7 +225,7 @@ export default function AdmissionsForm() {
                     htmlFor="city"
                     className="text-sm font-medium text-gray-700 dark:text-gray-300"
                   >
-                    City/Residence
+                    {dict.city}
                   </label>
                   <input
                     type="text"
@@ -234,7 +233,7 @@ export default function AdmissionsForm() {
                     name="city"
                     required
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-gray-400"
-                    placeholder="e.g. Montreal"
+                    placeholder={dict.cityPlaceholder}
                   />
                 </div>
               </div>
@@ -246,8 +245,8 @@ export default function AdmissionsForm() {
                 <span className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary text-sm font-bold">
                   3
                 </span>
-                Course Preferences (
-                {learningMode === "online" ? "Online" : "Physical"})
+                {dict.courseInfo} (
+                {learningMode === "online" ? dict.online : dict.physical})
               </h3>
 
               <div className="grid sm:grid-cols-2 gap-6">
@@ -256,7 +255,7 @@ export default function AdmissionsForm() {
                     htmlFor="course"
                     className="text-sm font-medium text-gray-700 dark:text-gray-300"
                   >
-                    Select Program
+                    {dict.selectProgram}
                   </label>
                   <div className="relative">
                     <select
@@ -265,12 +264,14 @@ export default function AdmissionsForm() {
                       required
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all appearance-none text-gray-700 dark:text-gray-200"
                     >
-                      <option value="">Choose a program...</option>
-                      <option value="nazra">Nazra Quran (Reading)</option>
-                      <option value="hifz">Hifz (Memorization)</option>
-                      <option value="tajweed">Tajweed (Rules)</option>
-                      <option value="arabic">Arabic Language</option>
-                      <option value="islamic_studies">Islamic Studies</option>
+                      <option value="">{dict.chooseProgram}</option>
+                      <option value="nazra">{dict.nazra}</option>
+                      <option value="hifz">{dict.hifz}</option>
+                      <option value="tajweed">{dict.tajweed}</option>
+                      <option value="arabic">{dict.arabic}</option>
+                      <option value="islamic_studies">
+                        {dict.islamicStudies}
+                      </option>
                     </select>
                     <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
                   </div>
@@ -281,7 +282,7 @@ export default function AdmissionsForm() {
                     htmlFor="preferredDays"
                     className="text-sm font-medium text-gray-700 dark:text-gray-300"
                   >
-                    Preferred Days
+                    {dict.preferredDays}
                   </label>
                   <div className="relative">
                     <select
@@ -290,9 +291,9 @@ export default function AdmissionsForm() {
                       required
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all appearance-none text-gray-700 dark:text-gray-200"
                     >
-                      <option value="weekdays">Weekdays (Mon-Fri)</option>
-                      <option value="weekend">Weekends (Sat-Sun)</option>
-                      <option value="flexible">Flexible</option>
+                      <option value="weekdays">{dict.weekdays}</option>
+                      <option value="weekend">{dict.weekends}</option>
+                      <option value="flexible">{dict.flexible}</option>
                     </select>
                     <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
                   </div>
@@ -303,7 +304,7 @@ export default function AdmissionsForm() {
                     htmlFor="preferredTime"
                     className="text-sm font-medium text-gray-700 dark:text-gray-300"
                   >
-                    Preferred Time
+                    {dict.preferredTime}
                   </label>
                   <div className="relative">
                     <select
@@ -312,9 +313,9 @@ export default function AdmissionsForm() {
                       required
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all appearance-none text-gray-700 dark:text-gray-200"
                     >
-                      <option value="morning">Morning</option>
-                      <option value="afternoon">Afternoon</option>
-                      <option value="evening">Evening</option>
+                      <option value="morning">{dict.morning}</option>
+                      <option value="afternoon">{dict.afternoon}</option>
+                      <option value="evening">{dict.evening}</option>
                     </select>
                     <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
                   </div>
@@ -327,14 +328,14 @@ export default function AdmissionsForm() {
                 htmlFor="message"
                 className="text-sm font-medium text-gray-700 dark:text-gray-300"
               >
-                Additional Notes / Message
+                {dict.notes}
               </label>
               <textarea
                 id="message"
                 name="message"
                 rows={4}
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-gray-400 resize-none"
-                placeholder="Any specific requirements or questions?"
+                placeholder={dict.notesPlaceholder}
               ></textarea>
             </div>
 
@@ -346,19 +347,16 @@ export default function AdmissionsForm() {
               {isSubmitting ? (
                 <>
                   <Loader2 className="w-5 h-5 animate-spin" />
-                  <span>Sending Application...</span>
+                  <span>{dict.sending}</span>
                 </>
               ) : (
                 <>
-                  <span>Submit Application</span>
+                  <span>{dict.submit}</span>
                   <Check className="w-5 h-5" />
                 </>
               )}
             </button>
-            <p className="text-center text-sm text-gray-500">
-              We will contact you within 24 hours to confirm your enrollment
-              details.
-            </p>
+            <p className="text-center text-sm text-gray-500">{dict.confMsg}</p>
           </form>
         </div>
       </div>

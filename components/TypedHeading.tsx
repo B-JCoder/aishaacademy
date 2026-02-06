@@ -6,10 +6,14 @@ import Typed from "typed.js";
 
 interface TypedHeadingProps {
   strings?: string[];
+  onComplete?: () => void;
+  loop?: boolean;
 }
 
 const TypedHeading: React.FC<TypedHeadingProps> = ({
   strings = ["Aisha Academy", "Quran Education", "Islamic Studies"],
+  onComplete,
+  loop = true,
 }) => {
   const typedRef = useRef<HTMLSpanElement | null>(null);
 
@@ -19,7 +23,10 @@ const TypedHeading: React.FC<TypedHeadingProps> = ({
       typeSpeed: 70,
       backSpeed: 40,
       backDelay: 1200,
-      loop: true,
+      loop: loop,
+      onComplete: () => {
+        if (onComplete) onComplete();
+      },
     };
 
     const typed = new Typed(typedRef.current!, options);

@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import Navbar from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
@@ -6,17 +5,26 @@ import Link from "next/link";
 import Image from "next/image";
 import Testimonials from "@/components/sections/testimonials";
 import FAQSection from "@/components/sections/faq";
-import { Monitor, Video, Globe, Wifi, Clock, ShieldCheck } from "lucide-react";
+import ContactForm from "@/components/sections/contact-form";
+import Newsletter from "@/components/sections/newsletter";
+import { Monitor, Video, Globe, Clock, ShieldCheck } from "lucide-react";
+import { getDictionary } from "@/lib/dictionary";
 
-export default function OnlineClassesPage() {
+export default async function OnlineClassesPage({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
+  const dict = await getDictionary(lang as any);
+
   return (
     <main className="bg-background min-h-screen">
-      <Navbar />
+      <Navbar lang={lang} dict={dict} />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 bg-primary overflow-hidden">
         <div className="absolute inset-0 bg-primary dark:bg-gray-950">
-          {/* Pattern/Gradient */}
           <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary-800 opacity-90"></div>
         </div>
 
@@ -24,39 +32,31 @@ export default function OnlineClassesPage() {
           <div className="text-white space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/20 border border-accent/20 text-accent text-sm font-bold">
               <Globe className="w-4 h-4" />
-              Join from Anywhere
+              {dict.onlineClasses.hero.badge}
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold leading-tight">
-              World-Class Islamic Education{" "}
-              <span className="text-accent italic">Online</span>
+              {dict.onlineClasses.hero.title}
             </h1>
             <p className="text-lg text-gray-200 leading-relaxed">
-              Experience the same high-quality Quranic education as our physical
-              campus, from the comfort of your home. Live, interactive classes
-              with qualified teachers.
+              {dict.onlineClasses.hero.description}
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
               <Link
                 href="/admissions"
                 className="px-8 py-4 bg-accent text-primary font-bold rounded-full hover:bg-white transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
               >
-                Start Free Trial
+                {dict.onlineClasses.hero.start}
               </Link>
               <Link
                 href="#how-it-works"
                 className="px-8 py-4 bg-white/10 border border-white/20 text-white font-bold rounded-full hover:bg-white/20 transition-all"
               >
-                How It Works
+                {dict.onlineClasses.hero.howItWorks}
               </Link>
             </div>
           </div>
           <div className="relative">
             <div className="aspect-video rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10 relative group">
-              {/* Placeholder for image */}
-              <div className="absolute inset-0 bg-gray-800 flex items-center justify-center text-white/50">
-                <Monitor className="w-20 h-20 opacity-50" />
-              </div>
-              {/* If user provided online image, use it. Using generic or no image for now to be safe, or generate one? Prompt said "don't use placeholders". I should generate or use an existing one. `public/images/online-learning.png` exists.*/}
               <Image
                 src="/images/online-learning.png"
                 alt="Student learning online"
@@ -85,11 +85,10 @@ export default function OnlineClassesPage() {
         <div className="max-w-7xl mx-auto px-5 sm:px-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold font-serif text-primary mb-4">
-              How Online Classes Work
+              {dict.onlineClasses.howItWorks.title}
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              We use modern tools to ensure a seamless learning experience that
-              feels just like being in a classroom.
+              {dict.onlineClasses.howItWorks.subtitle}
             </p>
           </div>
 
@@ -98,31 +97,33 @@ export default function OnlineClassesPage() {
               <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
                 <Video className="w-7 h-7" />
               </div>
-              <h3 className="text-xl font-bold mb-3">1. Live Video Classes</h3>
+              <h3 className="text-xl font-bold mb-3">
+                {dict.onlineClasses.howItWorks.steps[0].title}
+              </h3>
               <p className="text-muted-foreground leading-relaxed">
-                Connect with your teacher via Zoom or Google Meet. Two-way video
-                ensures proper pronunciation (Tajweed) correction and
-                engagement.
+                {dict.onlineClasses.howItWorks.steps[0].desc}
               </p>
             </div>
             <div className="bg-white dark:bg-card p-8 rounded-3xl shadow-sm border border-border group hover:border-accent transition-colors">
               <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
                 <Clock className="w-7 h-7" />
               </div>
-              <h3 className="text-xl font-bold mb-3">2. Flexible Schedule</h3>
+              <h3 className="text-xl font-bold mb-3">
+                {dict.onlineClasses.howItWorks.steps[1].title}
+              </h3>
               <p className="text-muted-foreground leading-relaxed">
-                Choose timings that work for you. We offer classes 24/7 to
-                accommodate students from different time zones worldwide.
+                {dict.onlineClasses.howItWorks.steps[1].desc}
               </p>
             </div>
             <div className="bg-white dark:bg-card p-8 rounded-3xl shadow-sm border border-border group hover:border-accent transition-colors">
               <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
                 <ShieldCheck className="w-7 h-7" />
               </div>
-              <h3 className="text-xl font-bold mb-3">3. Progress Tracking</h3>
+              <h3 className="text-xl font-bold mb-3">
+                {dict.onlineClasses.howItWorks.steps[2].title}
+              </h3>
               <p className="text-muted-foreground leading-relaxed">
-                Parents receive regular monthly reports via email. We track
-                attendance, memorization progress, and recitation quality.
+                {dict.onlineClasses.howItWorks.steps[2].desc}
               </p>
             </div>
           </div>
@@ -135,7 +136,7 @@ export default function OnlineClassesPage() {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-3xl font-bold font-serif text-primary mb-6">
-                Why Choose Online Learning?
+                {dict.onlineClasses.benefits.title}
               </h2>
               <div className="space-y-6">
                 <div className="flex gap-4">
@@ -143,10 +144,11 @@ export default function OnlineClassesPage() {
                     1
                   </div>
                   <div>
-                    <h4 className="font-bold text-lg">Safety & Comfort</h4>
+                    <h4 className="font-bold text-lg">
+                      {dict.onlineClasses.benefits.items[0].title}
+                    </h4>
                     <p className="text-muted-foreground">
-                      Learn from the safety of your home. No commuting save time
-                      and energy.
+                      {dict.onlineClasses.benefits.items[0].desc}
                     </p>
                   </div>
                 </div>
@@ -155,10 +157,11 @@ export default function OnlineClassesPage() {
                     2
                   </div>
                   <div>
-                    <h4 className="font-bold text-lg">One-on-One Attention</h4>
+                    <h4 className="font-bold text-lg">
+                      {dict.onlineClasses.benefits.items[1].title}
+                    </h4>
                     <p className="text-muted-foreground">
-                      Private classes allow the teacher to focus 100% on one
-                      student's pace and needs.
+                      {dict.onlineClasses.benefits.items[1].desc}
                     </p>
                   </div>
                 </div>
@@ -167,10 +170,11 @@ export default function OnlineClassesPage() {
                     3
                   </div>
                   <div>
-                    <h4 className="font-bold text-lg">Recordings Available</h4>
+                    <h4 className="font-bold text-lg">
+                      {dict.onlineClasses.benefits.items[2].title}
+                    </h4>
                     <p className="text-muted-foreground">
-                      Missed a class? Access class recordings to revise lessons
-                      anytime.
+                      {dict.onlineClasses.benefits.items[2].desc}
                     </p>
                   </div>
                 </div>
@@ -185,7 +189,7 @@ export default function OnlineClassesPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex items-end p-8">
                 <p className="text-white font-serif text-2xl italic">
-                  "Learning connects us, no matter the distance."
+                  {dict.onlineClasses.benefits.quote}
                 </p>
               </div>
             </div>
@@ -193,30 +197,30 @@ export default function OnlineClassesPage() {
         </div>
       </section>
 
-      <Testimonials />
+      <Testimonials lang={lang} />
 
       {/* CTA */}
       <section className="py-20 bg-primary text-white text-center">
         <div className="max-w-3xl mx-auto px-5">
           <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">
-            Ready to Start Your Online Journey?
+            {dict.onlineClasses.cta.title}
           </h2>
           <p className="text-lg text-primary-100 mb-8">
-            Join hundreds of satisfied students learning Quran online. Book your
-            free trial class today.
+            {dict.onlineClasses.cta.description}
           </p>
           <Link
             href="/admissions"
             className="inline-block px-10 py-4 bg-accent text-primary font-bold rounded-full hover:bg-white transition-all shadow-lg text-lg"
           >
-            Enroll for Online Classes
+            {dict.onlineClasses.cta.button}
           </Link>
         </div>
       </section>
 
-      <FAQSection />
-
-      <Footer />
+      <FAQSection dict={dict.faq} />
+      <ContactForm dict={dict.contact} />
+      <Newsletter dict={dict} lang={lang} />
+      <Footer lang={lang} dict={dict} />
     </main>
   );
 }

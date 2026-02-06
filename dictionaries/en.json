@@ -9,6 +9,17 @@
     "contact": "Contact",
     "enrollNow": "Enroll Now"
   },
+  "common": {
+    "enrollNow": "Enroll Now",
+    "contactUs": "Contact Us",
+    "learnMore": "Learn More",
+    "stats": {
+      "students": "200+",
+      "teachers": "15+",
+      "experience": "10+",
+      "classesPerWeek": "120/wk"
+    }
+  },
   "hero": {
     "title": "Young Hearts with the Quran",
     "description": "Trusted Quran education for children aged 4+. Online & Physical classes in Montreal.",
@@ -24,6 +35,616 @@
       "Quran Education",
       "Islamic Studies",
       "Character Building"
+    ],
+    "newsletter": {
+      "title": "Stay Updated",
+      "description": "Subscribe to our newsletter for the latest news, events, and educational tips.",
+      "placeholder": "Enter your email address",
+      "button": "Subscribe",
+      "success": "Successfully subscribed!",
+      "error": "Failed to subscribe. Please try again."
+    }
+  },
+  "stats": {
+    "qualifiedTeachers": "Qualified Teachers",
+    "studentsEnrolled": "Students Enrolled",
+    "yearsExperience": "Years Experience",
+    "onlineClasses": "Online Classes",
+    "impact": "Impact"
+  },
+  "programs": {
+    "title": "Our Programs",
+    "subtitle": "Choose the perfect learning path for your child. Whether online or in-person, we ensure quality education with qualified teachers.",
+    "offerings": "Our Offerings",
+    "weekdayPhysical": {
+      "title": "Weekday Physical Classes",
+      "description": "Structured learning in a focused environment.",
+      "features": ["Ages 5+", "Mon-Thu", "5:30 PM - 7:30 PM"]
+    },
+    "weekendPhysical": {
+      "title": "Weekend Physical Classes",
+      "description": "Perfect for school-going children.",
+      "features": ["Morning & Afternoon", "Sat & Sun", "Structured Curriculum"]
+    },
+    "online": {
+      "title": "Online Quran Classes",
+      "description": "Live Zoom sessions from the comfort of home.",
+      "features": ["Flexible", "Mon-Fri", "2 Batches Available"]
+    },
+    "private": {
+      "title": "Private One-on-One",
+      "description": "Personalized attention for faster progress.",
+      "features": ["30 min sessions", "Flexible Scheduling", "$80/Month"]
+    }
+  },
+  "whyUs": {
+    "title": "Why Parents Trust",
+    "highlight": "Aisha Academy",
+    "description": "We understand that choosing a Quran teacher is one of the most important decisions for your child. Here is why hundreds of families choose us.",
+    "reasons": [
+      {
+        "title": "Qualified Teachers",
+        "description": "Experienced male and female teachers dedicated to your child's growth."
+      },
+      {
+        "title": "Structured Curriculum",
+        "description": "A balanced mix of Quran reading, Tajweed, and Islamic manners (Tarbiyah)."
+      },
+      {
+        "title": "Child-Friendly Approach",
+        "description": "We make learning enjoyable and engaging for young minds."
+      },
+      {
+        "title": "Safe Environment",
+        "description": "A secure and inclusive space for all students."
+      },
+      {
+        "title": "Montreal-Based",
+        "description": "Convenient physical location for local community members."
+      }
     ]
+  },
+  "process": {
+    "title": "How It Works",
+    "subtitle": "Your path to Quranic excellence involves four simple yet transformative steps.",
+    "steps": [
+      {
+        "title": "Register Online",
+        "description": "Create your student profile in just a few minutes via our streamlined portal. We collect essential information to tailor the Quranic learning experience to your specific needs, proficiency level, and spiritual goals."
+      },
+      {
+        "title": "Book Free Trial",
+        "description": "Experience our teaching methodology firsthand with a complimentary 30-minute session. Meet your dedicated qualified scholar, assess your current recitation level, and discuss your personalized learning objectives."
+      },
+      {
+        "title": "Enroll & Custom Plan",
+        "description": "Receive a customized learning roadmap based on your trial. Choose a flexible schedule that perfectly aligns with your lifestyle—whether you prefer early morning focus or late evening reflection."
+      },
+      {
+        "title": "Begin Your Journey",
+        "description": "Embark on your sacred journey of Quranic education. Access our state-of-the-art digital classroom, track your hifz or tajweed progress daily, and receive continuous, constructive feedback from your instructor."
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Simple, Transparent",
+    "highlight": "Pricing",
+    "description": "Choose the plan that fits your family's needs. No hidden fees.",
+    "popular": "Most Popular",
+    "plans": {
+      "weekday": {
+        "name": "Weekday Evening",
+        "price": "$65",
+        "period": "/month",
+        "description": "In-person classes at our Montreal campus.",
+        "features": [
+          "Monday to Thursday",
+          "5:30 PM to 7:30 PM",
+          "Quran classes for children",
+          "Aged 5 and over",
+          "Qualified Teachers"
+        ]
+      },
+      "weekend_morning": {
+        "name": "Weekend Morning",
+        "price": "$65",
+        "period": "/month",
+        "description": "In-person classes at our Montreal campus.",
+        "features": [
+          "Saturday and Sunday",
+          "10:00 AM to 12:45 PM",
+          "Quran classes for children",
+          "Aged 5 and over",
+          "Islamic Studies & Tajweed"
+        ]
+      },
+      "weekend_afternoon": {
+        "name": "Weekend Afternoon",
+        "price": "$65",
+        "period": "/month",
+        "description": "In-person classes at our Montreal campus.",
+        "features": [
+          "Saturday and Sunday",
+          "12:00 PM to 2:45 PM",
+          "Quran classes for children",
+          "Aged 5 and over",
+          "Perfect for late risers"
+        ]
+      },
+      "private": {
+        "name": "Private 1-on-1",
+        "price": "$80",
+        "period": "/month",
+        "description": "Dedicated attention for rapid progress.",
+        "features": [
+          "30-minute private lessons",
+          "One-on-one sessions",
+          "Experienced teachers",
+          "Aged 4 and over",
+          "Flexible timing options"
+        ]
+      },
+      "online": {
+        "name": "Online Classes",
+        "price": "$60",
+        "period": "/month",
+        "description": "Learn from the comfort of your home.",
+        "features": [
+          "Monday to Friday",
+          "5:00 PM to 6:00 PM (Batch 1)",
+          "6:00 PM to 7:00 PM (Batch 2)",
+          "Interactive digital platform",
+          "Qualified Teachers"
+        ]
+      }
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to common questions about our programs, schedules, and admissions.",
+    "tag": "FAQ",
+    "questions": [
+      {
+        "q": "What age groups do you accept?",
+        "a": "We accept students as young as 4 years old for our introductory Qaida/Noorani classes. We have specialized programs tailored for children, teenagers, and even adults who wish to perfect their recitation."
+      },
+      {
+        "q": "Do you offer both online and physical classes?",
+        "a": "Yes! We have a physical campus in Montreal for in-person learning, which fosters community and brotherhood. We also offer comprehensive online classes via Zoom/LMS for students who cannot attend in person, ensuring quality education worldwide."
+      },
+      {
+        "q": "Do you provide female teachers for girls?",
+        "a": "Yes, we have dedicated and highly qualified female Quran teachers for our sisters and young girls. We ensure a comfortable and private learning environment that respects Islamic values while fostering spiritual growth."
+      },
+      {
+        "q": "What curriculum do you follow for Tajweed and Qaida?",
+        "a": "We use the world-renowned Noorani Qaida for beginners to build a strong foundation. For Tajweed, we follow a structured curriculum covering all essential rules (Makharij, Sifaat, etc.) to ensure students recite the Quran accurately as revealed to Prophet Muhammad (PBUH)."
+      },
+      {
+        "q": "Can I choose my own class timing?",
+        "a": "We offer various time slots for both online and physical classes. For our private one-on-one sessions, we provide maximum flexibility, allowing parents to choose timings that best fit their child's school and extracurricular schedule."
+      },
+      {
+        "q": "How do you monitor and report student progress?",
+        "a": "We provide regular monthly progress reports to parents. Our teachers maintain a daily log of lessons, memorization progress, and areas for improvement. Periodic assessments are conducted to ensure high standards of Quranic education."
+      }
+    ]
+  },
+  "cta": {
+    "title": "\"Give Your Child the Gift of the Quran – Enroll Today\"",
+    "description": "Join the Aisha Academy family and start your child's journey of faith and knowledge.",
+    "enroll": "Enroll Now",
+    "contact": "Contact Us"
+  },
+  "about": {
+    "hero": {
+      "title": "About Aisha Academy",
+      "description": "Nurturing the next generation with the light of the Quran and the beauty of Islamic character since 2015.",
+      "badge": "Since 2015",
+      "primaryAction": "Join our Legacy"
+    },
+    "history": {
+      "title": "Our Humble Beginnings",
+      "p1": "Aisha Academy started as a small weekend school in a local community center in Montreal. Driven by the community's need for high-quality, structured Quranic education, we have grown into a fully-fledged institute serving hundreds of students both locally and globally.",
+      "p2": "Named after the Mother of Believers, Aisha (RA), a beacon of knowledge, our academy strives to embody her legacy of scholarship and piety.",
+      "stat": "Years of Excellence"
+    },
+    "mission": {
+      "title": "Our Mission",
+      "desc": "To provide high-quality, accessible Quranic education that empowers children to connect with their faith, understand the Holy Book, and embody its teachings in their daily lives. We strive to create a generation that leads with knowledge and compassion."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "desc": "A world where every Muslim child has the opportunity to learn the Quran with love and understanding, building a strong foundation of faith that guides them through all walks of life."
+    },
+    "learningWay": {
+      "title": "Learning Your Way",
+      "subtitle": "Whether you are near or far, education is within reach.",
+      "physical": {
+        "title": "Physical Campus",
+        "desc": "Experience the brotherhood and discipline of in-person learning at our Montreal center.",
+        "action": "Visit Campus"
+      },
+      "online": {
+        "title": "Online Academy",
+        "desc": "Flexible, interactive online classes via Zoom/LMS for students worldwide.",
+        "action": "Start Online"
+      }
+    },
+    "methodology": {
+      "title": "Our Methodology",
+      "subtitle": "We combine traditional Islamic pedagogy with modern teaching techniques to create a holistic learning experience.",
+      "items": [
+        {
+          "title": "Tilawah & Tajweed",
+          "desc": "Emphasis on correct pronunciation and articulation points from day one."
+        },
+        {
+          "title": "Character Building",
+          "desc": "We integrate Tarbiyah into every lesson, teaching respect, honesty, and kindness."
+        },
+        {
+          "title": "Qualified Mentors",
+          "desc": "Our teachers are certified and trained in modern child psychology."
+        }
+      ]
+    }
+  },
+  "programsPage": {
+    "hero": {
+      "title": "Our Programs",
+      "description": "Comprehensive Quranic education tailored to your spiritual journey. Choose the path that fits your goals and schedule.",
+      "badge": "Admissions Open"
+    },
+    "tuition": "Tuition Fee",
+    "siblingDiscount": "*Sibling discounts available",
+    "joinNow": "Enroll Now",
+    "programs": [
+      {
+        "id": "foundation",
+        "title": "Kids Islamic Foundation (Nazra)",
+        "price": "$50",
+        "period": "/month",
+        "schedule": "3 Days/Week",
+        "mode": "Online & Physical",
+        "age": "Ages 4-7",
+        "description": "Building a strong relationship with Allah through fun, interactive learning. Covering Quran reading, basic Duas, and Islamic manners.",
+        "features": [
+          "Noorani Qaida Mastery",
+          "Short Surah Memorization",
+          "Daily Duas & Etiquette",
+          "Fun Islamic Stories"
+        ]
+      },
+      {
+        "id": "tajweed",
+        "title": "Quran with Tajweed",
+        "price": "$65",
+        "period": "/month",
+        "schedule": "Weekend or Weekday",
+        "mode": "Online & Physical",
+        "age": "Ages 7+",
+        "description": "Master the art of recitation. Learn to read the Quran with proper pronunciation and rules as revealed to the Prophet (PBUH).",
+        "features": [
+          "Correct Pronunciation (Makharij)",
+          "Rules of Tajweed (Theory & Practice)",
+          "Melodious Recitation",
+          "Fluency Building"
+        ]
+      },
+      {
+        "id": "hifz",
+        "title": "Hifz Program",
+        "price": "$120",
+        "period": "/month",
+        "schedule": "5 Days/Week (Intensive)",
+        "mode": "Physical (Recommended) / Online",
+        "age": "Ages 8+ (Interview Required)",
+        "description": "A dedicated path to becoming a Guardian of the Quran. Intensive memorization with revision and regular testing.",
+        "features": [
+          "Individualized Plan",
+          "Daily Revision (Muraja'ah)",
+          "Regular Assessments",
+          "Certified Instructors"
+        ]
+      },
+      {
+        "id": "islamic-studies",
+        "title": "Islamic Studies",
+        "price": "$40",
+        "period": "/month",
+        "schedule": "Weekend Only",
+        "mode": "Physical & Online",
+        "age": "Ages 6-16",
+        "description": "Understanding the Deen. A comprehensive curriculum covering Seerah, Fiqh, Aqeedah, and Islamic History.",
+        "features": [
+          "Life of the Prophet (Seerah)",
+          "Fiqh of Worship",
+          "Articles of Faith",
+          "Contemporary Issues"
+        ]
+      },
+      {
+        "id": "arabic",
+        "title": "Arabic Language",
+        "price": "$60",
+        "period": "/month",
+        "schedule": "2 Days/Week",
+        "mode": "Online Only",
+        "age": "Ages 10+ & Adults",
+        "description": "Learn the language of the Quran. Unlock the meaning of the divine words through grammar, vocabulary, and conversation.",
+        "features": [
+          "Quranic Vocabulary",
+          "Nahu & Sarf (Grammar)",
+          "Reading Comprehension",
+          "Speaking Practice"
+        ]
+      },
+      {
+        "id": "adults",
+        "title": "Adult Learning Program",
+        "price": "$80",
+        "period": "/month",
+        "schedule": "Flexible / Evenings",
+        "mode": "Online Only",
+        "age": "Adults (Men & Women)",
+        "description": "It's never too late to learn. Private or small group classes tailored for busy adults wishing to improve their recitation or understanding.",
+        "features": [
+          "Flexible Timing",
+          "Privacy Respected",
+          "Tailored Curriculum",
+          "Correction of Recitation"
+        ]
+      }
+    ]
+  },
+  "physicalClasses": {
+    "hero": {
+      "badge": "In-Person Experience",
+      "title": "Traditional Learning in a Modern Environment",
+      "subtitle": "Modern Environment",
+      "description": "Immerse your child in a spiritual atmosphere at our Montreal campus. Direct interaction with teachers, peer bonding, and a disciplined routine.",
+      "visit": "Visit Campus",
+      "viewSchedule": "View Schedule"
+    },
+    "facilities": {
+      "title": "Our Campus Facilities",
+      "subtitle": "We provide a safe, clean, and inspiring environment for students to focus on their studies.",
+      "items": [
+        {
+          "title": "Structured Classrooms",
+          "desc": "Separate classrooms for different age groups and levels to ensure focused learning."
+        },
+        {
+          "title": "Safe Environment",
+          "desc": "CCTV monitored, secure entry/exit, and female supervisors for younger children."
+        },
+        {
+          "title": "Break & Prayer Areas",
+          "desc": "Designated areas for wudu, prayer, and break times to refresh students."
+        }
+      ]
+    },
+    "schedule": {
+      "title": "Weekly Class Schedule",
+      "term": "Term: Spring 2026",
+      "table": {
+        "day": "Day",
+        "evening": "Evening Program",
+        "weekend": "Weekend School",
+        "hifz": "Hifz Intensive",
+        "monFri": "Monday - Friday",
+        "sat": "Saturday",
+        "sun": "Sunday"
+      }
+    },
+    "cta": {
+      "title": "Limited Seats in Physical Classes",
+      "description": "To ensure quality attention, we keep our batch sizes small. Reserve your child's spot for the upcoming term.",
+      "button": "Enroll for Physical Classes"
+    }
+  },
+  "onlineClasses": {
+    "hero": {
+      "badge": "Global Learning",
+      "title": "Learn the Quran from Anywhere in the World",
+      "subtitle": "Online",
+      "description": "Experience the same high-quality Quranic education as our physical campus, from the comfort of your home. Live, interactive classes with qualified teachers.",
+      "start": "Start Free Trial",
+      "howItWorks": "How It Works"
+    },
+    "howItWorks": {
+      "title": "How Online Classes Work",
+      "subtitle": "We use modern tools to ensure a seamless learning experience that feels just like being in a classroom.",
+      "steps": [
+        {
+          "title": "1. Live Video Classes",
+          "desc": "Connect with your teacher via Zoom or Google Meet. Two-way video ensures proper pronunciation (Tajweed) correction and engagement."
+        },
+        {
+          "title": "2. Flexible Schedule",
+          "desc": "Choose timings that work for you. We offer classes 24/7 to accommodate students from different time zones worldwide."
+        },
+        {
+          "title": "3. Progress Tracking",
+          "desc": "Parents receive regular monthly reports via email. We track attendance, memorization progress, and recitation quality."
+        }
+      ]
+    },
+    "benefits": {
+      "title": "Why Choose Online Learning?",
+      "items": [
+        {
+          "title": "Safety & Comfort",
+          "desc": "Learn from the safety of your home. No commuting saves time and energy."
+        },
+        {
+          "title": "One-on-One Attention",
+          "desc": "Private classes allow the teacher to focus 100% on one student's pace and needs."
+        },
+        {
+          "title": "Recordings Available",
+          "desc": "Missed a class? Access class recordings to revise lessons anytime."
+        }
+      ],
+      "quote": "\"Learning connects us, no matter the distance.\""
+    },
+    "cta": {
+      "title": "Ready to Start Your Online Journey?",
+      "description": "Join hundreds of satisfied students learning Quran online. Book your free trial class today.",
+      "button": "Enroll for Online Classes"
+    }
+  },
+  "footer": {
+    "mission": "Shaping hearts and minds in the light of the Qur'an. A dedicated space for spiritual growth and authentic Islamic learning for the next generation.",
+    "programsTitle": "Our Programs",
+    "quickLinksTitle": "Quick Links",
+    "stayConnectedTitle": "Stay Connected",
+    "copyright": "© {year} Aisha Academy. Licensed & Registered.",
+    "developedBy": "Developed by",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "available": "Available Online & On-Campus"
+  },
+  "admissions": {
+    "hero": {
+      "title": "Admissions Information",
+      "description": "Begin your journey of sacred knowledge. We have a simple and transparent admission process for both online and physical classes.",
+      "badge": "Join Today",
+      "action": "Apply Now"
+    },
+    "howToEnroll": {
+      "title": "How to Enroll",
+      "subtitle": "Follow these simple steps to join our academy",
+      "steps": [
+        {
+          "title": "1. Submit Application",
+          "desc": "Fill out the online admission form below with your details."
+        },
+        {
+          "title": "2. Assessment / Demo",
+          "desc": "We'll schedule a quick assessment or free demo class."
+        },
+        {
+          "title": "3. Pay Fees",
+          "desc": "Secure your spot by paying the first month's fee."
+        },
+        {
+          "title": "4. Start Learning",
+          "desc": "Receive your schedule and join your class!"
+        }
+      ]
+    },
+    "form": {
+      "title": "Join Aisha Academy",
+      "description": "Take the first step towards a journey of spiritual growth and Quranic excellence. Fill out the form below to enroll.",
+      "online": "Online Classes",
+      "onlineDesc": "Learn from anywhere",
+      "physical": "Physical Classes",
+      "physicalDesc": "Montreal Campus",
+      "studentInfo": "Student Information",
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "Enter student's full name",
+      "age": "Age",
+      "agePlaceholder": "Student's age",
+      "gender": "Gender",
+      "genderLabel": "Select gender",
+      "male": "Male",
+      "female": "Female",
+      "parentInfo": "Parent/Guardian Details",
+      "parentName": "Parent/Guardian Name",
+      "parentNamePlaceholder": "Parent's full name",
+      "email": "Email Address",
+      "emailPlaceholder": "email@example.com",
+      "phone": "Phone Number",
+      "phonePlaceholder": "+1 (555) 000-0000",
+      "city": "City/Residence",
+      "cityPlaceholder": "e.g. Montreal",
+      "courseInfo": "Course Preferences",
+      "selectProgram": "Select Program",
+      "chooseProgram": "Choose a program...",
+      "nazra": "Nazra Quran (Reading)",
+      "hifz": "Hifz (Memorization)",
+      "tajweed": "Tajweed (Rules)",
+      "arabic": "Arabic Language",
+      "islamicStudies": "Islamic Studies",
+      "preferredDays": "Preferred Days",
+      "weekdays": "Weekdays (Mon-Fri)",
+      "weekends": "Weekends (Sat-Sun)",
+      "flexible": "Flexible",
+      "preferredTime": "Preferred Time",
+      "morning": "Morning",
+      "afternoon": "Afternoon",
+      "evening": "Evening",
+      "notes": "Additional Notes / Message",
+      "notesPlaceholder": "Any specific requirements or questions?",
+      "submit": "Submit Application",
+      "sending": "Sending Application...",
+      "success": "Enrollment application sent successfully!",
+      "error": "Failed to send application. Please try again.",
+      "confMsg": "We will contact you within 24 hours to confirm your enrollment details."
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Contact Us",
+      "description": "We are here to answer your questions and help you start your journey.",
+      "badge": "Get in Touch"
+    },
+    "info": {
+      "title": "Get in Touch",
+      "description": "Whether you are interested in online classes, physical enrollment, or just want to learn more about our methodology, our team is ready to assist you.",
+      "visitCampus": "Visit Campus",
+      "emailUs": "Email Us",
+      "callWhatsapp": "Call / WhatsApp",
+      "availableTime": "Available Mon-Fri, 9am - 5pm EST"
+    },
+    "hours": {
+      "title": "Madarsa Hours",
+      "mondayFriday": "Monday - Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday",
+      "closed": "Closed"
+    },
+    "form": {
+      "title": "Send a Message",
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "Abdullah",
+      "phone": "Phone",
+      "phonePlaceholder": "+1 (555) 000-0000",
+      "email": "Email Address",
+      "emailPlaceholder": "email@example.com",
+      "inquiryType": "Inquiry Type",
+      "inquiryOptions": {
+        "general": "General Inquiry",
+        "admissions": "Admissions",
+        "online": "Online Classes",
+        "physical": "Physical Campus",
+        "jobs": "Jobs/Careers"
+      },
+      "message": "Message",
+      "messagePlaceholder": "How can we help you?",
+      "submit": "Send Message",
+      "sending": "Sending Message...",
+      "success": "Message sent successfully! We'll get back to you soon.",
+      "error": "Failed to send message. Please try again."
+    }
+  },
+  "schedulePage": {
+    "title": "Schedule & Hours",
+    "description": "Our operating hours are designed to be flexible for busy families.",
+    "weeklySchedule": "Weekly Schedule",
+    "timezone": "Montreal Eastern Time (ET)",
+    "days": {
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday"
+    },
+    "closed": "Closed",
+    "note": "Note: Private classes may be scheduled outside of these hours upon request."
   }
 }

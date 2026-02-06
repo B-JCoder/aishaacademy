@@ -1,52 +1,18 @@
 import Link from "next/link";
 import { Check } from "lucide-react";
 
-const plans = [
-  {
-    title: "Weekday Evening",
-    price: "$65",
-    period: "/month",
-    description: "Monday to Thursday from 5:30pm to 7:30pm",
-    features: ["Quran classes for children aged 5 and over"],
-    highlight: false,
-  },
-  {
-    title: "Weekend Morning",
-    price: "$65",
-    period: "/month",
-    description: "Saturday and Sunday from 10am to 12:45pm",
-    features: ["Quran classes for children aged 5 and over"],
-    highlight: true,
-  },
-  {
-    title: "Weekend Afternoon",
-    price: "$65",
-    period: "/month",
-    description: "Saturday and Sunday from 12:00 to 14:45",
-    features: ["Quran classes for children aged 5 and over"],
-    highlight: false,
-  },
-  {
-    title: "Private 1-on-1",
-    price: "$12.50",
-    period: "/session",
-    description:
-      "35-minute private one-on-one lessons with an experienced teacher",
-    features: ["Quran classes for children aged 4 and over"],
-    highlight: false,
-  },
-  {
-    title: "Online Classes",
-    price: "$60",
-    period: "/month",
-    description:
-      "Online classes Monday to Wednesday AND Friday from 5:00 PM to 6:15 PM",
-    features: ["Quran classes for children aged 5 and over"],
-    highlight: false,
-  },
-];
+const PricingSection = ({ dict }: { dict: any }) => {
+  const plans = [
+    dict.plans.weekday,
+    dict.plans.weekend_morning,
+    dict.plans.weekend_afternoon,
+    dict.plans.private,
+    dict.plans.online,
+  ].map((plan, idx) => ({
+    ...plan,
+    highlight: idx === 1, // Weekend Morning is usually popular
+  }));
 
-const PricingSection = () => {
   return (
     <section className="py-24 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
       {/* BG Blurs */}
@@ -57,20 +23,25 @@ const PricingSection = () => {
           <div className="flex gap-4 flex-col items-center">
             <div className="mx-auto max-w-3xl text-center space-y-4">
               <span className="text-accent font-bold tracking-wider uppercase text-sm">
-                Pricing
+                {dict.highlight}
               </span>
               <h1 className="text-3xl md:text-4xl xl:text-5xl text-primary dark:text-white font-bold font-serif">
-                Our Pricing Plans
+                {dict.title} {dict.highlight}
               </h1>
             </div>
             <p className="text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto">
-              Choose the best plan that fits your schedule and learning needs.
+              {dict.description}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {plans.map((plan, index) => (
-              <PriceCard key={index} {...plan} />
+              <PriceCard
+                key={index}
+                {...plan}
+                popularText={dict.popular}
+                enrollText="Enroll Now"
+              />
             ))}
           </div>
         </div>
@@ -80,19 +51,23 @@ const PricingSection = () => {
 };
 
 function PriceCard({
-  title,
+  name,
   price,
   period,
   description,
   features,
   highlight = false,
+  popularText,
+  enrollText,
 }: {
-  title: string;
+  name: string;
   price: string;
   period: string;
   description: string;
   features: string[];
   highlight?: boolean;
+  popularText: string;
+  enrollText: string;
 }) {
   return (
     <div
@@ -104,12 +79,12 @@ function PriceCard({
     >
       {highlight && (
         <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent text-primary px-4 py-1 rounded-full text-sm font-bold shadow-lg uppercase tracking-wide">
-          Most Popular
+          {popularText}
         </div>
       )}
 
       <h3 className="text-xl font-bold text-primary dark:text-white font-serif mb-2">
-        {title}
+        {name}
       </h3>
       <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 min-h-[40px]">
         {description}
@@ -144,7 +119,7 @@ function PriceCard({
             : "bg-white dark:bg-gray-700 text-primary dark:text-white border border-gray-200 dark:border-gray-600 hover:bg-primary/5 dark:hover:bg-gray-600"
         }`}
       >
-        Enroll Now
+        {enrollText}
       </Link>
     </div>
   );

@@ -148,6 +148,10 @@ export default async function RootLayout({
             gtag('config', 'G-9283Z62J9W');
           `}
         </Script>
+        <Script
+          src="https://static.elfsight.com/platform/platform.js"
+          strategy="afterInteractive"
+        />
       </head>
       <body
         className={`${playfair.variable} ${inter.variable} ${amiri.variable} ${scheherazade.variable} ${lateef.variable} ${notoNaskh.variable} ${poppins.variable} font-sans antialiased`}

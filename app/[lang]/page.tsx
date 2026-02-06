@@ -9,9 +9,11 @@ import CtaBanner from "@/components/sections/cta-banner";
 import FAQSection from "@/components/sections/faq";
 import StatCounter from "@/components/sections/counter";
 import ProcessFlow from "@/components/sections/ProcessFlow";
-import GoogleMap from "@/components/sections/googlemap";
+import Newsletter from "@/components/sections/newsletter";
+// import GoogleMap from "@/components/sections/googlemap";
 import PricingPlans from "@/components/sections/PricingPlans";
 import { getDictionary } from "@/lib/dictionary";
+import ContactForm from "@/components/sections/contact-form";
 
 export default async function Page({
   params,
@@ -25,18 +27,18 @@ export default async function Page({
     <main className="bg-white dark:bg-gray-950 overflow-hidden">
       <Navbar lang={lang} dict={dict} />
       <HeroSection dict={dict.hero} />
-      <StatCounter />
-      <ProgramsOverview />
-      <WhyUs />
-
-      <ProcessFlow />
-      <Testimonials />
-      <PricingPlans />
-
-      <CtaBanner />
-      <FAQSection />
-      <GoogleMap />
-      <Footer />
+      <StatCounter dict={dict.stats} />
+      <ProgramsOverview dict={dict.programs} />
+      <WhyUs dict={dict.whyUs} />
+      <ProcessFlow dict={dict.process} />
+      <PricingPlans dict={dict.pricing} />
+      <Testimonials lang={lang} />
+      <CtaBanner dict={dict.cta} />
+      <FAQSection dict={dict.faq} />
+      <ContactForm dict={dict.contact} />
+      {/* <GoogleMap dict={dict.common} /> */}
+      <Newsletter dict={dict} lang={lang} />
+      <Footer lang={lang} dict={dict} />
     </main>
   );
 }

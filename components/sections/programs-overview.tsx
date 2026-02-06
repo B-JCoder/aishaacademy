@@ -3,38 +3,30 @@ import React from "react";
 import Link from "next/link";
 import { BookOpen, Users, Wifi, Clock } from "lucide-react";
 
-const programs = [
-  {
-    title: "Weekday Physical Classes",
-    description: "Structured learning in a focused environment.",
-    icon: <Users className="w-8 h-8" />,
-    features: ["Ages 5+", "Mon-Thu", "5:30 PM - 7:30 PM"],
-    link: "/programs#weekday",
-  },
-  {
-    title: "Weekend Physical Classes",
-    description: "Perfect for school-going children.",
-    icon: <BookOpen className="w-8 h-8" />,
-    features: ["Morning & Afternoon", "Sat & Sun", "Structured Curriculum"],
-    link: "/programs#weekend",
-  },
-  {
-    title: "Online Quran Classes",
-    description: "Live Zoom sessions from the comfort of home.",
-    icon: <Wifi className="w-8 h-8" />,
-    features: ["Flexible", "Mon-Wed-Fri", "Personalized"],
-    link: "/programs#online",
-  },
-  {
-    title: "Private One-on-One",
-    description: "Personalized attention for faster progress.",
-    icon: <Clock className="w-8 h-8" />,
-    features: ["35 min sessions", "Flexible Scheduling", "Focus on Weak Areas"],
-    link: "/programs#private",
-  },
-];
+export default function ProgramsOverview({ dict }: { dict: any }) {
+  const programs = [
+    {
+      ...dict.weekdayPhysical,
+      icon: <Users className="w-8 h-8" />,
+      link: "/programs#weekday",
+    },
+    {
+      ...dict.weekendPhysical,
+      icon: <BookOpen className="w-8 h-8" />,
+      link: "/programs#weekend",
+    },
+    {
+      ...dict.online,
+      icon: <Wifi className="w-8 h-8" />,
+      link: "/programs#online",
+    },
+    {
+      ...dict.private,
+      icon: <Clock className="w-8 h-8" />,
+      link: "/programs#private",
+    },
+  ];
 
-export default function ProgramsOverview() {
   return (
     <section className="py-24 relative overflow-hidden bg-gray-50 dark:bg-gray-900">
       {/* Light Mode Delicate Background Effects */}
@@ -46,19 +38,18 @@ export default function ProgramsOverview() {
       <div className="relative z-10 mx-auto lg:max-w-7xl px-5 sm:px-10 md:px-12 lg:px-5">
         <div className="text-center space-y-4 mb-16">
           <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-semibold border border-primary/10 mb-2">
-            Our Offerings
+            {dict.offerings}
           </span>
           <h2 className="text-3xl font-serif font-bold text-gray-900 dark:text-white sm:text-4xl md:text-5xl drop-shadow-sm">
-            Our Programs
+            {dict.title}
           </h2>
           <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-sans text-lg">
-            Choose the perfect learning path for your child. Whether online or
-            in-person, we ensure quality education with qualified teachers.
+            {dict.subtitle}
           </p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {programs.map((program, idx) => (
+          {programs.map((program: any, idx: number) => (
             <div
               key={idx}
               className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl p-8 shadow-[0_0_20px_#623F2F] border border-white/50 dark:border-gray-700 transition-all duration-300 hover:shadow-[0_0_30px_#623F2F] hover:-translate-y-2"
@@ -75,7 +66,7 @@ export default function ProgramsOverview() {
                 {program.description}
               </p>
               <ul className="space-y-3 mb-8">
-                {program.features.map((feature, i) => (
+                {program.features.map((feature: string, i: number) => (
                   <li
                     key={i}
                     className="flex items-center gap-2.5 text-sm text-gray-500 dark:text-gray-400"

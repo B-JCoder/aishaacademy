@@ -13,36 +13,22 @@ import {
 
 gsap.registerPlugin(ScrollTrigger);
 
-const steps = [
-  {
-    number: "01",
-    title: "Register Online",
-    icon: <UserPlus />,
-    desc: "Create your student profile in just a few minutes via our streamlined portal. We collect essential information to tailor the Quranic learning experience to your specific needs, proficiency level, and spiritual goals.",
-  },
-  {
-    number: "02",
-    title: "Book Free Trial",
-    icon: <CalendarCheck />,
-    desc: "Experience our teaching methodology firsthand with a complimentary 30-minute session. Meet your dedicated qualified scholar, assess your current recitation level, and discuss your personalized learning objectives.",
-  },
-  {
-    number: "03",
-    title: "Enroll & Custom Plan",
-    icon: <BookOpenCheck />,
-    desc: "Receive a customized learning roadmap based on your trial. Choose a flexible schedule that perfectly aligns with your lifestyle—whether you prefer early morning focus or late evening reflection.",
-  },
-  {
-    number: "04",
-    title: "Begin Your Journey",
-    icon: <GraduationCap />,
-    desc: "Embark on your sacred journey of Quranic education. Access our state-of-the-art digital classroom, track your hifz or tajweed progress daily, and receive continuous, constructive feedback from your instructor.",
-  },
-];
-
-const ProcessFlow = () => {
+const ProcessFlow = ({ dict }: { dict: any }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const lineRef = useRef<HTMLDivElement | null>(null);
+
+  const icons = [
+    <UserPlus key="user" />,
+    <CalendarCheck key="cal" />,
+    <BookOpenCheck key="book" />,
+    <GraduationCap key="grad" />,
+  ];
+
+  const steps = dict.steps.map((step: any, idx: number) => ({
+    ...step,
+    number: `0${idx + 1}`,
+    icon: icons[idx],
+  }));
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -67,7 +53,7 @@ const ProcessFlow = () => {
 
       // Animate each step card and connectors
       const cards = gsap.utils.toArray<HTMLElement>(".step-card");
-      cards.forEach((card, i) => {
+      cards.forEach((card) => {
         gsap.fromTo(
           card,
           { opacity: 0, y: 50, scale: 0.95 },
@@ -126,16 +112,15 @@ const ProcessFlow = () => {
         className="text-center mb-32 relative z-10"
       >
         <h2 className="text-4xl sm:text-6xl font-extrabold mb-6 font-serif bg-gradient-to-r from-amber-200 to-yellow-500 bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(251,191,36,0.5)]">
-          How It Works
+          {dict.title}
         </h2>
         <p className="text-amber-100/80 text-lg max-w-2xl mx-auto font-light">
-          Your path to Quranic excellence involves four simple yet
-          transformative steps.
+          {dict.subtitle}
         </p>
       </motion.div>
 
       {/* Center Vertical Timeline Line */}
-      <div className="absolute left-1/2 top-40 bottom-20 w-[4px] -translate-x-1/2 bg-gray-800/50 rounded-full h-[80%]">
+      <div className="absolute left-1/2 top-[300px] bottom-20 w-[4px] -translate-x-1/2 bg-gray-800/50 rounded-full h-[90%]">
         <div
           ref={lineRef}
           className="w-full bg-gradient-to-b from-amber-300 via-yellow-500 to-amber-700 rounded-full shadow-[0_0_30px_rgba(245,158,11,0.8)]"
@@ -145,7 +130,7 @@ const ProcessFlow = () => {
 
       {/* Steps Container */}
       <div className="relative z-10 flex flex-col gap-32 w-full max-w-6xl">
-        {steps.map((step, index) => (
+        {steps.map((step: any, index: number) => (
           <div
             key={index}
             className={`step-card relative flex flex-col sm:flex-row items-center ${
@@ -168,12 +153,6 @@ const ProcessFlow = () => {
               <div className="connector-line h-[2px] w-full bg-gradient-to-r from-amber-400/80 to-transparent origin-left shadow-[0_0_10px_rgba(251,191,36,0.5)]"></div>
             </div>
 
-            {/* Step Card */}
-            {/* Spacer for the other side to keep centering if needed, but flex-row handling does it. 
-                 We actually need to position the card on one side. 
-                 Using w-[45%] and margins/gaps.
-              */}
-
             <div
               className={`w-full sm:w-[45%] ${index % 2 === 0 ? "mr-auto sm:mr-[55%]" : "ml-auto sm:ml-[55%]"}`}
             >
@@ -193,7 +172,7 @@ const ProcessFlow = () => {
                       },
                     )}
                   </div>
-                  <span className="text-5xl font-extrabold text-amber-500/20 font-serif select-none">
+                  <span className="text-5xl font-extrabold text-amber-50/20 font-serif select-none">
                     {step.number}
                   </span>
                 </div>
@@ -203,7 +182,7 @@ const ProcessFlow = () => {
                   {step.title}
                 </h3>
                 <p className="text-amber-100/70 leading-relaxed font-sans text-base sm:text-lg">
-                  {step.desc}
+                  {step.description}
                 </p>
               </div>
             </div>

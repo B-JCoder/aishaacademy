@@ -78,7 +78,7 @@ const StatItem: React.FC<StatItemProps> = ({
 };
 
 // --- Main Section ---
-export const StatCounter: React.FC = () => {
+export const StatCounter: React.FC<{ dict: any }> = ({ dict }) => {
   return (
     <section className="py-24 bg-primary relative overflow-hidden">
       {/* Decorative gradient background glow */}
@@ -93,35 +93,38 @@ export const StatCounter: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="text-3xl sm:text-4xl font-serif font-bold text-center text-white mb-16"
         >
-          Our <span className="text-accent italic">Impact</span>
+          {dict.impact ? dict.impact.split(" ")[0] : "Our"}{" "}
+          <span className="text-accent italic">
+            {dict.impact ? dict.impact.split(" ")[1] : "Impact"}
+          </span>
         </motion.h2>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
           <StatItem
             icon={<Users className="h-8 w-8" />}
-            value={50}
-            label="Qualified Teachers"
+            value={15}
+            label={dict.qualifiedTeachers}
             delay={0.1}
             suffix="+"
           />
           <StatItem
             icon={<BookOpen className="h-8 w-8" />}
-            value={500}
-            label="Students Enrolled"
+            value={200}
+            label={dict.studentsEnrolled}
             delay={0.2}
             suffix="+"
           />
           <StatItem
             icon={<Award className="h-8 w-8" />}
             value={10}
-            label="Years Experience"
+            label={dict.yearsExperience}
             delay={0.3}
             suffix="+"
           />
           <StatItem
             icon={<Globe className="h-8 w-8" />}
             value={120}
-            label="Online Classes"
+            label={dict.onlineClasses}
             delay={0.4}
             suffix="/wk"
           />

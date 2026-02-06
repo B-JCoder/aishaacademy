@@ -1,11 +1,26 @@
 "use client";
 import React from "react";
-import Script from "next/script";
 import { motion } from "framer-motion";
+import Script from "next/script";
 import Link from "next/link";
 import { FaGoogle } from "react-icons/fa";
 
-const Testimonials = () => {
+const Testimonials = ({ lang }: { lang: string }) => {
+  const titles: any = {
+    en: {
+      title: "What Parents Say",
+      subtitle: "Join hundreds of happy families",
+      button: "Write a Review on Google",
+    },
+    es: {
+      title: "Lo que Dicen los Padres",
+      subtitle: "Únete a cientos de familias felices",
+      button: "Escribir una Reseña en Google",
+    },
+  };
+
+  const currentStrings = titles[lang] || titles.es;
+
   return (
     <section className="py-24 bg-white dark:bg-gray-900 overflow-hidden relative">
       <Script

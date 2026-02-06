@@ -29,11 +29,17 @@ export default function HeroSection({ dict }: HeroSectionProps) {
   };
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev === 0 ? 1 : 0));
-    }, 6000);
-    return () => clearInterval(timer);
-  }, []);
+    if (currentSlide === 0) {
+      const timer = setTimeout(() => {
+        setCurrentSlide(1);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [currentSlide]);
+
+  const handleTypingComplete = () => {
+    setCurrentSlide(0);
+  };
 
   return (
     <section className="relative min-h-[100svh] flex items-center overflow-hidden bg-[#FDFBF7]">
@@ -66,33 +72,19 @@ export default function HeroSection({ dict }: HeroSectionProps) {
               <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[60%] bg-accent/20 blur-[140px] rounded-full" />
             </div>
 
-            <div className="relative z-10 w-full max-w-4xl px-6">
+            <div className="relative z-10 w-full max-w-6xl px-4 sm:px-6 lg:px-8">
               <motion.div
                 initial={{ scale: 0.9, opacity: 0, y: 30 }}
                 animate={{ scale: 1, opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: "easeOut" }}
-                className="relative p-8 sm:p-12 md:p-14 rounded-[3rem] bg-white/10 backdrop-blur-3xl border border-white/30 shadow-[0_0_80px_rgba(83,44,27,0.4)] flex flex-col items-center justify-center overflow-hidden group"
+                className="relative flex flex-col items-center justify-center overflow-hidden"
               >
-                {/* Internal Card Lighting / Glow */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10 pointer-events-none" />
-                <div className="absolute -inset-[2px] bg-gradient-to-r from-primary/50 via-accent/30 to-primary/50 rounded-[3rem] opacity-20 blur-sm pointer-events-none" />
-
-                {/* Decorative Pattern Background */}
-                <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
-                  <Image
-                    src="/images/herosectionayat.png"
-                    alt="Pattern"
-                    fill
-                    className="object-cover border rounded-[3rem]"
-                  />
-                </div>
-
                 {/* Ayat Calligraphy */}
-                <div className="relative z-10 w-full aspect-[2/1] max-h-[520px] mb-6">
+                <div className="relative z-10 w-full max-w-[90vw] md:max-w-4xl aspect-[4/3] sm:aspect-[2/1] max-h-[35vh] sm:max-h-[45vh] lg:max-h-[55vh] flex items-center justify-center">
                   <motion.div
                     className="relative w-full h-full"
                     animate={{
-                      y: [0, -8, 0],
+                      y: [0, -0, 0],
                     }}
                     transition={{
                       duration: 4,
@@ -104,7 +96,7 @@ export default function HeroSection({ dict }: HeroSectionProps) {
                       src="/images/banner-arabic.png"
                       alt="Ayat Al-Quran"
                       fill
-                      className="object-contain drop-shadow-[0_10px_25px_rgba(0,0,0,0.5)] brightness-110 filter invert-[0.1]"
+                      className="object-contain drop-shadow-[0_10px_35px_rgba(0,0,0,0.6)] brightness-125"
                       priority
                     />
                   </motion.div>
@@ -115,29 +107,25 @@ export default function HeroSection({ dict }: HeroSectionProps) {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5, duration: 0.8 }}
-                  className="relative z-10 text-center space-y-2"
+                  className="relative z-10 text-center space-y-2 mt-8 sm:mt-12 md:mt-16 px-4"
                 >
-                  <p className="text-white/90 text-sm sm:text-lg md:text-xl font-medium tracking-wide italic max-w-2xl leading-relaxed">
+                  <p className="text-white text-sm sm:text-lg md:text-2xl font-medium tracking-wide italic max-w-3xl leading-relaxed drop-shadow-lg">
                     {hero.ayatTranslation}
                   </p>
-                  <div className="w-16 h-[1px] bg-accent/50 mx-auto mt-4" />
+                  <div className="w-16 h-[1px] bg-accent/70 mx-auto mt-4" />
                 </motion.div>
-
-                {/* Glass Borders Decoration */}
-                <div className="absolute top-6 right-6 w-20 h-20 border-t-2 border-r-2 border-white/20 rounded-tr-[2rem]" />
-                <div className="absolute bottom-6 left-6 w-20 h-20 border-b-2 border-l-2 border-white/20 rounded-bl-[2rem]" />
               </motion.div>
 
-              <motion.div
+              {/* <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1, duration: 0.8 }}
-                className="text-center mt-10"
+                className="text-center mt-6 sm:mt-8 md:mt-10"
               >
-                <div className="inline-block px-8 py-3 rounded-full bg-white/10 border border-white/20 text-white font-medium text-sm sm:text-lg backdrop-blur-md shadow-xl">
+                <div className="inline-block px-6 py-2 sm:px-8 sm:py-3 rounded-full bg-white/10 border border-white/20 text-white font-medium text-xs sm:text-base md:text-lg backdrop-blur-md shadow-xl">
                   {hero.surahRef}
                 </div>
-              </motion.div>
+              </motion.div> */}
             </div>
           </motion.div>
         ) : (
@@ -158,30 +146,36 @@ export default function HeroSection({ dict }: HeroSectionProps) {
             </div>
 
             <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6">
-              <div className="grid lg:grid-cols-2 gap-10 items-center">
-                {/* LEFT */}
-                <div className="text-center lg:text-left space-y-6">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/30 text-accent text-xs sm:text-sm">
+              <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                {/* LEFT (Bottom on Mobile) */}
+                <div className="text-center lg:text-left space-y-4 sm:space-y-6">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/30 text-accent text-[10px] sm:text-xs md:text-sm">
                     {hero.admissionsOpen}
                   </div>
 
-                  <TypedHeading strings={hero.typedStrings} />
+                  <div className="scale-90 sm:scale-100 origin-center lg:origin-left">
+                    <TypedHeading
+                      strings={hero.typedStrings}
+                      onComplete={handleTypingComplete}
+                      loop={false}
+                    />
+                  </div>
 
-                  <p className="text-gray-200 max-w-xl mx-auto lg:mx-0 text-sm sm:text-base lg:text-lg">
+                  <p className="text-gray-200 max-w-xl mx-auto lg:mx-0 text-sm sm:text-base lg:text-lg leading-relaxed px-2 sm:px-0">
                     {hero.description}
                   </p>
 
-                  <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start pt-2">
+                  <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start pt-2 px-4 sm:px-0">
                     <Link
                       href="/admissions"
-                      className="h-12 px-6 rounded-full bg-accent text-primary font-bold text-sm
+                      className="h-11 sm:h-12 px-6 rounded-full bg-accent text-primary font-bold text-sm
                       flex items-center justify-center hover:scale-105 transition shadow-[0_4px_6px_#623F2F]"
                     >
                       {hero.enrollNow}
                     </Link>
                     <Link
                       href="/contact"
-                      className="h-12 px-6 rounded-full bg-white/10 border border-white/20
+                      className="h-11 sm:h-12 px-6 rounded-full bg-white/10 border border-white/20
                       text-white font-bold text-sm flex items-center justify-center shadow-[0_4px_6px_#623F2F]"
                     >
                       {hero.contactUs}
@@ -189,9 +183,9 @@ export default function HeroSection({ dict }: HeroSectionProps) {
                   </div>
                 </div>
 
-                {/* RIGHT */}
-                <div className="relative">
-                  <div className="grid grid-cols-2 gap-4 sm:gap-6">
+                {/* RIGHT (Top on Mobile) */}
+                <div className="relative w-full max-w-[280px] sm:max-w-md mx-auto lg:max-w-none">
+                  <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6">
                     {/* LEFT COLUMN */}
                     <div className="space-y-4 relative">
                       <div className="absolute -top-12 -left-12 w-32 h-32 opacity-20 pointer-events-none z-0 transform -rotate-12">
@@ -276,7 +270,7 @@ export default function HeroSection({ dict }: HeroSectionProps) {
       </AnimatePresence>
 
       {/* Slider Indicators */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-3">
+      {/* <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-3">
         {[0, 1].map((index) => (
           <button
             key={index}
@@ -287,10 +281,10 @@ export default function HeroSection({ dict }: HeroSectionProps) {
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
-      </div>
+      </div> */}
 
       {/* Navigation Arrows (Optional but nice for UX) */}
-      <button
+      {/* <button
         onClick={() => setCurrentSlide((prev) => (prev === 0 ? 1 : 0))}
         className="absolute left-4 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-primary hover:bg-white/20 transition hidden md:block"
       >
@@ -325,7 +319,7 @@ export default function HeroSection({ dict }: HeroSectionProps) {
         >
           <path d="m9 18 6-6-6-6" />
         </svg>
-      </button>
+      </button> */}
     </section>
   );
 }

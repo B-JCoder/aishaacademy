@@ -17,6 +17,8 @@ import Link from "next/link";
 import Image from "next/image";
 import FAQSection from "@/components/sections/faq";
 import PagesHero from "@/components/sections/pageshero";
+import ContactForm from "@/components/sections/contact-form";
+import Newsletter from "@/components/sections/newsletter";
 
 import { getDictionary } from "@/lib/dictionary";
 
@@ -34,10 +36,13 @@ export default async function AboutPage({
 
       {/* Hero */}
       <PagesHero
-        title="About Aisha Academy"
-        description="Nurturing the next generation with the light of the Quran and the beauty of Islamic character since 2015."
-        badge={{ text: "Since 2015", icon: Globe }}
-        primaryAction={{ text: "Join our Legacy", href: "/admissions" }}
+        title={dict.about.hero.title}
+        description={dict.about.hero.description}
+        badge={{ text: dict.about.hero.badge, icon: Globe }}
+        primaryAction={{
+          text: dict.about.hero.primaryAction,
+          href: "/admissions",
+        }}
         video={
           <iframe
             className="w-full h-full"
@@ -68,32 +73,26 @@ export default async function AboutPage({
                   10+
                 </p>
                 <p className="text-sm text-muted-foreground uppercase tracking-wide">
-                  Years of Excellence
+                  {dict.about.history.stat}
                 </p>
               </div>
             </div>
             <div className="space-y-6">
               <h2 className="text-4xl font-serif font-bold text-primary dark:text-white">
-                Our Humble Beginnings
+                {dict.about.history.title}
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                Aisha Academy started as a small weekend school in a local
-                community center in Montreal. Driven by the community's need for
-                high-quality, structured Quranic education, we have grown into a
-                fully-fledged institute serving hundreds of students both
-                locally and globally.
+                {dict.about.history.p1}
               </p>
               <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                Named after the Mother of Believers, Aisha (RA), a beacon of
-                knowledge, our academy strives to embody her legacy of
-                scholarship and piety.
+                {dict.about.history.p2}
               </p>
               <div className="pt-4">
                 <Link
                   href="/admissions"
                   className="text-accent font-bold hover:underline flex items-center gap-2"
                 >
-                  Join our Legacy <Users className="w-4 h-4" />
+                  {dict.about.hero.primaryAction} <Users className="w-4 h-4" />
                 </Link>
               </div>
             </div>
@@ -110,14 +109,10 @@ export default async function AboutPage({
                 <Globe className="w-7 h-7" />
               </div>
               <h2 className="text-3xl font-serif font-bold text-gray-900 dark:text-white mb-4">
-                Our Mission
+                {dict.about.mission.title}
               </h2>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed font-sans text-lg">
-                To provide high-quality, accessible Quranic education that
-                empowers children to connect with their faith, understand the
-                Holy Book, and embody its teachings in their daily lives. We
-                strive to create a generation that leads with knowledge and
-                compassion.
+                {dict.about.mission.desc}
               </p>
             </div>
             <div className="bg-white dark:bg-card p-10 rounded-3xl shadow-sm border border-border">
@@ -125,12 +120,10 @@ export default async function AboutPage({
                 <Heart className="w-7 h-7" />
               </div>
               <h2 className="text-3xl font-serif font-bold text-gray-900 dark:text-white mb-4">
-                Our Vision
+                {dict.about.vision.title}
               </h2>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed font-sans text-lg">
-                A world where every Muslim child has the opportunity to learn
-                the Quran with love and understanding, building a strong
-                foundation of faith that guides them through all walks of life.
+                {dict.about.vision.desc}
               </p>
             </div>
           </div>
@@ -142,10 +135,10 @@ export default async function AboutPage({
         <div className="mx-auto lg:max-w-7xl px-5 sm:px-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-serif font-bold text-primary dark:text-white mb-4">
-              Learning Your Way
+              {dict.about.learningWay.title}
             </h2>
             <p className="text-muted-foreground text-lg">
-              Whether you are near or far, education is within reach.
+              {dict.about.learningWay.subtitle}
             </p>
           </div>
 
@@ -160,17 +153,18 @@ export default async function AboutPage({
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8">
                 <div className="flex items-center gap-3 text-white mb-2">
                   <MapPin className="w-6 h-6 text-accent" />
-                  <h3 className="text-2xl font-bold">Physical Campus</h3>
+                  <h3 className="text-2xl font-bold">
+                    {dict.about.learningWay.physical.title}
+                  </h3>
                 </div>
                 <p className="text-gray-300 mb-6">
-                  Experience the brotherhood and discipline of in-person
-                  learning at our Montreal center.
+                  {dict.about.learningWay.physical.desc}
                 </p>
                 <Link
                   href="/physical-classes"
                   className="inline-block bg-white text-primary px-6 py-3 rounded-full font-bold w-max hover:bg-accent hover:text-white transition-colors"
                 >
-                  Visit Campus
+                  {dict.about.learningWay.physical.action}
                 </Link>
               </div>
             </div>
@@ -184,17 +178,18 @@ export default async function AboutPage({
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8">
                 <div className="flex items-center gap-3 text-white mb-2">
                   <Monitor className="w-6 h-6 text-accent" />
-                  <h3 className="text-2xl font-bold">Online Academy</h3>
+                  <h3 className="text-2xl font-bold">
+                    {dict.about.learningWay.online.title}
+                  </h3>
                 </div>
                 <p className="text-gray-300 mb-6">
-                  Flexible, interactive online classes via Zoom/LMS for students
-                  worldwide.
+                  {dict.about.learningWay.online.desc}
                 </p>
                 <Link
                   href="/online-classes"
                   className="inline-block bg-white text-primary px-6 py-3 rounded-full font-bold w-max hover:bg-accent hover:text-white transition-colors"
                 >
-                  Start Online
+                  {dict.about.learningWay.online.action}
                 </Link>
               </div>
             </div>
@@ -207,11 +202,10 @@ export default async function AboutPage({
         <div className="mx-auto lg:max-w-7xl px-5 sm:px-10 md:px-12 lg:px-5">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-serif font-bold text-gray-900 dark:text-white mb-4">
-              Our Methodology
+              {dict.about.methodology.title}
             </h2>
             <p className="text-gray-600 dark:text-gray-400 font-sans max-w-2xl mx-auto">
-              We combine traditional Islamic pedagogy with modern teaching
-              techniques to create a holistic learning experience.
+              {dict.about.methodology.subtitle}
             </p>
           </div>
 
@@ -219,31 +213,28 @@ export default async function AboutPage({
             <div className="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-2 transition-transform">
               <BookOpen className="w-12 h-12 text-primary mb-6" />
               <h3 className="text-xl font-bold font-serif mb-3 dark:text-white">
-                Tilawah & Tajweed
+                {dict.about.methodology.items[0].title}
               </h3>
               <p className="text-gray-600 dark:text-gray-300 font-sans leading-relaxed">
-                Emphasis on correct pronunciation and articulation points from
-                day one.
+                {dict.about.methodology.items[0].desc}
               </p>
             </div>
             <div className="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-2 transition-transform">
               <Shield className="w-12 h-12 text-secondary mb-6" />
               <h3 className="text-xl font-bold font-serif mb-3 dark:text-white">
-                Character Building
+                {dict.about.methodology.items[1].title}
               </h3>
               <p className="text-gray-600 dark:text-gray-300 font-sans leading-relaxed">
-                We integrate Tarbiyah into every lesson, teaching respect,
-                honesty, and kindness.
+                {dict.about.methodology.items[1].desc}
               </p>
             </div>
             <div className="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-2 transition-transform">
               <Users className="w-12 h-12 text-primary mb-6" />
               <h3 className="text-xl font-bold font-serif mb-3 dark:text-white">
-                Qualified Mentors
+                {dict.about.methodology.items[2].title}
               </h3>
               <p className="text-gray-600 dark:text-gray-300 font-sans leading-relaxed">
-                Our teachers are certified and trained in modern child
-                psychology.
+                {dict.about.methodology.items[2].desc}
               </p>
             </div>
           </div>
@@ -251,11 +242,12 @@ export default async function AboutPage({
       </section>
 
       {/* Testimonials */}
-      <Testimonials />
+      <Testimonials lang={lang} />
 
-      <FAQSection />
-
-      <Footer />
+      <FAQSection dict={dict.faq} />
+      <ContactForm dict={dict.contact} />
+      <Newsletter dict={dict} lang={lang} />
+      <Footer lang={lang} dict={dict} />
     </main>
   );
 }

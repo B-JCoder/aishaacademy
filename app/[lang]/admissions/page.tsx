@@ -3,10 +3,12 @@ import Navbar from "@/components/layout/header";
 import { getDictionary } from "@/lib/dictionary";
 import Footer from "@/components/layout/footer";
 import AdmissionsForm from "@/components/sections/admissions-form";
+import Newsletter from "@/components/sections/newsletter";
 import FAQSection from "@/components/sections/faq";
 import PagesHero from "@/components/sections/pageshero";
 import { CheckCircle, FileText, CreditCard, GraduationCap } from "lucide-react";
 import PricingPlans from "@/components/sections/PricingPlans";
+import ContactForm from "@/components/sections/contact-form";
 
 export default async function AdmissionsPage({
   params,
@@ -22,11 +24,14 @@ export default async function AdmissionsPage({
 
       {/* Header */}
       <PagesHero
-        title="Admissions Information"
-        description="Begin your journey of sacred knowledge. We have a simple and transparent admission process for both online and physical classes."
+        title={dict.admissions.hero.title}
+        description={dict.admissions.hero.description}
         imageSrc="/images/img1.png"
-        badge={{ text: "Join Today", icon: CheckCircle }}
-        primaryAction={{ text: "Apply Now", href: "#admission-form" }}
+        badge={{ text: dict.admissions.hero.badge, icon: CheckCircle }}
+        primaryAction={{
+          text: dict.admissions.hero.action,
+          href: "#admission-form",
+        }}
       />
 
       {/* Process Steps */}
@@ -34,10 +39,10 @@ export default async function AdmissionsPage({
         <div className="max-w-7xl mx-auto px-5 sm:px-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold font-serif text-primary mb-4">
-              How to Enroll
+              {dict.admissions.howToEnroll.title}
             </h2>
             <p className="text-muted-foreground">
-              Follow these simple steps to join our academy
+              {dict.admissions.howToEnroll.subtitle}
             </p>
           </div>
 
@@ -45,23 +50,23 @@ export default async function AdmissionsPage({
             {[
               {
                 icon: FileText,
-                title: "1. Submit Application",
-                desc: "Fill out the online admission form below with your details.",
+                title: dict.admissions.howToEnroll.steps[0].title,
+                desc: dict.admissions.howToEnroll.steps[0].desc,
               },
               {
                 icon: CheckCircle,
-                title: "2. Assessment / Demo",
-                desc: "We'll schedule a quick assessment or free demo class.",
+                title: dict.admissions.howToEnroll.steps[1].title,
+                desc: dict.admissions.howToEnroll.steps[1].desc,
               },
               {
                 icon: CreditCard,
-                title: "3. Pay Fees",
-                desc: "Secure your spot by paying the first month's fee.",
+                title: dict.admissions.howToEnroll.steps[2].title,
+                desc: dict.admissions.howToEnroll.steps[2].desc,
               },
               {
                 icon: GraduationCap,
-                title: "4. Start Learning",
-                desc: "Receive your schedule and join your class!",
+                title: dict.admissions.howToEnroll.steps[3].title,
+                desc: dict.admissions.howToEnroll.steps[3].desc,
               },
             ].map((step, idx) => (
               <div
@@ -80,14 +85,15 @@ export default async function AdmissionsPage({
       </section>
 
       {/* Fee Structure */}
-      <PricingPlans />
+      <PricingPlans dict={dict.pricing} />
 
       {/* Form Section */}
-      <AdmissionsForm />
+      <AdmissionsForm dict={dict.admissions.form} />
 
-      <FAQSection />
-
-      <Footer />
+      <FAQSection dict={dict.faq} />
+      <ContactForm dict={dict.contact} />
+      <Newsletter dict={dict} lang={lang} />
+      <Footer lang={lang} dict={dict} />
     </main>
   );
 }

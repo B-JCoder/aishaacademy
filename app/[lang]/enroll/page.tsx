@@ -5,6 +5,7 @@ import Footer from "@/components/layout/footer";
 import FAQSection from "@/components/sections/faq";
 import PagesHero from "@/components/sections/pageshero";
 import AdmissionsForm from "@/components/sections/admissions-form";
+import Newsletter from "@/components/sections/newsletter";
 import { CheckCircle } from "lucide-react";
 
 export default async function EnrollPage({
@@ -21,17 +22,18 @@ export default async function EnrollPage({
 
       {/* Spacer for fixed header if needed, but AdmissionsForm has padding */}
       <PagesHero
-        title="Enroll Online"
-        description="Take the first step towards your child's Islamic education today."
+        title={dict.admissions.hero.title}
+        description={dict.admissions.hero.description}
         imageSrc="/images/online-learning.png"
-        badge={{ text: "New Term Open", icon: CheckCircle }}
+        badge={{ text: dict.admissions.hero.badge, icon: CheckCircle }}
       />
 
-      <AdmissionsForm />
+      <AdmissionsForm dict={dict.admissions.form} />
 
-      <FAQSection />
+      <FAQSection dict={dict.faq} />
 
-      <Footer />
+      <Newsletter dict={dict} lang={lang} />
+      <Footer lang={lang} dict={dict} />
     </main>
   );
 }

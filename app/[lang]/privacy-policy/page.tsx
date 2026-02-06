@@ -1,11 +1,19 @@
 import React from "react";
 import Navbar from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import { getDictionary } from "@/lib/dictionary";
 
-const PrivacyPolicy = () => {
+export default async function PrivacyPolicy({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
+  const dict = await getDictionary(lang as any);
+
   return (
     <main className="bg-white dark:bg-gray-950 overflow-hidden min-h-screen">
-      <Navbar />
+      <Navbar lang={lang} dict={dict} />
 
       <section className="pt-32 pb-16 bg-gray-50 dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
         <div className="max-w-4xl mx-auto px-5 sm:px-10">
@@ -112,19 +120,17 @@ const PrivacyPolicy = () => {
               If you have any questions about this privacy policy or our privacy
               practices, please contact us at:{" "}
               <a
-                href="mailto:info@aishaacademy.com"
+                href="mailto:info@aisha-academy.com"
                 className="text-primary hover:underline"
               >
-                info@aishaacademy.com
+                info@aisha-academy.com
               </a>
             </p>
           </div>
         </div>
       </section>
 
-      <Footer />
+      <Footer lang={lang} dict={dict} />
     </main>
   );
-};
-
-export default PrivacyPolicy;
+}

@@ -5,7 +5,7 @@ import { createClient } from "@/utils/supabase/server";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const adminEmail =
-  process.env.NEXT_PUBLIC_ADMIN_EMAIL || "info@aishaacademy.com";
+  process.env.NEXT_PUBLIC_ADMIN_EMAIL || "info@aisha-academy.com";
 
 export async function sendEnrollmentEmail(formData: FormData) {
   const studentName = formData.get("studentName") as string;
@@ -135,5 +135,61 @@ export async function sendContactEmail(formData: FormData) {
   } catch (err) {
     console.error("Action Catch Error:", err);
     return { success: false, error: "Failed to send message" };
+  }
+}
+
+export async function subscribeNewsletter(formData: FormData) {
+  const email = formData.get("email") as string;
+
+  if (!email || !email.includes("@")) {
+    return { success: false, error: "Invalid email address" };
+  }
+
+  console.log("--- NEW NEWSLETTER SUBSCRIPTION ---");
+  console.log("Email:", email);
+
+  try {
+    // 1. Save to Supabase
+    const supabase = await createClient();
+    const { error: dbError } = await supabase
+      .from("newsletter_subscriptions")
+      .insert([
+        {
+          email,
+          status: "active",
+        },
+      ]);
+
+    if (dbError) {
+      console.error("Database Error:", dbError);
+      // We don't stop here, we still try to notify the admin
+    } else {
+      console.log("Successfully saved to Supabase (newsletter_subscriptions)");
+    }
+
+    // 2. Send Notification Email to Admin
+    console.log("Attempting to send newsletter notification to:", adminEmail);
+    const { data, error } = await resend.emails.send({
+      from: "Aisha Academy Newsletter <info@aisha-academy.com>",
+      to: adminEmail,
+      subject: `New Newsletter Subscriber: ${email}`,
+      html: `
+        <h2>New Newsletter Subscription</h2>
+        <p>A new user has subscribed to the Aisha Academy newsletter.</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <hr />
+        <p>This email has been recorded in the database.</p>
+      `,
+    });
+
+    if (error) {
+      console.error("Resend Error:", error);
+      // Even if email fails, database save might have worked, but we return success based on the overall intent
+    }
+
+    return { success: true };
+  } catch (err) {
+    console.error("Newsletter Subscription Error:", err);
+    return { success: false, error: "An unexpected error occurred" };
   }
 }

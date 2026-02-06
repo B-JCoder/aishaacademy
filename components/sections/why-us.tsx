@@ -8,37 +8,20 @@ import {
   MapPin,
 } from "lucide-react";
 
-const reasons = [
-  {
-    title: "Qualified Teachers",
-    description:
-      "Experienced male and female teachers dedicated to your child's growth.",
-    icon: <GraduationCap className="w-6 h-6" />,
-  },
-  {
-    title: "Structured Curriculum",
-    description:
-      "A balanced mix of Quran reading, Tajweed, and Islamic manners (Tarbiyah).",
-    icon: <CheckCircle2 className="w-6 h-6" />,
-  },
-  {
-    title: "Child-Friendly Approach",
-    description: "We make learning enjoyable and engaging for young minds.",
-    icon: <Heart className="w-6 h-6" />,
-  },
-  {
-    title: "Safe Environment",
-    description: "A secure and inclusive space for all students.",
-    icon: <Shield className="w-6 h-6" />,
-  },
-  {
-    title: "Montreal-Based",
-    description: "Convenient physical location for local community members.",
-    icon: <MapPin className="w-6 h-6" />,
-  },
-];
+export default function WhyUs({ dict }: { dict: any }) {
+  const icons = [
+    <GraduationCap key="grad" className="w-6 h-6" />,
+    <CheckCircle2 key="check" className="w-6 h-6" />,
+    <Heart key="heart" className="w-6 h-6" />,
+    <Shield key="shield" className="w-6 h-6" />,
+    <MapPin key="map" className="w-6 h-6" />,
+  ];
 
-export default function WhyUs() {
+  const reasons = dict.reasons.map((reason: any, idx: number) => ({
+    ...reason,
+    icon: icons[idx],
+  }));
+
   return (
     <section className="py-24 relative overflow-hidden bg-white dark:bg-gray-900">
       {/* Subtle Background Pattern */}
@@ -54,17 +37,15 @@ export default function WhyUs() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
             <h2 className="text-3xl font-serif font-bold text-gray-900 dark:text-white sm:text-4xl md:text-5xl leading-tight">
-              Why Parents Trust{" "}
-              <span className="text-primary">Aisha Academy</span>
+              {dict.title}{" "}
+              <span className="text-primary">{dict.highlight}</span>
             </h2>
             <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed font-sans">
-              We understand that choosing a Quran teacher is one of the most
-              important decisions for your child. Here is why hundreds of
-              families choose us.
+              {dict.description}
             </p>
 
             <div className="space-y-6 pt-4">
-              {reasons.map((item, idx) => (
+              {reasons.map((item: any, idx: number) => (
                 <div key={idx} className="flex items-start gap-4 group">
                   <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-primary/5 border border-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm">
                     {item.icon}
