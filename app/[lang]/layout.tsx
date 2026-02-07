@@ -133,7 +133,7 @@ export default async function RootLayout({
   const { lang } = await params;
 
   return (
-    <html lang={lang || "es"} className={`${notoNastaliq.variable}`}>
+    <html lang={lang || "fr"} className={`${notoNastaliq.variable}`}>
       <head>
         <Script
           async

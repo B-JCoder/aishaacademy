@@ -31,7 +31,7 @@ export default function GoogleMap({ dict }: { dict: any }) {
             allowFullScreen={true}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            className="contrast-125 dark:invert dark:hue-rotate-180 dark:brightness-90 transition-all duration-700"
+            className="contrast-1`25 dark:invert dark:hue-rotate-180 dark:brightness-90 transition-all duration-700"
           ></iframe>
 
           {/* Location Overlay Card */}

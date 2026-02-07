@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://aisha-academy.com";
-  const locales = ["es", "en"];
+  const locales = ["fr", "en"];
   const routes = [
     "",
     "/about",

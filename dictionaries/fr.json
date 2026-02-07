@@ -1,0 +1,634 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "about": "À propos",
+    "programs": "Programmes",
+    "onlineClasses": "Cours en ligne",
+    "physicalClasses": "Cours en présentiel",
+    "admissions": "Admissions",
+    "contact": "Contact",
+    "enrollNow": "S'inscrire maintenant"
+  },
+  "common": {
+    "enrollNow": "S'inscrire maintenant",
+    "contactUs": "Contactez-nous",
+    "learnMore": "En savoir plus",
+    "stats": {
+      "students": "200+",
+      "teachers": "15+",
+      "experience": "10+",
+      "classesPerWeek": "120/sem"
+    }
+  },
+  "hero": {
+    "title": "Des cœurs jeunes avec le Coran",
+    "description": "Éducation coranique de confiance pour les enfants de 4 ans et plus. Cours en ligne et en présentiel à Montréal.",
+    "enrollNow": "S'inscrire maintenant",
+    "contactUs": "Contactez-nous",
+    "admissionsOpen": "Admissions ouvertes – 2026",
+    "ayatTranslation": "\"Et Allah est avec vous et ne vous privera jamais de [la récompense de] vos œuvres.\"",
+    "surahRef": "Sourate Muhammad [47:35]",
+    "online": "En ligne",
+    "physical": "En présentiel",
+    "typedStrings": [
+      "Aisha Academy",
+      "Éducation Coranique",
+      "Études Islamiques",
+      "Formation du Caractère"
+    ],
+    "newsletter": {
+      "title": "Restez informé",
+      "description": "Abonnez-vous à notre newsletter pour les dernières nouvelles, événements et conseils éducatifs.",
+      "placeholder": "Entrez votre adresse e-mail",
+      "button": "S'abonner",
+      "success": "Inscription réussie !",
+      "error": "Échec de l'abonnement. Veuillez réessayer."
+    }
+  },
+  "stats": {
+    "qualifiedTeachers": "Professeurs Qualifiés",
+    "studentsEnrolled": "Étudiants Inscrits",
+    "yearsExperience": "Années d'Expérience",
+    "onlineClasses": "Cours en Ligne",
+    "impact": "Impact"
+  },
+  "programs": {
+    "title": "Nos Programmes",
+    "subtitle": "Choisissez le parcours d'apprentissage idéal pour votre enfant. Que ce soit en ligne ou en personne, nous assurons une éducation de qualité avec des professeurs qualifiés.",
+    "offerings": "Nos Offres",
+    "weekdayPhysical": {
+      "title": "Cours en Présentiel la Semaine",
+      "description": "Apprentissage structuré dans un environnement concentré.",
+      "features": ["Âges 5+", "Lun-Jeu", "17h30 - 19h30"]
+    },
+    "weekendPhysical": {
+      "title": "Cours en Présentiel le Week-end",
+      "description": "Parfait pour les enfants scolarisés.",
+      "features": ["Matin & Après-midi", "Sam & Dim", "Curriculum Structuré"]
+    },
+    "online": {
+      "title": "Cours de Coran en Ligne",
+      "description": "Sessions Zoom en direct dans le confort de votre foyer.",
+      "features": ["Flexible", "Lun-Ven", "2 Créneaux Disponibles"]
+    },
+    "private": {
+      "title": "Cours Particuliers",
+      "description": "Attention personnalisée pour une progression rapide.",
+      "features": ["Sessions de 30 min", "Horaires Flexibles", "80$/Mois"]
+    }
+  },
+  "whyUs": {
+    "title": "Pourquoi les Parents Font Confiance à",
+    "highlight": "Aisha Academy",
+    "description": "Nous comprenons que choisir un professeur de Coran est l'une des décisions les plus importantes pour votre enfant. Voici pourquoi des centaines de familles nous choisissent.",
+    "reasons": [
+      {
+        "title": "Professeurs Qualifiés",
+        "description": "Des professeurs expérimentés dédiés à la croissance de votre enfant."
+      },
+      {
+        "title": "Curriculum Structuré",
+        "description": "Un mélange équilibré de lecture du Coran, de Tajweed et de bonnes manières (Tarbiyah)."
+      },
+      {
+        "title": "Approche Adaptée aux Enfants",
+        "description": "Nous rendons l'apprentissage agréable et engageant pour les jeunes esprits."
+      },
+      {
+        "title": "Environnement Sûr",
+        "description": "Un espace sécurisé et inclusif pour tous les étudiants."
+      },
+      {
+        "title": "Basé à Montréal",
+        "description": "Emplacement physique pratique pour les membres de la communauté locale."
+      }
+    ]
+  },
+  "process": {
+    "title": "Comment ça Marche",
+    "subtitle": "Votre parcours vers l'excellence coranique comprend quatre étapes simples mais transformatrices.",
+    "steps": [
+      {
+        "title": "S'inscrire en Ligne",
+        "description": "Créez votre profil d'étudiant en quelques minutes via notre portail simplifié. Nous recueillons les informations essentielles pour adapter l'expérience d'apprentissage du Coran à vos besoins spécifiques."
+      },
+      {
+        "title": "Réserver un Essai Gratuit",
+        "description": "Découvrez notre méthodologie d'enseignement par vous-même avec une séance gratuite de 30 minutes. Rencontrez votre érudit qualifié dédié."
+      },
+      {
+        "title": "Inscription & Plan Personnalisé",
+        "description": "Recevez une feuille de route d'apprentissage personnalisée basée sur votre essai. Choisissez un horaire flexible."
+      },
+      {
+        "title": "Commencer votre Parcours",
+        "description": "Embarquez pour votre voyage sacré d'éducation coranique. Accédez à notre salle de classe numérique ultramoderne."
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Simple et Transparent",
+    "highlight": "Tarification",
+    "description": "Choisissez le plan qui correspond aux besoins de votre famille. Pas de frais cachés.",
+    "popular": "Le plus Populaire",
+    "plans": {
+      "weekday": {
+        "name": "Soirée en Semaine",
+        "price": "65$",
+        "period": "/mois",
+        "description": "Cours en présentiel sur notre campus de Montréal.",
+        "features": [
+          "Lundi au Jeudi",
+          "17h30 à 19h30",
+          "Cours de Coran pour enfants",
+          "Âgés de 5 ans et plus",
+          "Professeurs Qualifiés"
+        ]
+      },
+      "weekend_morning": {
+        "name": "Matinée du Week-end",
+        "price": "65$",
+        "period": "/mois",
+        "description": "Cours en présentiel sur notre campus de Montréal.",
+        "features": [
+          "Samedi et Dimanche",
+          "10h00 à 12h45",
+          "Cours de Coran pour enfants",
+          "Âgés de 5 ans et plus",
+          "Études Islamiques & Tajweed"
+        ]
+      },
+      "weekend_afternoon": {
+        "name": "Après-midi du Week-end",
+        "price": "65$",
+        "period": "/mois",
+        "description": "Cours en présentiel sur notre campus de Montréal.",
+        "features": [
+          "Samedi et Dimanche",
+          "12h00 à 14h45",
+          "Cours de Coran pour enfants",
+          "Âgés de 5 ans et plus",
+          "Idéal pour les lève-tard"
+        ]
+      },
+      "private": {
+        "name": "Cours Particuliers 1-sur-1",
+        "price": "80$",
+        "period": "/mois",
+        "description": "Attention dédiée pour une progression rapide.",
+        "features": [
+          "Cours privés de 30 minutes",
+          "Séances individuelles",
+          "Professeurs expérimentés",
+          "Âgés de 4 ans et plus",
+          "Options d'horaires flexibles"
+        ]
+      },
+      "online": {
+        "name": "Cours en Ligne",
+        "price": "60$",
+        "period": "/mois",
+        "description": "Apprenez dans le confort de votre foyer.",
+        "features": [
+          "Lundi au Vendredi",
+          "17h00 à 18h00 (Groupe 1)",
+          "18h00 à 19h00 (Groupe 2)",
+          "Plateforme numérique interactive",
+          "Professeurs Qualifiés"
+        ]
+      }
+    }
+  },
+  "faq": {
+    "title": "Questions Fréquemment Posées",
+    "subtitle": "Trouvez des réponses aux questions courantes sur nos programmes, nos horaires et nos admissions.",
+    "tag": "FAQ",
+    "questions": [
+      {
+        "q": "Quels groupes d'âge acceptez-vous ?",
+        "a": "Nous acceptons les étudiants dès l'âge de 4 ans pour nos cours d'initiation Qaida/Noorani. Nous avons des programmes spécialisés adaptés aux enfants, aux adolescents et même aux adultes qui souhaitent parfaire leur récitation."
+      },
+      {
+        "q": "Proposez-vous des cours en ligne et en présentiel ?",
+        "a": "Oui ! Nous avons un campus physique à Montréal pour l'apprentissage en personne, ce qui favorise la communauté et la fraternité. Nous proposons également des cours complets en ligne via Zoom/LMS pour les étudiants qui ne peuvent pas se déplacer."
+      },
+      {
+        "q": "Y a-t-il des professeures pour les filles ?",
+        "a": "Oui, nous avons des professeures de Coran dévouées et hautement qualifiées pour nos sœurs et nos jeunes filles. Nous garantissons un environnement d'apprentissage confortable et privé qui respecte les valeurs islamiques."
+      },
+      {
+        "q": "Quel programme suivez-vous pour le Tajweed et la Qaida ?",
+        "a": "Nous utilisons la célèbre Noorani Qaida pour les débutants afin de construire des bases solides. Pour le Tajweed, nous suivons un programme structuré couvrant toutes les règles essentielles (Makharij, Sifaat, etc.)."
+      },
+      {
+        "q": "Puis-je choisir mes propres horaires de cours ?",
+        "a": "Nous proposons plusieurs créneaux horaires pour les cours en ligne et en présentiel. Pour nos séances individuelles privées, nous offrons une flexibilité maximale."
+      },
+      {
+        "q": "Comment surveillez-vous et signalez-vous les progrès des élèves ?",
+        "a": "Nous fournissons des rapports de progrès mensuels réguliers aux parents. Nos enseignants tiennent un journal quotidien des leçons et des points à améliorer."
+      }
+    ]
+  },
+  "cta": {
+    "title": "\"Offrez à votre enfant le cadeau du Coran – Inscrivez-vous aujourd'hui\"",
+    "description": "Rejoignez la famille Aisha Academy et commencez le voyage de foi et de connaissance de votre enfant.",
+    "enroll": "S'inscrire maintenant",
+    "contact": "Contactez-nous"
+  },
+  "about": {
+    "hero": {
+      "title": "À propos de Aisha Academy",
+      "description": "Nourrir la prochaine génération avec la lumière du Coran et la beauté du caractère islamique depuis 2015.",
+      "badge": "Depuis 2015",
+      "primaryAction": "Rejoignez notre héritage"
+    },
+    "history": {
+      "title": "Nos humbles débuts",
+      "p1": "Aisha Academy a commencé comme une petite école du week-end dans un centre communautaire local à Montréal. Poussés par le besoin de la communauté d'une éducation coranique de haute qualité, nous sommes devenus un institut à part entière.",
+      "p2": "Nommée d'après la Mère des Croyants, Aisha (RA), un phare de la connaissance, notre académie s'efforce d'incarner son héritage d'érudition et de piété.",
+      "stat": "Années d'excellence"
+    },
+    "mission": {
+      "title": "Notre Mission",
+      "desc": "Fournir une éducation coranique de haute qualité et accessible qui permet aux enfants de se connecter avec leur foi, de comprendre le Livre Saint et d'incarner ses enseignements."
+    },
+    "vision": {
+      "title": "Notre Vision",
+      "desc": "Un monde où chaque enfant musulman a l'opportunité d'apprendre le Coran avec amour et compréhension."
+    },
+    "learningWay": {
+      "title": "Apprenez à votre façon",
+      "subtitle": "Que vous soyez proche ou loin, l'éducation est à portée de main.",
+      "physical": {
+        "title": "Campus Physique",
+        "desc": "Découvrez la fraternité et la discipline de l'apprentissage en personne dans notre centre de Montréal.",
+        "action": "Visiter le Campus"
+      },
+      "online": {
+        "title": "Académie en Ligne",
+        "desc": "Cours en ligne flexibles et interactifs via Zoom/LMS pour les étudiants du monde entier.",
+        "action": "Commencer en ligne"
+      }
+    },
+    "methodology": {
+      "title": "Notre Méthodologie",
+      "subtitle": "Nous combinons la pédagogie islamique traditionnelle avec des techniques d'enseignement modernes.",
+      "items": [
+        {
+          "title": "Tilawah & Tajweed",
+          "desc": "Mise l'accent sur la prononciation correcte et les points d'articulation dès le premier jour."
+        },
+        {
+          "title": "Formation du caractère",
+          "desc": "Nous intégrons la Tarbiyah dans chaque leçon, enseignant le respect et l'honnêteté."
+        },
+        {
+          "title": "Mentors qualifiés",
+          "desc": "Nos enseignants sont certifiés et formés à la psychologie de l'enfant."
+        }
+      ]
+    }
+  },
+  "programsPage": {
+    "hero": {
+      "title": "Nos Programmes",
+      "description": "Une éducation coranique complète adaptée à votre parcours spirituel. Choisissez la voie qui correspond à vos objectifs.",
+      "badge": "Admissions Ouvertes"
+    },
+    "tuition": "Frais de scolarité",
+    "siblingDiscount": "*Réductions disponibles pour frères et sœurs",
+    "joinNow": "S'inscrire maintenant",
+    "programs": [
+      {
+        "id": "foundation",
+        "title": "Fondation Islamique pour Enfants (Nazra)",
+        "price": "50$",
+        "period": "/mois",
+        "schedule": "3 Jours/Semaine",
+        "mode": "En ligne & Présentiel",
+        "age": "Âges 4-7",
+        "description": "Établir une relation solide avec Allah grâce à un apprentissage fun et interactif.",
+        "features": [
+          "Maîtrise de Noorani Qaida",
+          "Mémorisation de Sourates courtes",
+          "Douas quotidiens & Étiquette",
+          "Histoires islamiques amusantes"
+        ]
+      },
+      {
+        "id": "tajweed",
+        "title": "Coran avec Tajweed",
+        "price": "65$",
+        "period": "/mois",
+        "schedule": "Week-end ou Semaine",
+        "mode": "En ligne & Présentiel",
+        "age": "Âges 7+",
+        "description": "Maîtrisez l'art de la récitation avec une prononciation correcte.",
+        "features": [
+          "Prononciation correcte (Makharij)",
+          "Règles du Tajweed (Théorie & Pratique)",
+          "Récitation mélodieuse",
+          "Développement de la fluidité"
+        ]
+      },
+      {
+        "id": "hifz",
+        "title": "Programme de Hifz",
+        "price": "120$",
+        "period": "/mois",
+        "schedule": "5 Jours/Semaine (Intensif)",
+        "mode": "Présentiel (Recommandé) / En ligne",
+        "age": "Âges 8+ (Entretien requis)",
+        "description": "Une voie dédiée pour devenir un Gardien du Coran.",
+        "features": [
+          "Plan individualisé",
+          "Révision quotidienne (Muraja'ah)",
+          "Évaluations régulières",
+          "Instructeurs certifiés"
+        ]
+      },
+      {
+        "id": "islamic-studies",
+        "title": "Études Islamiques",
+        "price": "40$",
+        "period": "/mois",
+        "schedule": "Week-end seulement",
+        "mode": "Présentiel & En ligne",
+        "age": "Âges 6-16",
+        "description": "Comprendre le Deen. Un programme complet couvrant la Seerah, le Fiqh et l'Aqeedah.",
+        "features": [
+          "Vie du Prophète (Seerah)",
+          "Fiqh de l'adoration",
+          "Articles de foi",
+          "Sujets contemporains"
+        ]
+      },
+      {
+        "id": "arabic",
+        "title": "Langue Arabe",
+        "price": "60$",
+        "period": "/mois",
+        "schedule": "2 Jours/Semaine",
+        "mode": "En ligne seulement",
+        "age": "Âges 10+ & Adultes",
+        "description": "Apprenez la langue du Coran. Découvrez le sens des paroles divines.",
+        "features": [
+          "Vocabulaire coranique",
+          "Nahu & Sarf (Grammaire)",
+          "Compréhension écrite",
+          "Pratique orale"
+        ]
+      }
+    ]
+  },
+  "physicalClasses": {
+    "hero": {
+      "badge": "Expérience en Personne",
+      "title": "Apprentissage traditionnel dans un environnement moderne",
+      "subtitle": "Environnement Moderne",
+      "description": "Immergez votre enfant dans une atmosphère spirituelle sur notre campus de Montréal. Interaction directe avec les enseignants.",
+      "visit": "Visiter le Campus",
+      "viewSchedule": "Voir l'horaire"
+    },
+    "facilities": {
+      "title": "Nos installations sur le campus",
+      "subtitle": "Nous offrons un environnement sûr, propre et inspirant.",
+      "items": [
+        {
+          "title": "Salles de classe structurées",
+          "desc": "Salles séparées par groupes d'âge pour un apprentissage concentré."
+        },
+        {
+          "title": "Environnement Sûr",
+          "desc": "Surveillé par caméras, entrée/sortie sécurisée."
+        },
+        {
+          "title": "Espaces de pause & de prière",
+          "desc": "Zones désignées pour le woudou, la prière et les pauses."
+        }
+      ]
+    },
+    "schedule": {
+      "title": "Horaire des cours hebdomadaires",
+      "term": "Trimestre : Printemps 2026",
+      "table": {
+        "day": "Jour",
+        "evening": "Programme du soir",
+        "weekend": "École du week-end",
+        "hifz": "Hifz intensif",
+        "monFri": "Lundi - Vendredi",
+        "sat": "Samedi",
+        "sun": "Dimanche"
+      }
+    },
+    "cta": {
+      "title": "Places limitées en présentiel",
+      "description": "Pour garantir une attention de qualité, nous gardons des groupes restreints.",
+      "button": "S'inscrire en présentiel"
+    }
+  },
+  "onlineClasses": {
+    "hero": {
+      "badge": "Apprentissage Global",
+      "title": "Apprenez le Coran de n'importe où dans le monde",
+      "subtitle": "En ligne",
+      "description": "Bénéficiez de la même éducation coranique de qualité que sur notre campus physique, dans le confort de votre foyer.",
+      "start": "Essai Gratuit",
+      "howItWorks": "Comment ça marche"
+    },
+    "howItWorks": {
+      "title": "Comment fonctionnent les cours en ligne",
+      "subtitle": "Nous utilisons des outils modernes pour une expérience fluide.",
+      "steps": [
+        {
+          "title": "1. Cours vidéo en direct",
+          "desc": "Connectez-vous avec votre enseignant via Zoom ou Google Meet."
+        },
+        {
+          "title": "2. Horaire flexible",
+          "desc": "Choisissez les horaires qui vous conviennent. Nous offrons des cours 24h/24 et 7j/7."
+        },
+        {
+          "title": "3. Suivi des progrès",
+          "desc": "Les parents reçoivent des rapports mensuels réguliers par e-mail."
+        }
+      ]
+    },
+    "benefits": {
+      "title": "Pourquoi choisir l'apprentissage en ligne ?",
+      "items": [
+        {
+          "title": "Sécurité & Confort",
+          "desc": "Apprenez en toute sécurité chez vous, sans déplacement."
+        },
+        {
+          "title": "Attention Individuelle",
+          "desc": "Les cours particuliers permettent une concentration totale sur l'élève."
+        },
+        {
+          "title": "Enregistrements Disponibles",
+          "desc": "Accédez aux enregistrements pour réviser à tout moment."
+        }
+      ],
+      "quote": "\"L'apprentissage nous connecte, peu importe la distance.\""
+    },
+    "cta": {
+      "title": "Prêt à commencer votre voyage en ligne ?",
+      "description": "Rejoignez des centaines d'étudiants satisfaits. Réservez votre essai gratuit.",
+      "button": "S'inscrire en ligne"
+    }
+  },
+  "footer": {
+    "mission": "Façonner les cœurs et les esprits à la lumière du Coran. Un espace dédié à la croissance spirituelle pour la prochaine génération.",
+    "programsTitle": "Nos Programmes",
+    "quickLinksTitle": "Liens Rapides",
+    "stayConnectedTitle": "Restez Connectés",
+    "copyright": "© {year} Aisha Academy. Sous licence & Enregistré.",
+    "developedBy": "Développé par",
+    "privacyPolicy": "Politique de Confidentialité",
+    "termsOfService": "Conditions d'Utilisation",
+    "available": "Disponible en ligne & sur campus"
+  },
+  "admissions": {
+    "hero": {
+      "title": "Informations sur les Admissions",
+      "description": "Commencez votre voyage de connaissance sacrée. Processus simple et transparent.",
+      "badge": "Rejoignez-nous",
+      "action": "Postuler maintenant"
+    },
+    "howToEnroll": {
+      "title": "Comment s'inscrire",
+      "subtitle": "Suivez ces étapes simples pour rejoindre notre académie",
+      "steps": [
+        {
+          "title": "1. Soumettre une demande",
+          "desc": "Remplissez le formulaire d'admission en ligne avec vos coordonnées."
+        },
+        {
+          "title": "2. Évaluation / Démo",
+          "desc": "Nous planifierons une évaluation rapide ou un cours de démonstration gratuit."
+        },
+        {
+          "title": "3. Payer les frais",
+          "desc": "Sécurisez votre place en payant les frais du premier mois."
+        },
+        {
+          "title": "4. Commencer à apprendre",
+          "desc": "Recevez votre horaire et rejoignez votre classe !"
+        }
+      ]
+    },
+    "form": {
+      "title": "Rejoindre Aisha Academy",
+      "description": "Faites le premier pas vers l'excellence coranique. Remplissez le formulaire ci-dessous.",
+      "online": "Cours en Ligne",
+      "onlineDesc": "Apprenez de n'importe où",
+      "physical": "Cours en Présentiel",
+      "physicalDesc": "Campus de Montréal",
+      "studentInfo": "Informations sur l'Élève",
+      "fullName": "Nom Complet",
+      "fullNamePlaceholder": "Entrez le nom complet de l'élève",
+      "age": "Âge",
+      "agePlaceholder": "Âge de l'élève",
+      "gender": "Genre",
+      "genderLabel": "Sélectionnez le genre",
+      "male": "Masculin",
+      "female": "Féminin",
+      "parentInfo": "Détails du Parent/Tuteur",
+      "parentName": "Nom du Parent/Tuteur",
+      "parentNamePlaceholder": "Nom complet du parent",
+      "email": "Adresse E-mail",
+      "emailPlaceholder": "email@exemple.com",
+      "phone": "Numéro de Téléphone",
+      "phonePlaceholder": "+1 (555) 000-0000",
+      "city": "Ville/Résidence",
+      "cityPlaceholder": "ex: Montréal",
+      "courseInfo": "Préférences de Cours",
+      "selectProgram": "Sélectionner le Programme",
+      "chooseProgram": "Choisissez un programme...",
+      "nazra": "Nazra Coran (Lecture)",
+      "hifz": "Hifz (Mémorisation)",
+      "tajweed": "Tajweed (Règles)",
+      "arabic": "Langue Arabe",
+      "islamicStudies": "Études Islamiques",
+      "preferredDays": "Jours préférés",
+      "weekdays": "Semaine (Lun-Ven)",
+      "weekends": "Week-end (Sam-Dim)",
+      "flexible": "Flexible",
+      "preferredTime": "Horaire préféré",
+      "morning": "Matin",
+      "afternoon": "Après-midi",
+      "evening": "Soir",
+      "notes": "Notes Additionnelles / Message",
+      "notesPlaceholder": "Des besoins ou questions spécifiques ?",
+      "submit": "Soumettre la demande",
+      "sending": "Envoi en cours...",
+      "success": "Demande d'inscription envoyée avec succès !",
+      "error": "Échec de l'envoi. Veuillez réessayer.",
+      "confMsg": "Nous vous contacterons dans les 24 heures pour confirmer les détails."
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Contactez-nous",
+      "description": "Nous sommes là pour répondre à vos questions.",
+      "badge": "Prendre contact"
+    },
+    "info": {
+      "title": "Prendre contact",
+      "description": "Que vous soyez intéressé par les cours en ligne ou en présentiel, notre équipe est prête à vous aider.",
+      "visitCampus": "Visiter le Campus",
+      "emailUs": "Contact par E-mail",
+      "callWhatsapp": "Appel / WhatsApp",
+      "availableTime": "Disponible Lun-Ven, 9h - 17h EST"
+    },
+    "hours": {
+      "title": "Heures de la Madersa",
+      "mondayFriday": "Lundi - Vendredi",
+      "saturday": "Samedi",
+      "sunday": "Dimanche",
+      "closed": "Fermé"
+    },
+    "form": {
+      "title": "Envoyer un message",
+      "fullName": "Nom Complet",
+      "fullNamePlaceholder": "Abdullah",
+      "phone": "Téléphone",
+      "phonePlaceholder": "+1 (555) 000-0000",
+      "email": "Adresse E-mail",
+      "emailPlaceholder": "email@exemple.com",
+      "inquiryType": "Type de demande",
+      "inquiryOptions": {
+        "general": "Demande Générale",
+        "admissions": "Admissions",
+        "online": "Cours en Ligne",
+        "physical": "Campus Physique",
+        "jobs": "Emplois/Carrières"
+      },
+      "message": "Message",
+      "messagePlaceholder": "Comment pouvons-nous vous aider ?",
+      "submit": "Envoyer le message",
+      "sending": "Envoi en cours...",
+      "success": "Message envoyé avec succès ! Nous vous répondrons bientôt.",
+      "error": "Échec de l'envoi du message. Veuillez réessayer."
+    }
+  },
+  "schedulePage": {
+    "title": "Horaires & Heures",
+    "description": "Nos heures d'ouverture sont flexibles pour les familles occupées.",
+    "weeklySchedule": "Horaire Hebdomadaire",
+    "timezone": "Heure de l'Est de Montréal (ET)",
+    "days": {
+      "monday": "Lundi",
+      "tuesday": "Mardi",
+      "wednesday": "Mercredi",
+      "thursday": "Jeudi",
+      "friday": "Vendredi",
+      "saturday": "Samedi",
+      "sunday": "Dimanche"
+    },
+    "closed": "Fermé",
+    "note": "Note : Des cours privés peuvent être programmés en dehors de ces heures sur demande."
+  }
+}

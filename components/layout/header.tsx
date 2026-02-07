@@ -11,7 +11,7 @@ interface NavbarProps {
   dict?: any;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ lang = "es", dict }) => {
+const Navbar: React.FC<NavbarProps> = ({ lang = "fr", dict }) => {
   const [openNavbar, setOpenNavbar] = useState(false);
   const pathname = usePathname();
 
@@ -31,7 +31,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang = "es", dict }) => {
   };
 
   const toggleLanguage = () => {
-    const newLang = lang === "es" ? "en" : "es";
+    const newLang = lang === "fr" ? "en" : "fr";
     // Replace the locale part of the pathname
     const segments = pathname.split("/");
     segments[1] = newLang;
@@ -94,7 +94,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang = "es", dict }) => {
               className="flex items-center gap-2 text-white/90 hover:text-accent font-medium px-3 py-1.5 rounded-full border border-white/10 bg-white/5 transition"
             >
               <Globe className="w-4 h-4" />
-              <span>{lang === "es" ? "EN" : "ES"}</span>
+              <span>{lang === "fr" ? "EN" : "FR"}</span>
             </Link>
 
             {/* DESKTOP CTA */}
@@ -116,7 +116,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang = "es", dict }) => {
               className="flex items-center gap-1.5 text-white/90 hover:text-accent font-medium px-3 py-1 rounded-full border border-white/10 bg-white/5 transition"
             >
               <Globe className="w-4 h-4" />
-              <span className="text-sm">{lang === "es" ? "EN" : "ES"}</span>
+              <span className="text-sm">{lang === "fr" ? "EN" : "FR"}</span>
             </Link>
             <button
               onClick={() => setOpenNavbar(!openNavbar)}

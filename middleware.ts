@@ -1,8 +1,8 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { updateSession } from "@/utils/supabase/middleware";
 
-const locales = ["en", "es"];
-const defaultLocale = "es";
+const locales = ["fr", "en"];
+const defaultLocale = "fr";
 
 function getLocale(request: NextRequest) {
   // Simple locale detection: check URL first, then headers
