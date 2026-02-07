@@ -32,7 +32,7 @@ export default function HeroSection({ dict }: HeroSectionProps) {
     if (currentSlide === 0) {
       const timer = setTimeout(() => {
         setCurrentSlide(1);
-      }, 3000);
+      }, 5000);
       return () => clearTimeout(timer);
     }
   }, [currentSlide]);
