@@ -12,8 +12,13 @@ export async function sendEnrollmentEmail(formData: FormData) {
   const parentName = formData.get("parentName") as string;
   const email = formData.get("email") as string;
   const phone = formData.get("phone") as string;
+  const age = formData.get("age") as string;
+  const gender = formData.get("gender") as string;
+  const city = formData.get("city") as string;
   const program = formData.get("program") as string;
-  const plan = formData.get("plan") as string;
+  const learningMode = formData.get("learningMode") as string;
+  const preferredDays = formData.get("preferredDays") as string;
+  const preferredTime = formData.get("preferredTime") as string;
   const message = formData.get("message") as string;
 
   console.log("--- NEW ENROLLMENT ATTEMPT ---");
@@ -30,8 +35,13 @@ export async function sendEnrollmentEmail(formData: FormData) {
         parent_name: parentName,
         email,
         phone,
+        age,
+        gender,
+        city,
         program,
-        plan,
+        learning_mode: learningMode,
+        preferred_days: preferredDays,
+        preferred_time: preferredTime,
         message,
         status: "pending",
       },
@@ -52,11 +62,16 @@ export async function sendEnrollmentEmail(formData: FormData) {
       html: `
         <h2>New Enrollment Application</h2>
         <p><strong>Student Name:</strong> ${studentName}</p>
+        <p><strong>Age:</strong> ${age}</p>
+        <p><strong>Gender:</strong> ${gender}</p>
         <p><strong>Parent Name:</strong> ${parentName}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>City:</strong> ${city}</p>
+        <p><strong>Learning Mode:</strong> ${learningMode}</p>
         <p><strong>Program:</strong> ${program}</p>
-        <p><strong>Plan:</strong> ${plan}</p>
+        <p><strong>Preferred Days:</strong> ${preferredDays}</p>
+        <p><strong>Preferred Time:</strong> ${preferredTime}</p>
         <p><strong>Message:</strong> ${message}</p>
         <hr />
         <p>This enrollment has been saved to the database.</p>

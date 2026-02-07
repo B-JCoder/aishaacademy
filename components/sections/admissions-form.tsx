@@ -259,8 +259,8 @@ export default function AdmissionsForm({ dict }: { dict: any }) {
                   </label>
                   <div className="relative">
                     <select
-                      id="course"
-                      name="course"
+                      id="program"
+                      name="program"
                       required
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all appearance-none text-gray-700 dark:text-gray-200"
                     >
