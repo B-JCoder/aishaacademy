@@ -29,17 +29,19 @@ export async function sendEnrollmentEmail(formData: FormData) {
   try {
     // 1. Save to Supabase
     const supabase = await createClient();
-    const { error: dbError } = await supabase.from("enrollments").insert([
+    const tableName =
+      learningMode === "online" ? "online_enrollments" : "physical_enrollments";
+
+    const { error: dbError } = await supabase.from(tableName).insert([
       {
         student_name: studentName,
         parent_name: parentName,
         email,
         phone,
-        age,
+        age: parseInt(age) || null,
         gender,
         city,
         program,
-        learning_mode: learningMode,
         preferred_days: preferredDays,
         preferred_time: preferredTime,
         message,
