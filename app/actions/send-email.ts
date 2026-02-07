@@ -51,9 +51,12 @@ export async function sendEnrollmentEmail(formData: FormData) {
 
     if (dbError) {
       console.error("Database Error:", dbError);
-    } else {
-      console.log("Successfully saved to Supabase (enrollments)");
+      return {
+        success: false,
+        error: "Database Save Failed: " + dbError.message,
+      };
     }
+    console.log("Successfully saved to Supabase (" + tableName + ")");
 
     // 2. Send Email via Resend
     console.log("Attempting to send email via Resend to:", adminEmail);
@@ -120,9 +123,12 @@ export async function sendContactEmail(formData: FormData) {
 
     if (dbError) {
       console.error("Database Error:", dbError);
-    } else {
-      console.log("Successfully saved to Supabase (contact_inquiries)");
+      return {
+        success: false,
+        error: "Database Save Failed: " + dbError.message,
+      };
     }
+    console.log("Successfully saved to Supabase (contact_inquiries)");
 
     // 2. Send Email via Resend
     console.log("Attempting to send contact email to:", adminEmail);
@@ -168,21 +174,21 @@ export async function subscribeNewsletter(formData: FormData) {
   try {
     // 1. Save to Supabase
     const supabase = await createClient();
-    const { error: dbError } = await supabase
-      .from("newsletter_subscriptions")
-      .insert([
-        {
-          email,
-          status: "active",
-        },
-      ]);
+    const { error: dbError } = await supabase.from("newsletter").insert([
+      {
+        email,
+        status: "active",
+      },
+    ]);
 
     if (dbError) {
       console.error("Database Error:", dbError);
-      // We don't stop here, we still try to notify the admin
-    } else {
-      console.log("Successfully saved to Supabase (newsletter_subscriptions)");
+      return {
+        success: false,
+        error: "Database Save Failed: " + dbError.message,
+      };
     }
+    console.log("Successfully saved to Supabase (newsletter)");
 
     // 2. Send Notification Email to Admin
     console.log("Attempting to send newsletter notification to:", adminEmail);
