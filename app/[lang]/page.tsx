@@ -24,7 +24,10 @@ export default async function Page({
   const dict = await getDictionary(lang as any);
 
   return (
-    <main className="bg-white dark:bg-gray-950 overflow-hidden">
+    <main
+      id="main-content"
+      className="bg-white dark:bg-gray-950 overflow-hidden"
+    >
       <Navbar lang={lang} dict={dict} />
       <HeroSection dict={dict.hero} />
       <StatCounter dict={dict.stats} />

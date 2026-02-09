@@ -7,7 +7,8 @@
     "physicalClasses": "Physical Classes",
     "admissions": "Admissions",
     "contact": "Contact",
-    "enrollNow": "Enroll Now"
+    "enrollNow": "Enroll Now",
+    "joinGroup": "Join Group"
   },
   "common": {
     "enrollNow": "Enroll Now",
@@ -56,6 +57,7 @@
     "title": "Our Programs",
     "subtitle": "Choose the perfect learning path for your child. Whether online or in-person, we ensure quality education with qualified teachers.",
     "offerings": "Our Offerings",
+    "learnMore": "Learn more",
     "weekdayPhysical": {
       "title": "Weekday Physical Classes",
       "description": "Structured learning in a focused environment.",
@@ -131,6 +133,7 @@
     "highlight": "Pricing",
     "description": "Choose the plan that fits your family's needs. No hidden fees.",
     "popular": "Most Popular",
+    "enrollNow": "Enroll Now",
     "plans": {
       "weekday": {
         "name": "Weekday Evening",
@@ -597,7 +600,8 @@
       "visitCampus": "Visit Campus",
       "emailUs": "Email Us",
       "callWhatsapp": "Call / WhatsApp",
-      "availableTime": "Available Mon-Fri, 9am - 5pm EST"
+      "availableTime": "Available Mon-Fri, 9am - 5pm EST",
+      "whatsappMessage": "Assalamu Alaikum, I am contacting you from the website. I would like to inquire about your programs."
     },
     "hours": {
       "title": "Madarsa Hours",
@@ -627,7 +631,8 @@
       "submit": "Send Message",
       "sending": "Sending Message...",
       "success": "Message sent successfully! We'll get back to you soon.",
-      "error": "Failed to send message. Please try again."
+      "error": "Failed to send message. Please try again.",
+      "whatsappButtonMessage": "Assalamu Alaikum, I visited your website and I am interested in Aisha Academy. Could you please provide more details?"
     }
   },
   "schedulePage": {

@@ -60,6 +60,7 @@ export default function HeroSection({ dict }: HeroSectionProps) {
                 src="/images/slideonimage.png"
                 alt="Background"
                 fill
+                sizes="100vw"
                 className="object-cover transition-transform duration-[10s] scale-110"
                 priority
               />
@@ -96,6 +97,7 @@ export default function HeroSection({ dict }: HeroSectionProps) {
                       src="/images/banner-arabic.png"
                       alt="Ayat Al-Quran"
                       fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 800px"
                       className="object-contain drop-shadow-[0_10px_35px_rgba(0,0,0,0.6)] brightness-125"
                       priority
                     />
@@ -193,6 +195,7 @@ export default function HeroSection({ dict }: HeroSectionProps) {
                           src="/images/calligraphy-decoration.png"
                           alt="Islamic Calligraphy"
                           fill
+                          sizes="128px"
                           className="object-contain"
                         />
                       </div>
@@ -206,6 +209,7 @@ export default function HeroSection({ dict }: HeroSectionProps) {
                             src="/images/online-learning.png"
                             alt="Online Quran Learning"
                             fill
+                            sizes="(max-width: 768px) 50vw, (max-width: 1200px) 40vw, 300px"
                             className="object-cover object-center"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
@@ -245,6 +249,7 @@ export default function HeroSection({ dict }: HeroSectionProps) {
                             src="/images/physical-learning-man.png"
                             alt="Physical Quran Learning"
                             fill
+                            sizes="(max-width: 768px) 50vw, (max-width: 1200px) 40vw, 300px"
                             className="object-cover object-center"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />

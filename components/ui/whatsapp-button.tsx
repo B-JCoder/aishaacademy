@@ -3,10 +3,21 @@
 import { motion } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
 
-export default function WhatsappButton() {
+export default function WhatsappButton({
+  message,
+  tooltip,
+}: {
+  message?: string;
+  tooltip?: string;
+}) {
+  const encodedMessage = encodeURIComponent(
+    message ||
+      "Assalamu Alaikum, I visited your website and I am interested in Aisha Academy. Could you please provide more details?",
+  );
+
   return (
     <motion.a
-      href="https://wa.me/15141234567" // Replace with actual number
+      href={`https://wa.me/15145627711?text=${encodedMessage}`}
       target="_blank"
       rel="noopener noreferrer"
       initial={{ opacity: 0, scale: 0.8 }}
@@ -20,7 +31,7 @@ export default function WhatsappButton() {
 
       {/* Tooltip */}
       <span className="absolute right-full mr-3 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-3 py-1.5 rounded-lg text-sm font-medium shadow-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-        Chat with us
+        {tooltip || "Chat with us"}
       </span>
     </motion.a>
   );

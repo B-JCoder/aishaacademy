@@ -45,12 +45,14 @@ export default function CtaBanner({ dict }: { dict: any }) {
             <Link
               href="/admissions"
               className="px-10 py-4 bg-primary text-white rounded-xl font-bold hover:bg-gray-900 transition-all shadow-xl hover:-translate-y-1 active:scale-95"
+              aria-label={dict.enroll}
             >
               {dict.enroll}
             </Link>
             <Link
               href="/contact"
               className="px-10 py-4 bg-white/20 backdrop-blur-md text-primary border border-primary/20 rounded-xl font-bold hover:bg-white/30 transition-all shadow-md hover:-translate-y-1 active:scale-95"
+              aria-label={dict.contact}
             >
               {dict.contact}
             </Link>

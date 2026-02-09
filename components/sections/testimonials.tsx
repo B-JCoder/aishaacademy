@@ -12,23 +12,22 @@ const Testimonials = ({ lang }: { lang: string }) => {
       subtitle: "Join hundreds of happy families",
       button: "Write a Review on Google",
     },
-    es: {
-      title: "Lo que Dicen los Padres",
-      subtitle: "Únete a cientos de familias felices",
-      button: "Escribir una Reseña en Google",
+    fr: {
+      title: "Ce que disent les parents",
+      subtitle: "Rejoignez des centaines de familles heureuses",
+      button: "Écrire un avis sur Google",
     },
   };
 
-  const currentStrings = titles[lang] || titles.es;
+  const currentStrings = titles[lang] || titles.en;
 
   return (
     <section className="py-24 bg-white dark:bg-gray-900 overflow-hidden relative">
       <Script
-        src="https://elfsightcdn.com/platform.js"
+        src="https://widgets.sociablekit.com/google-reviews/widget.js"
         async
         strategy="afterInteractive"
       />
-
       {/* Decorative background Blobs */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none">
         <div className="absolute top-20 left-10 w-64 h-64 bg-primary/5 rounded-full blur-[80px]"></div>
@@ -38,10 +37,10 @@ const Testimonials = ({ lang }: { lang: string }) => {
       <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-10 md:px-12 lg:px-5 space-y-16">
         <div className="mx-auto max-w-2xl text-center space-y-4">
           <span className="text-accent font-bold tracking-wider uppercase text-sm">
-            Testimonials
+            {currentStrings.subtitle}
           </span>
           <h2 className="font-bold text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl font-serif leading-tight">
-            What Our Community Says
+            {currentStrings.title}
           </h2>
         </div>
 
@@ -49,8 +48,8 @@ const Testimonials = ({ lang }: { lang: string }) => {
           {/* Elfsight Google Reviews Widget */}
           <div className="w-full">
             <div
-              className="elfsight-app-5ba5a32d-4b3f-4dd2-89eb-90eeb287fe05"
-              data-elfsight-app-lazy
+              className="sk-ww-google-reviews"
+              data-embed-id="25652829"
             ></div>
           </div>
 
@@ -68,7 +67,7 @@ const Testimonials = ({ lang }: { lang: string }) => {
               className="inline-flex items-center gap-3 px-8 py-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 text-gray-800 dark:text-white font-semibold group"
             >
               <FaGoogle className="text-xl text-[#DB4437] group-hover:scale-110 transition-transform" />
-              <span>Write a Review on Google</span>
+              <span>{currentStrings.button}</span>
             </Link>
           </motion.div>
         </div>

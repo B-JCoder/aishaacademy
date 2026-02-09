@@ -72,7 +72,7 @@ export default function WhyUs({ dict }: { dict: any }) {
               <iframe
                 className="w-full h-full"
                 src="https://www.youtube.com/embed/He-NKKRNQrk?si=VcZLl6UvIgClpLcI"
-                title="YouTube video player"
+                title="Aisha Academy - Providing Excellence in Quranic Education"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen

@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { Users, BookOpen, Award, Globe } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useInView, useSpring, useTransform } from "framer-motion";
 
 // --- Reusable Stat Item Component ---
 interface StatItemProps {
@@ -20,57 +20,39 @@ const StatItem: React.FC<StatItemProps> = ({
   delay,
   suffix = "",
 }) => {
-  const [count, setCount] = useState(0);
-  const countRef = useRef<HTMLDivElement>(null);
-  const [isInView, setIsInView] = useState(false);
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
 
-  // Observe when the counter enters the viewport
+  const spring = useSpring(0, {
+    mass: 1,
+    stiffness: 100,
+    damping: 30,
+  });
+
+  const displayValue = useTransform(spring, (current) =>
+    Math.floor(current).toLocaleString(),
+  );
+
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setIsInView(true);
-      },
-      { threshold: 0.2 },
-    );
-
-    const node = countRef.current;
-    if (node) observer.observe(node);
-
-    return () => {
-      if (node) observer.unobserve(node);
-    };
-  }, []);
-
-  // Counting animation
-  useEffect(() => {
-    if (!isInView) return;
-    let start = 0;
-    const end = value;
-    const duration = 2000;
-    const increment = end / (duration / 16);
-
-    const timer = setInterval(() => {
-      start += increment;
-      setCount(Math.min(Math.floor(start), end));
-      if (start >= end) clearInterval(timer);
-    }, 16);
-
-    return () => clearInterval(timer);
-  }, [isInView, value]);
+    if (isInView) {
+      spring.set(value);
+    }
+  }, [isInView, value, spring]);
 
   return (
     <motion.div
+      ref={ref}
       initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
       transition={{ duration: 0.8, delay }}
       className="flex flex-col items-center justify-center text-center p-6 bg-white/5 backdrop-blur-md rounded-2xl shadow-lg border border-white/10 hover:shadow-accent/10 hover:border-accent/30 hover:scale-105 transition-all"
     >
       <div className="p-4 rounded-full bg-accent/10 mb-4 text-accent">
         {icon}
       </div>
-      <div ref={countRef} className="text-4xl font-serif font-bold text-white">
-        {count}
-        {suffix}
+      <div className="text-4xl font-serif font-bold text-white flex items-center justify-center">
+        <motion.span>{displayValue}</motion.span>
+        <span>{suffix}</span>
       </div>
       <p className="text-gray-300 font-medium mt-2">{label}</p>
     </motion.div>

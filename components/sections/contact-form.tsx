@@ -85,7 +85,17 @@ export default function ContactForm({ dict }: { dict: any }) {
                     {info.callWhatsapp}
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300">
-                    +1 514-562-7711
+                    <a
+                      href={`https://wa.me/15145627711?text=${encodeURIComponent(
+                        info.whatsappMessage ||
+                          "Assalamu Alaikum, I am contacting you from the website.",
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-primary transition-colors flex items-center gap-1"
+                    >
+                      +1 514-562-7711
+                    </a>
                   </p>
                   <p className="text-sm text-muted-foreground mt-1 text-primary/70">
                     {info.availableTime}

@@ -58,7 +58,8 @@ const Navbar: React.FC<NavbarProps> = ({ lang = "fr", dict }) => {
               width={160}
               height={50}
               priority
-              className="relative w-40 h-auto"
+              className="relative w-40"
+              style={{ height: "auto" }}
             />
           </Link>
 

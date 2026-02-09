@@ -12,6 +12,7 @@ import {
 import { Noto_Nastaliq_Urdu } from "next/font/google";
 import "../globals.css";
 import WhatsappButton from "@/components/ui/whatsapp-button";
+import WhatsappGroupButton from "@/components/ui/whatsapp-group-button";
 import Script from "next/script";
 import { Toaster } from "sonner";
 import { Analytics } from "@vercel/analytics/next";
@@ -63,65 +64,81 @@ export const notoNastaliq = Noto_Nastaliq_Urdu({
   variable: "--font-noto-nastaliq",
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://aisha-academy.com"),
-  title: {
-    default: "Aisha Academy | Leading Quran & Islamic Institute in Montreal",
-    template: "%s | Aisha Academy",
-  },
-  description:
-    "Trusted Quran education for children in Montreal and worldwide. Online and physical classes focusing on Tilawah, Tajweed, and character building (Tarbiyah).",
-  keywords: [
-    "Quran classes Montreal",
-    "Islamic school Montreal",
-    "Online Quran Academy",
-    "Tajweed for children",
-    "Islamic education Montreal",
-    "Aisha Academy",
-    "Quran hifz Montreal",
-    "Arabic classes for kids",
-  ],
-  authors: [{ name: "Aisha Academy" }],
-  creator: "Aisha Academy",
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://aisha-academy.com",
-    title: "Aisha Academy | Leading Quran & Islamic Institute in Montreal",
-    description:
-      "Expert Quran and Islamic studies for kids. Nurturing young hearts with the light of the Quran since 2015.",
-    siteName: "Aisha Academy",
-    images: [
-      {
-        url: "/images/img3.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Aisha Academy Students",
-      },
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  const isEn = lang === "en";
+
+  return {
+    metadataBase: new URL("https://aisha-academy.com"),
+    title: {
+      default: isEn
+        ? "Aisha Academy | Leading Quran & Islamic Institute in Montreal"
+        : "Aisha Academy | Institut Coranique et Islamique de Premier Plan à Montréal",
+      template: "%s | Aisha Academy",
+    },
+    description: isEn
+      ? "Trusted Quran education for children in Montreal and worldwide. Online and physical classes focusing on Tilawah, Tajweed, and character building (Tarbiyah)."
+      : "Éducation coranique de confiance pour les enfants à Montréal et dans le monde entier. Cours en ligne et en présentiel axés sur la Tilawah, le Tajweed et la formation du caractère (Tarbiyah).",
+    keywords: [
+      "Quran classes Montreal",
+      "Islamic school Montreal",
+      "Online Quran Academy",
+      "Tajweed for children",
+      "Islamic education Montreal",
+      "Aisha Academy",
+      "Quran hifz Montreal",
+      "Arabic classes for kids",
     ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Aisha Academy | Young Hearts with the Quran",
-    description:
-      "Trusted Quran education for children. Online and physical classes available.",
-    images: ["/images/img3.jpg"],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
+    authors: [{ name: "Aisha Academy" }],
+    creator: "Aisha Academy",
+    openGraph: {
+      type: "website",
+      locale: isEn ? "en_US" : "fr_CA",
+      url: "https://aisha-academy.com",
+      title: isEn
+        ? "Aisha Academy | Leading Quran & Islamic Institute in Montreal"
+        : "Aisha Academy | Institut Coranique et Islamique de Premier Plan à Montréal",
+      description: isEn
+        ? "Expert Quran and Islamic studies for kids. Nurturing young hearts with the light of the Quran since 2015."
+        : "Études coraniques et islamiques expertes pour les enfants. Nourrir les jeunes cœurs avec la lumière du Coran depuis 2015.",
+      siteName: "Aisha Academy",
+      images: [
+        {
+          url: "/images/img3.jpg",
+          width: 1200,
+          height: 630,
+          alt: "Aisha Academy Students",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Aisha Academy | Young Hearts with the Quran",
+      description: isEn
+        ? "Trusted Quran education for children. Online and physical classes available."
+        : "Éducation coranique de confiance pour les enfants. Cours en ligne et en présentiel disponibles.",
+      images: ["/images/img3.jpg"],
+    },
+    robots: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
-  },
-  verification: {
-    google: "tuAS_SdU7pnZuwUBr0LQwfqP7Et_c_cVf39FkR8a0lo",
-  },
-};
+    verification: {
+      google: "tuAS_SdU7pnZuwUBr0LQwfqP7Et_c_cVf39FkR8a0lo",
+    },
+  };
+}
 
 export default async function RootLayout({
   children,
@@ -131,9 +148,15 @@ export default async function RootLayout({
   params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
+  const { getDictionary } = await import("@/lib/dictionary");
+  const dict = await getDictionary(lang as any);
 
   return (
-    <html lang={lang || "fr"} className={`${notoNastaliq.variable}`}>
+    <html
+      lang={lang || "fr"}
+      className={`${notoNastaliq.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <Script
           async
@@ -148,16 +171,23 @@ export default async function RootLayout({
             gtag('config', 'G-9283Z62J9W');
           `}
         </Script>
-        <Script
-          src="https://static.elfsight.com/platform/platform.js"
-          strategy="afterInteractive"
-        />
       </head>
       <body
         className={`${playfair.variable} ${inter.variable} ${amiri.variable} ${scheherazade.variable} ${lateef.variable} ${notoNaskh.variable} ${poppins.variable} font-sans antialiased`}
+        suppressHydrationWarning
       >
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-6 focus:py-3 focus:bg-accent focus:text-primary focus:font-bold focus:rounded-xl focus:shadow-2xl"
+        >
+          Skip to content
+        </a>
         {children}
-        <WhatsappButton />
+        <WhatsappButton
+          message={dict.contact.form.whatsappButtonMessage}
+          tooltip={dict.navigation.contact}
+        />
+        <WhatsappGroupButton tooltip={dict.navigation.joinGroup} />
         <Toaster position="top-center" richColors />
         <Analytics />
         <SpeedInsights />

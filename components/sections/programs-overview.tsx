@@ -79,8 +79,9 @@ export default function ProgramsOverview({ dict }: { dict: any }) {
               <Link
                 href={program.link}
                 className="inline-flex items-center text-primary font-bold hover:text-secondary transition-colors group/link"
+                aria-label={`${dict.learnMore || "Learn more"} about ${program.title}`}
               >
-                Learn more{" "}
+                {dict.learnMore || "Learn more"}{" "}
                 <span className="ml-2 transition-transform group-hover/link:translate-x-1">
                   →
                 </span>

@@ -54,7 +54,8 @@ const Footer: React.FC<FooterProps> = ({ lang: propLang, dict }) => {
                 width={160}
                 height={50}
                 priority
-                className="relative w-40 h-auto"
+                className="relative w-40"
+                style={{ height: "auto" }}
               />
             </Link>
             <p className="text-gray-300 dark:text-gray-400 max-w-sm font-sans leading-relaxed">

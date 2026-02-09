@@ -6,6 +6,11 @@ const dictionaries = {
 };
 
 export const getDictionary = async (locale: string) => {
+  // Gracefully handle common non-locale requests that might match the [lang] route
+  if (locale === "favicon.ico" || locale.startsWith("_")) {
+    return dictionaries.fr();
+  }
+
   const loadDictionary = dictionaries[locale as keyof typeof dictionaries];
 
   if (typeof loadDictionary !== "function") {

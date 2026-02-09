@@ -135,8 +135,9 @@ const PricingPlans = ({ dict }: { dict: any }) => {
                       : "bg-white/10 text-white border border-white/10 hover:bg-white/20"
                   }
                 `}
+                aria-label={`${dict.enrollNow || "Enroll Now"} in ${plan.name}`}
               >
-                Enroll Now
+                {dict.enrollNow || "Enroll Now"}
               </Link>
             </motion.div>
           ))}

@@ -7,7 +7,8 @@
     "physicalClasses": "Cours en présentiel",
     "admissions": "Admissions",
     "contact": "Contact",
-    "enrollNow": "S'inscrire maintenant"
+    "enrollNow": "S'inscrire maintenant",
+    "joinGroup": "Rejoindre le groupe"
   },
   "common": {
     "enrollNow": "S'inscrire maintenant",
@@ -56,6 +57,7 @@
     "title": "Nos Programmes",
     "subtitle": "Choisissez le parcours d'apprentissage idéal pour votre enfant. Que ce soit en ligne ou en personne, nous assurons une éducation de qualité avec des professeurs qualifiés.",
     "offerings": "Nos Offres",
+    "learnMore": "En savoir plus",
     "weekdayPhysical": {
       "title": "Cours en Présentiel la Semaine",
       "description": "Apprentissage structuré dans un environnement concentré.",
@@ -131,6 +133,7 @@
     "highlight": "Tarification",
     "description": "Choisissez le plan qui correspond aux besoins de votre famille. Pas de frais cachés.",
     "popular": "Le plus Populaire",
+    "enrollNow": "S'inscrire maintenant",
     "plans": {
       "weekday": {
         "name": "Soirée en Semaine",
@@ -581,7 +584,8 @@
       "visitCampus": "Visiter le Campus",
       "emailUs": "Contact par E-mail",
       "callWhatsapp": "Appel / WhatsApp",
-      "availableTime": "Disponible Lun-Ven, 9h - 17h EST"
+      "availableTime": "Disponible Lun-Ven, 9h - 17h EST",
+      "whatsappMessage": "Assalamu Alaikum, je vous contacte depuis le site web. J'aimerais me renseigner sur vos programmes."
     },
     "hours": {
       "title": "Heures de la Madersa",
@@ -611,7 +615,8 @@
       "submit": "Envoyer le message",
       "sending": "Envoi en cours...",
       "success": "Message envoyé avec succès ! Nous vous répondrons bientôt.",
-      "error": "Échec de l'envoi du message. Veuillez réessayer."
+      "error": "Échec de l'envoi du message. Veuillez réessayer.",
+      "whatsappButtonMessage": "Assalamu Alaikum, j'ai visité votre site web et je suis intéressé par Aisha Academy. Pourriez-vous me donner plus de détails ?"
     }
   },
   "schedulePage": {

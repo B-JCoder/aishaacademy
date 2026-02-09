@@ -76,20 +76,28 @@ export default function Newsletter({ dict, lang }: NewsletterProps) {
 
             <div className="flex flex-col gap-4">
               <form onSubmit={handleSubmit} className="relative group">
+                <label htmlFor="newsletter-email" className="sr-only">
+                  {newsletterDict.placeholder}
+                </label>
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                   <Mail className="h-5 w-5 text-gray-400 group-focus-within:text-accent transition-colors" />
                 </div>
                 <input
+                  id="newsletter-email"
                   type="email"
                   name="email"
                   required
                   placeholder={newsletterDict.placeholder}
                   className="w-full pl-12 pr-4 sm:pr-32 py-4 rounded-2xl bg-white/10 border border-white/20 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all backdrop-blur-md"
+                  aria-label={newsletterDict.placeholder}
                 />
                 <button
                   type="submit"
                   disabled={isSubmitting}
                   className="mt-4 sm:mt-0 sm:absolute sm:right-2 sm:top-2 sm:bottom-2 px-6 rounded-xl bg-accent text-primary font-bold hover:bg-white hover:text-primary transition-all duration-300 shadow-lg disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  aria-label={
+                    isSubmitting ? "Subscribing..." : newsletterDict.button
+                  }
                 >
                   {isSubmitting ? (
                     <>
